@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import Img from 'gatsby-image';
-import styled from 'styled-components';
 import { useArtQuery } from '../queries/useArtQuery';
+import Artwork from './Artwork';
+import GalleryFilters from './GalleryFilters';
 
-const Gallery = props => {
+const Gallery = () => {
   const artQuery = useArtQuery();
-  const [artwork, setArtwork] = useState({ data: [] });
+  const [artwork, setArtwork] = useState({ dataAll: [] });
   const [filteredArt, setFilteredArt] = useState({ data: [] });
 
   const filteredArtwork = filteredCat => {
@@ -15,48 +15,19 @@ const Gallery = props => {
 
   useEffect(() => {
     const data = artQuery.allWordpressWpMedia.edges;
-    setArtwork({ data });
+    setArtwork({ dataAll: data });
     setFilteredArt({ data });
   }, [artQuery.allWordpressWpMedia.edges]);
 
   return (
     <div>
-      <Artwork>
-        {filteredArt.data.map(({ node }, i) => (
-          <StyledImg
-            key={i}
-            fluid={node.localFile.childImageSharp.fluid}
-            className={node.categories
-              .map(category => category.name)
-              .toString()
-              .toLowerCase()
-              .replace(/,/g, ' ')}
-          />
-        ))}
-      </Artwork>
+      <GalleryFilters />
+      <Artwork data={filteredArt} />
     </div>
   );
 };
 
 export default Gallery;
-
-const Artwork = styled.div`
-  justify-content: space-around;
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
-  width: 100vw;
-
-  .gatsby-image-wrapper {
-    margin: 5px;
-  }
-`;
-
-const StyledImg = styled(Img)`
-    min-width: 400px;
-    max-width: 100%;
-  }
-`;
 
 /* 
 To do:

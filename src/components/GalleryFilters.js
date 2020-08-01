@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Gallery from './Gallery';
 
 const GalleryFilters = () => {
   const [state, setState] = useState('All');
@@ -28,7 +27,6 @@ const GalleryFilters = () => {
           </button>
         ))}
       </div>
-      <Gallery filter={state} />
     </>
   );
 };
