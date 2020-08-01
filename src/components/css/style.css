@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css?family=Rubik:400|Karla:400');
+
+:root {
+    /*Define Colors as Colors*/
+    --primary: #00d0bf;
+    --secondary: purple;
+    --black: #222;
+    --darkBlue: #00214d;
+    --white: #FFFFFF;
+    --grey: #666666;
+    --lightGrey: #9A9B9F;
+    --lightestGrey: #F2F2F2;
+    --red: red;
+    --white: white;
+
+    /* Define Colors Intentions*/
+    --active: var(--secondary);
+    --background: var(--lightestGrey);
+    --textColor: var(--black);
+    --buttonTextColor: var(--black);
+    --footerTextColor: var(--lightGrey);
+    --lineColor: var(--grey);
+    --danger: var(--red);
+    --buttonColor: var(--primary);
+    --headerBackground: var(--darkBlue);
+    --footerBackground: var(--darkBlue);
+    --cardBg: var(--white);
+
+    /* Styles */
+    --line: solid 1px var(--lineColor);
+
+    /* Type */
+    --headingFont: 'Rubik', sans-serif;
+    --bodyFont: 'Karla', sans-serif;
+    --baseFontSize: 100%; /*18px*/
+    --h1: 3.052em;
+    --h2: 2.441em;
+    --h3: 1.953em;
+    --h4: 1.563em;
+    --h5: 1.25em;
+    --smallText: 0.8em;
+
+    /* Elevation */
+    --level-1: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    --level-2: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --level-3: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --level-4: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+    /* Positioning */
+    --containerPadding: 2.5%;
+    --headerHeight: 3rem;
+    --borderRadius: 10px;
+}
+
+/*  From TypeScale*/
+html {
+  font-size: var(--baseFontSize);
+  box-sizing: border-box;
+} 
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+    font-family: var(--bodyFont);
+    font-weight: 400;
+    line-height: 1.65;
+    background: var(--background);
+    color: var(--textColor);
+}
+
+header {
+  background-color: var(--headerBackground);
+  box-shadow: var(--level-2);
+  color: white;
+  height: var(--headerHeight);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 var(--containerPadding);
+}
+
+header nav a {
+  color: white;
+  text-decoration: none;
+}
+
+header nav a + a {
+  margin-left: 10px;
+}
+
+footer {
+  color: var(--footerTextColor);
+  background: var(--footerBackground);
+  padding: 2rem var(--containerPadding);
+  text-align: center;
+}
+
+footer a {
+  color: var(--footerTextColor);
+}
+
+footer p {
+  margin-bottom: 0;
+  max-width: none;
+}
+
+p {
+  margin-bottom: 1.15rem;
+  max-width: 60em;
+}
+
+p a,
+blockquote a {
+  text-decoration: none;
+  color: var(--textColor);
+  border-bottom: 3px solid var(--primary);
+}
+
+h1, h2, h3, h4, h5 {
+  margin: 2.75rem 0 1.05rem;
+  font-family: var(--headingFont);
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: var(--h1);
+}
+
+h2 {font-size: var(--h2)};
+
+h3 {font-size: var(--h3)};
+
+h4 {font-size: var(--h4)};
+
+h5 {font-size: var(--h5)};
+
+small, .text_small {font-size: var(--smallText);}
+
+/* End typescale */
+
+blockquote {
+  margin: 10px;
+  padding: 2em;
+  background-color: var(--cardBg);
+  box-shadow: var(--level-2);
+}
+
+label {
+  display: block;
+  font-size: var(--smallText);
+}
+
+input, 
+textarea {
+  padding: 2px 5px;
+  border: var(--line);
+  border-radius: 4px;
+}
+
+textarea {
+  width: 100%;
+  height: 5rem;
+}
+
+::placeholder {
+  color: var(--lightGrey);
+}
+
+select {
+  border: var(--line);
+}
+
+hr {
+  border-top: var(--line);
+}
+
+button {
+  appearance: none;
+  color: var(--buttonTextColor);
+  background-color: var(--buttonColor);
+  border: none;
+  border-radius: 10px;
+  padding: 5px 25px;
+  box-shadow: var(--level-1); 
+  transition: 0.3s ease-in-out box-shadow;
+}
+
+button:hover{
+  box-shadow: var(--level-3);
+}
+ 
+button[disabled] {
+  opacity: 0.4;
+}
+
+button.cancel {
+  background-color: var(--danger);
+  color: white;
+}
+
+button.small {
+  font-size: var(--smallText);
+}
+
+button.active {
+  background-color: var(--secondary);
+}
+
+/* Layout */
+
+.layout {
+  padding: calc(3rem + var(--headerHeight)) var(--containerPadding);
+}
+
+.grid {
+  --gridCols: 2;
+  display: block;
+  grid-template-columns: repeat(var(--gridCols), 1fr);
+}
+
+.cols-3 {
+  --gridCols: 3;
+}
+
+.flex {
+  --justifyContent: space-between;
+  display: block;
+  justify-content: var(--justifyContent);
+}
+
+.flex-around {
+  --justifyContent: space-around;
+}
+
+.hidden {
+  border: 1px solid red;
+}
+
+@media only screen and (min-width: 500px) {
+  :root {
+    --baseFontSize: 112.5%;
+  }
+    .grid {
+      display: grid;
+    }
+    .flex {
+      display: flex;
+    }
+}
+
+.dark {
+    --cardBg: var(--darkBlue);
+    --textColor: var(--lightGrey);
+    --headerBackground: var(--black);
+    --footerBackground: var(--black);
+    --background: var(--black);
+    --buttonTextColor: var(--black);
+}

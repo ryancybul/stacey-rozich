@@ -1,10 +1,19 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Stacey Rozich`,
+    description: `Artist, illustrator and muralist.`,
+    author: `@ryanon1on`,
   },
   plugins: [
+    {
+      resolve: `gatsby-source-wordpress`,
+      options: {
+        baseUrl: `54.212.35.84`,
+        protocol: `http`,
+        hostingWPCOM: false,
+        useACF: true,
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -14,6 +23,7 @@ module.exports = {
       },
     },
     `gatsby-transformer-sharp`,
+    'gatsby-plugin-styled-components',
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
@@ -21,10 +31,8 @@ module.exports = {
         name: `gatsby-starter-default`,
         short_name: `starter`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        // icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
