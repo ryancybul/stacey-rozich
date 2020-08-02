@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const GalleryFilters = () => {
+const GalleryFilters = props => {
   const [state, setState] = useState('All');
 
   const filterNames = ['All', 'Studio', 'Commercial', 'Mural', 'Personal'];
@@ -19,6 +19,7 @@ const GalleryFilters = () => {
             type="button"
             key={filterName}
             onClick={() => {
+              props.filterCategory(filterName);
               filterImages(filterName);
             }}
             className={state === filterName.toLowerCase() ? 'active' : null}

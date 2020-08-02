@@ -5,23 +5,35 @@ import GalleryFilters from './GalleryFilters';
 
 const Gallery = () => {
   const artQuery = useArtQuery();
-  const [artwork, setArtwork] = useState({ dataAll: [] });
+  const data = artQuery.allWordpressWpMedia.edges;
+  const [allArt, setArtwork] = useState({ data: [] });
   const [filteredArt, setFilteredArt] = useState({ data: [] });
 
-  const filteredArtwork = filteredCat => {
-    const newData = [];
-    setFilteredArt({ newData });
+  const filterCategory = filterName => {
+    const filteredData = [];
+
+    if (filterName === 'All') {
+      setFilteredArt({ data });
+    } else {
+      allArt.data.map(node => {
+        node.node.categories.map(category => {
+          if (category.name === filterName) {
+            filteredData.push(node);
+          }
+        });
+      });
+      setFilteredArt({ data: filteredData });
+    }
   };
 
   useEffect(() => {
-    const data = artQuery.allWordpressWpMedia.edges;
-    setArtwork({ dataAll: data });
+    setArtwork({ data });
     setFilteredArt({ data });
-  }, [artQuery.allWordpressWpMedia.edges]);
+  }, [data]);
 
   return (
     <div>
-      <GalleryFilters />
+      <GalleryFilters filterCategory={filterCategory} />
       <Artwork data={filteredArt} />
     </div>
   );
