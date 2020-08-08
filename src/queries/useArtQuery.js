@@ -7,9 +7,13 @@ export const useArtQuery = () => {
         filter: {
           categories: {
             elemMatch: {
-              name: { regex: "/Commercial|Studio|Mural|Personal/g" }
+              name: { regex: "/Commercial|Studio|Personal|Mural|/" }
             }
           }
+        }
+        sort: {
+          order: DESC
+          fields: media_details___image_meta___created_timestamp
         }
       ) {
         edges {

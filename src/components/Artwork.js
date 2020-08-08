@@ -38,7 +38,6 @@ const Container = styled.div`
 `;
 
 const StyledImg = styled(Img)`
-    min-width: 400px;
-    max-width: 100%;
+    width: 400px;
   }
 `;

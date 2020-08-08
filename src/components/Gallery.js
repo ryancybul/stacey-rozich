@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
 import { useArtQuery } from '../queries/useArtQuery';
 import Artwork from './Artwork';
 import GalleryFilters from './GalleryFilters';
@@ -32,14 +33,18 @@ const Gallery = () => {
   }, [data]);
 
   return (
-    <div>
+    <Container>
       <GalleryFilters filterCategory={filterCategory} />
       <Artwork data={filteredArt} />
-    </div>
+    </Container>
   );
 };
 
 export default Gallery;
+
+const Container = styled.div`
+  width: 100%;
+`;
 
 /* 
 To do:

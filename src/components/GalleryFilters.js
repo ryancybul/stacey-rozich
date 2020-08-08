@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
 
 const GalleryFilters = props => {
   const [state, setState] = useState('All');
@@ -13,23 +14,36 @@ const GalleryFilters = props => {
 
   return (
     <>
-      <div>
-        {filterNames.map(filterName => (
-          <button
-            type="button"
-            key={filterName}
-            onClick={() => {
-              props.filterCategory(filterName);
-              filterImages(filterName);
-            }}
-            className={state === filterName.toLowerCase() ? 'active' : null}
-          >
-            {filterName}
-          </button>
-        ))}
-      </div>
+      <Container>
+        <div>
+          {filterNames.map(filterName => (
+            <button
+              type="button"
+              key={filterName}
+              onClick={() => {
+                props.filterCategory(filterName);
+                filterImages(filterName);
+              }}
+              className={state === filterName.toLowerCase() ? 'active' : null}
+            >
+              {filterName}
+            </button>
+          ))}
+        </div>
+      </Container>
     </>
   );
 };
 
 export default GalleryFilters;
+
+const Container = styled.div`
+  align-items: center;
+  height: 50px;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  button {
+    margin: 10px;
+  }
+`;
