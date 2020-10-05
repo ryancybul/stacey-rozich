@@ -1,11 +1,11 @@
 import React from 'react';
 import SEO from '../components/seo';
-import StudioGallery from '../components/gallery/StudioGallery';
+import CommercialGallery from '../components/gallery/CommercialGallery';
 
 const IndexPage = () => (
   <>
     <SEO title="Stacey Rozich" />
-    <StudioGallery />
+    <CommercialGallery />
   </>
 );
 

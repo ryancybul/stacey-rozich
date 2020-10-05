@@ -1,21 +1,27 @@
-@import url('https://fonts.googleapis.com/css?family=Rubik:400|Karla:400');
+@font-face {
+  font-family: 'apercu-regular-pro';
+  src: url('../fonts/apercu-regular-pro.eot');
+  src: url('../fonts/apercu-regular-pro.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/apercu-regular-pro.woff2') format('woff2'),
+       url('../fonts/apercu-regular-pro.woff') format('woff'),
+       url('../fonts/apercu-regular-pro.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 :root {
     /*Define Colors as Colors*/
-    --primary: #00d0bf;
-    --secondary: purple;
-    --black: #222;
-    --darkBlue: #00214d;
+    --primary: #FDE1E0;
+    --secondary: #E97B7C;
+    --black: #000400;
     --white: #FFFFFF;
     --grey: #666666;
     --lightGrey: #9A9B9F;
     --lightestGrey: #F2F2F2;
-    --red: red;
-    --white: white;
 
     /* Define Colors Intentions*/
     --active: var(--secondary);
-    --background: var(--lightestGrey);
+    --background: var(--white);
     --textColor: var(--black);
     --buttonTextColor: var(--black);
     --footerTextColor: var(--lightGrey);
@@ -30,8 +36,8 @@
     --line: solid 1px var(--lineColor);
 
     /* Type */
-    --headingFont: 'Rubik', sans-serif;
-    --bodyFont: 'Karla', sans-serif;
+    --headingFont: 'apercu-regular-pro', Sans-Serif;
+    --bodyFont: 'apercu-regular-pro', Sans-Serif;
     --baseFontSize: 100%; /*18px*/
     --h1: 3.052em;
     --h2: 2.441em;
@@ -62,6 +68,21 @@ html {
 *::before,
 *::after {
   box-sizing: inherit;
+}
+
+a {
+  color: var(--black);
+  font-size: 1.2rem;
+  font-weight: 900;
+  text-decoration: none;
+  &[aria-current='page'] {
+    color: var(--secondary);
+    border-bottom: 2px solid var(--secondary);
+  }
+}
+
+a:hover {
+  border-bottom: 2px solid var(--black);
 }
 
 body {
@@ -98,7 +119,6 @@ header nav a + a {
 
 footer {
   color: var(--footerTextColor);
-  background: var(--footerBackground);
   padding: 2rem var(--containerPadding);
   text-align: center;
 }
@@ -182,38 +202,6 @@ select {
 
 hr {
   border-top: var(--line);
-}
-
-button {
-  appearance: none;
-  color: var(--buttonTextColor);
-  background-color: var(--buttonColor);
-  border: none;
-  border-radius: 10px;
-  padding: 5px 25px;
-  box-shadow: var(--level-1); 
-  transition: 0.3s ease-in-out box-shadow;
-}
-
-button:hover{
-  box-shadow: var(--level-3);
-}
- 
-button[disabled] {
-  opacity: 0.4;
-}
-
-button.cancel {
-  background-color: var(--danger);
-  color: white;
-}
-
-button.small {
-  font-size: var(--smallText);
-}
-
-button.active {
-  background-color: var(--secondary);
 }
 
 /* Layout */
