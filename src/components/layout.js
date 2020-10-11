@@ -1,18 +1,21 @@
 import '../styles/normalize.css';
 import '../styles/style.css';
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Nav from './Nav';
+import Nav from './nav/Nav';
 import Footer from './Footer';
-import Burger from './Burger';
-import BurgerMenu from './BurgerMenu.js';
+import Burger from './nav/Burger';
+import BurgerMenu from './nav/BurgerMenu.js';
+import { useOnClickOutside } from '../hooks/hooks';
 
 const Layout = ({ children }) => {
   const [open, setOpen] = useState(false);
+  const node = useRef();
+  useOnClickOutside(node, () => setOpen(false));
   return (
     <ContentWrapper>
-      <div className="Burger">
+      <div ref={node} className="Burger">
         <Burger open={open} setOpen={setOpen} />
         <BurgerMenu open={open} setOpen={setOpen} />
       </div>

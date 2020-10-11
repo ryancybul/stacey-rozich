@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
 import { commercialArtQuery } from '../../queries/commercialArtQuery';
 import Artwork from './Artwork';
 
@@ -12,20 +11,14 @@ const CommercialGallery = () => {
     setArtwork({ data });
   }, [data]);
 
-  return (
-    <Container>
-      <Artwork artwork={allArt} />
-    </Container>
-  );
+  const lightboxSources = [];
+  data.map(image => {
+    lightboxSources.push(
+      image.node.localFile.childImageSharp.fluid.originalImg
+    );
+  });
+
+  return <Artwork artwork={allArt} lightboxSources={lightboxSources} />;
 };
 
 export default CommercialGallery;
-
-const Container = styled.div``;
-
-/* 
-To do:
-Hover description effect
-Ask Stacey what kind of layoud she would like.
-She likes collage style layouts
-*/

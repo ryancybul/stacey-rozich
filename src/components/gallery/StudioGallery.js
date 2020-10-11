@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
 import { studioArtQuery } from '../../queries/studioArtQuery';
 import Artwork from './Artwork';
 
@@ -12,20 +11,14 @@ const StudioGallery = () => {
     setArtwork({ data });
   }, [data]);
 
-  return (
-    <Container>
-      <Artwork artwork={allArt} />
-    </Container>
-  );
+  const lightboxSources = [];
+  data.map(image => {
+    lightboxSources.push(
+      image.node.localFile.childImageSharp.fluid.originalImg
+    );
+  });
+
+  return <Artwork artwork={allArt} lightboxSources={lightboxSources} />;
 };
 
 export default StudioGallery;
-
-const Container = styled.div``;
-
-/* 
-To do:
-Hover description effect
-Ask Stacey what kind of layoud she would like.
-She likes collage style layouts
-*/

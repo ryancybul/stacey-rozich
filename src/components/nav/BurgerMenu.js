@@ -3,15 +3,27 @@ import { Link } from 'gatsby';
 import { bool } from 'prop-types';
 import styled from 'styled-components';
 
-const BurgerMenu = ({ open }) => (
+const BurgerMenu = ({ open, setOpen }) => (
   <StyledMenu open={open}>
-    <Link to="/commercial">Commercial</Link>
-    <Link to="/">Studio</Link>
-    <a href="https://staceyrozich.bigcartel.com/" target="_blank">
+    <Link to="/commercial" onClick={() => setOpen(!open)}>
+      Commercial
+    </Link>
+    <Link to="/" onClick={() => setOpen(!open)}>
+      Studio
+    </Link>
+    <a
+      href="https://staceyrozich.bigcartel.com/"
+      target="_blank"
+      onClick={() => setOpen(!open)}
+    >
       Shop
     </a>
-    <Link to="/blog">Blog</Link>
-    <Link to="/about">About</Link>
+    <Link to="/blog" onClick={() => setOpen(!open)}>
+      Blog
+    </Link>
+    <Link to="/about" onClick={() => setOpen(!open)}>
+      About
+    </Link>
   </StyledMenu>
 );
 
@@ -26,7 +38,6 @@ export const StyledMenu = styled.nav`
   flex-direction: column;
   justify-content: flex-start;
   background-color: rgba(154, 155, 159, 0.8);
-  height: 100vh;
   text-align: center;
   padding: 1rem;
   position: absolute;

@@ -1,10 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { StaticQuery, Link, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
 
-const Nav = ({ children }) => (
+const Nav = () => (
   <StaticQuery
     query={query}
     render={data => (
@@ -32,6 +31,12 @@ const NavStyles = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  a{
+    &[aria-current='page'] {
+    color: var(--secondary);
+    border-bottom: 2px solid var(--secondary);
+  }
+  }
   .divLeft {
     a {
       margin-right: 3rem;
@@ -40,19 +45,6 @@ const NavStyles = styled.nav`
   .divRight {
     a {
       margin-left: 3rem;
-    }
-  }
-  a {
-    color: var(--black);
-    font-size: 1.2rem;
-    font-weight: 900;
-    text-decoration: none;
-    &:hover {
-      border-bottom: 2px solid var(--black);
-    }
-    &[aria-current='page'] {
-      color: var(--secondary);
-      border-bottom: 2px solid var(--secondary);
     }
   }
   .logo {
@@ -88,16 +80,12 @@ const NavStyles = styled.nav`
     }
 `;
 
-Nav.propTypes = {
-  children: PropTypes.node.isRequired,
-};
-
 export const query = graphql`
   query {
     logo: file(relativePath: { eq: "Logo_StaceyRozich.png" }) {
       childImageSharp {
         fluid(maxWidth: 500, quality: 100) {
-          ...GatsbyImageSharpFluid_withWebp
+          ...GatsbyImageSharpFluid_withWebp_noBase64
         }
       }
     }

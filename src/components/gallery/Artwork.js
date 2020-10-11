@@ -1,14 +1,14 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import Gallery from 'react-photo-gallery';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
 import { useWindowWidth } from '@react-hook/window-size';
+import FsLightbox from 'fslightbox-react';
 
-const Artwork = ({ artwork }) => {
-  const images = artwork.data;
+const Artwork = ({ artwork, lightboxSources }) => {
   const width = useWindowWidth();
 
-  const photos = images.map(function(image) {
+  const photos = artwork.data.map(function(image) {
     return {
       alt: image.node.alt_text,
       fluid: image.node.localFile.childImageSharp.fluid,
@@ -21,8 +21,22 @@ const Artwork = ({ artwork }) => {
     };
   });
 
-  const GatsbyImage = ({ index, photo, top, left, key, onClick }) => (
-    <div
+  const [lightboxController, setLightboxController] = useState({
+    toggler: false,
+    isOpenOnMount: false,
+    sourceIndex: 0,
+  });
+
+  function openLightbox(sourceIndex) {
+    setLightboxController({
+      toggler: !lightboxController.toggler,
+      sourceIndex,
+      isOpenOnMount: true,
+    });
+  }
+
+  const GatsbyImage = ({ index, photo, top, left, key }) => (
+    <ImageWrapper
       style={{
         height: photo.height,
         width: photo.width,
@@ -32,22 +46,39 @@ const Artwork = ({ artwork }) => {
       }}
       index={index}
       key={key}
-      onClick={e => onClick(e, { photo, index })}
+      onClick={() => openLightbox(index)}
+      onKeyDown={e => {
+        if (e.keyCode === 13) {
+          e.preventDefault();
+          openLightbox(index);
+        }
+      }}
+      tabIndex={index}
+      aria-pressed="false"
+      role="button"
     >
       <Image fluid={photo.fluid} />
-    </div>
+    </ImageWrapper>
   );
 
   return (
-    <GalleryWrapper>
-      <Gallery
-        photos={photos}
-        direction="column"
-        columns={width > 750 ? 2 : 1}
-        renderImage={GatsbyImage}
-        // onClick={openLightbox}
+    <>
+      <GalleryWrapper>
+        <Gallery
+          photos={photos}
+          direction="column"
+          columns={width > 750 ? 3 : 1}
+          renderImage={GatsbyImage}
+        />
+      </GalleryWrapper>
+      <FsLightbox
+        toggler={lightboxController.toggler}
+        sourceIndex={lightboxController.sourceIndex}
+        sources={lightboxSources}
+        openOnMount={lightboxController.isOpenOnMount}
+        key={lightboxController.sourceIndex}
       />
-    </GalleryWrapper>
+    </>
   );
 };
 
@@ -59,4 +90,10 @@ const GalleryWrapper = styled.div`
 
 const Image = styled(Img)`
   margin: 20px 0px;
+`;
+
+const ImageWrapper = styled.div`
+  :focus {
+    outline: none;
+  }
 `;

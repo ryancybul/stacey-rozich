@@ -31,7 +31,7 @@ export const studioArtQuery = () => {
                   src
                 }
                 fluid(maxWidth: 2000, quality: 100) {
-                  ...GatsbyImageSharpFluid_withWebp
+                  ...GatsbyImageSharpFluid_withWebp_noBase64
                   originalImg
                   sizes
                   srcSet
