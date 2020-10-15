@@ -7,7 +7,7 @@ const Nav = () => (
   <StaticQuery
     query={query}
     render={data => (
-      <NavStyles>
+      <NavWrapper>
         <div className="divLeft">
           <Link to="/commercial">Commercial</Link>
           <Link to="/">Studio</Link>
@@ -20,17 +20,24 @@ const Nav = () => (
           <Link to="/blog">Blog</Link>
           <Link to="/about">About</Link>
         </div>
-      </NavStyles>
+      </NavWrapper>
     )}
   />
 );
 
 export default Nav;
 
-const NavStyles = styled.nav`
-  display: flex;
+const NavWrapper = styled.nav`
   align-items: center;
+  display: flex;
   justify-content: space-between;
+  margin-top: .5rem;
+  position:fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+
   a{
     &[aria-current='page'] {
     color: var(--secondary);
@@ -38,11 +45,13 @@ const NavStyles = styled.nav`
   }
   }
   .divLeft {
+    margin-left: 1.5rem;
     a {
       margin-right: 3rem;
     }
   }
   .divRight {
+    margin-right: 1.5rem;
     a {
       margin-left: 3rem;
     }
@@ -84,7 +93,7 @@ export const query = graphql`
   query {
     logo: file(relativePath: { eq: "Logo_StaceyRozich.png" }) {
       childImageSharp {
-        fluid(maxWidth: 500, quality: 100) {
+        fluid(maxWidth: 700, quality: 100) {
           ...GatsbyImageSharpFluid_withWebp_noBase64
         }
       }

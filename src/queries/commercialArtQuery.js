@@ -20,6 +20,7 @@ export const commercialArtQuery = () => {
             alt_text
             title
             source_url
+            id
             media_details {
               image_meta {
                 created_timestamp

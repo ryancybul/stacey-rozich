@@ -45,7 +45,7 @@ export const StyledMenu = styled.nav`
   left: 0;
   transition: transform 0.3s ease-in-out;
   transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(-100%)')};
-  z-index: 1;
+  z-index: 2;
   width: 100%;
   a:first-child {
     margin-top: 2.5rem;

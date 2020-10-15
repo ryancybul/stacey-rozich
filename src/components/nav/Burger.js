@@ -18,8 +18,8 @@ export default Burger;
 
 export const StyledBurger = styled.button`
   position: absolute;
-  top: 4%;
-  left: 1.15rem;
+  top: 3%;
+  left: 5%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -37,7 +37,7 @@ export const StyledBurger = styled.button`
 
   div {
     width: 2rem;
-    height: 0.25rem;
+    height: 0.17rem;
     background: var(--black);
     transition: all 0.3s linear;
     position: relative;
