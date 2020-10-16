@@ -5,25 +5,35 @@ import styled from 'styled-components';
 
 const BurgerMenu = ({ open, setOpen }) => (
   <StyledMenu open={open}>
-    <Link to="/commercial" onClick={() => setOpen(!open)}>
-      Commercial
-    </Link>
-    <Link to="/" onClick={() => setOpen(!open)}>
-      Studio
-    </Link>
-    <a
-      href="https://staceyrozich.bigcartel.com/"
-      target="_blank"
-      onClick={() => setOpen(!open)}
-    >
-      Shop
-    </a>
-    <Link to="/blog" onClick={() => setOpen(!open)}>
-      Blog
-    </Link>
-    <Link to="/about" onClick={() => setOpen(!open)}>
-      About
-    </Link>
+    <div>
+      <Link to="/commercial" onClick={() => setOpen(!open)}>
+        Commercial
+      </Link>
+    </div>
+    <div>
+      <Link to="/" onClick={() => setOpen(!open)}>
+        Studio
+      </Link>
+    </div>
+    <div>
+      <a
+        href="https://staceyrozich.bigcartel.com/"
+        target="_blank"
+        onClick={() => setOpen(!open)}
+      >
+        Shop
+      </a>
+    </div>
+    <div>
+      <Link to="/blog" onClick={() => setOpen(!open)}>
+        Blog
+      </Link>
+    </div>
+    <div>
+      <Link to="/about" onClick={() => setOpen(!open)}>
+        About
+      </Link>
+    </div>
   </StyledMenu>
 );
 
@@ -37,7 +47,7 @@ export const StyledMenu = styled.nav`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  background-color: rgba(154, 155, 159, 0.8);
+  background-color: rgba(52, 52, 52, 0.975);
   text-align: center;
   padding: 1rem;
   position: absolute;
@@ -47,13 +57,19 @@ export const StyledMenu = styled.nav`
   transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(-100%)')};
   z-index: 2;
   width: 100%;
+  height: 100%;
   a:first-child {
-    margin-top: 2.5rem;
+    margin-top: 3rem;
   }
-
+  div {
+    margin: 0.25rem;
+  }
   a {
-    font-size: 1.25rem;
-    padding: 1rem 0;
+    color: var(--secondary);
+    font-size: 1.75rem;
     font-weight: bold;
+    &:hover {
+      border-bottom: 2px solid var(--secondary);
+    }
   }
 `;

@@ -18,8 +18,8 @@ const CommercialGallery = () => {
       return (
         <iframe
           title={image.node.title}
-          width="560"
-          height="315"
+          width="854"
+          height="480"
           src="https://www.youtube.com/embed/tnu_O5P8P5I"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

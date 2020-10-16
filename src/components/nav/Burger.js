@@ -38,7 +38,7 @@ export const StyledBurger = styled.button`
   div {
     width: 2rem;
     height: 0.17rem;
-    background: var(--black);
+    background: var(--secondary);
     transition: all 0.3s linear;
     position: relative;
     transform-origin: 1px;
