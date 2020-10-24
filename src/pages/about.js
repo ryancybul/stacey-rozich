@@ -202,7 +202,7 @@ const GridContainer = styled.div`
       margin-top: 0px;
     }
     .elsewhere {
-      margin-top: -30px;
+      margin-top: 0px;
     }
   }
 `;

@@ -6,7 +6,7 @@ import Smiley from '../components/Smiley';
 const blog = () => (
   <Wrapper>
     <SEO title="Blog" />
-    <Smiley className="smiley" />
+    <h1>¯\_(ツ)_/¯</h1>
   </Wrapper>
 );
 export default blog;

@@ -49,7 +49,7 @@ export const StyledMenu = styled.nav`
   justify-content: flex-start;
   background-color: rgba(52, 52, 52, 0.975);
   text-align: center;
-  padding: 1rem;
+  padding-top: 1.5rem;
   position: absolute;
   top: 0;
   left: 0;
