@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import Img from 'gatsby-image';
 import { commercialArtQuery } from '../../queries/commercialArtQuery';
 import Artwork from './Artwork';
 
 const CommercialGallery = () => {
-  const artQuery = commercialArtQuery();
-  const data = artQuery.allWordpressWpMedia.edges;
+  const data = commercialArtQuery().allWordpressWpMedia.edges;
   const [allArt, setArtwork] = useState({ data: [] });
-  const [lightboxSources, setLightboxSources] = useState([]);
 
   useEffect(() => {
     setArtwork({ data });
@@ -18,12 +15,13 @@ const CommercialGallery = () => {
       return (
         <iframe
           title={image.node.title}
-          width="854"
-          height="480"
-          src="https://www.youtube.com/embed/tnu_O5P8P5I"
-          frameBorder="0"
+          src="https://www.youtube.com/embed/tnu_O5P8P5I?autoplay=0&showinfo=0&controls=0"
+          width="1280"
+          height="720"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
+          controls="0"
+          frameBorder="0"
         />
       );
     }
@@ -31,21 +29,26 @@ const CommercialGallery = () => {
       return (
         <iframe
           title={image.node.title}
-          allowFullScreen=""
-          src="https://www.youtube.com/embed/9yAxIdkF2Qo?wmode=opaque&amp;enablejsapi=1"
-          width="854"
-          height="480"
+          src="https://www.youtube.com/embed/9yAxIdkF2Qo?autoplay=0&showinfo=0&controls=0"
+          width="1280"
+          height="720"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; "
+          allowFullScreen
+          controls="0"
           frameBorder="0"
         />
       );
     }
-    // <div>
-    //   <Img
-    //     fluid={image.node.localFile.childImageSharp.fluid}
-    //     alt={image.node.alt}
-    //   />
-    // </div>;
     return image.node.localFile.childImageSharp.fluid.originalImg;
+    /* Todo
+    Gatsby Image Suppoort
+    */
+    // return (
+    //   <Img
+    //     data-type="image"
+    //     fluid={image.node.localFile.childImageSharp.fluid}
+    //   />
+    // );
   });
 
   return <Artwork artwork={allArt} lightboxSources={customLightboxSources} />;

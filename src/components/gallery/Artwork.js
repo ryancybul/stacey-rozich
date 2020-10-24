@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import Img from 'gatsby-image';
 import Gallery from 'react-photo-gallery';
 import styled from 'styled-components';
-import Img from 'gatsby-image';
 import { useWindowWidth } from '@react-hook/window-size';
 import FsLightbox from 'fslightbox-react';
 
@@ -96,8 +96,13 @@ const Artwork = ({ artwork, lightboxSources }) => {
 export default Artwork;
 
 const GalleryWrapper = styled.div`
-  margin-top: 115px;
   width: 100%;
+  padding: 0 1.5rem;
+  margin-top: 130px;
+  @media only screen and (max-width: 650px) {
+    padding: 0 0.25rem;
+    margin-top: 100px;
+  }
 `;
 
 const ImageWrapper = styled.div`
@@ -108,4 +113,5 @@ const ImageWrapper = styled.div`
 
 const Image = styled(Img)`
   margin: 10px;
+  color: transparent;
 `;

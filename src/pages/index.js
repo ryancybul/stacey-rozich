@@ -4,6 +4,7 @@ import StudioGallery from '../components/gallery/StudioGallery';
 
 const IndexPage = () => (
   <>
+    <SEO title="Studio gallery" />
     <SEO title="Stacey Rozich" />
     <StudioGallery />
   </>

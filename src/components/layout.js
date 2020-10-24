@@ -1,33 +1,20 @@
+import React from 'react';
 import '../styles/normalize.css';
 import '../styles/style.css';
-import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Nav from './nav/Nav';
 import Footer from './Footer';
-import Burger from './nav/Burger';
-import BurgerMenu from './nav/BurgerMenu.js';
-import { useOnClickOutside } from '../hooks/hooks';
 
-const Layout = ({ children }) => {
-  const [open, setOpen] = useState(false);
-  const node = useRef();
-  useOnClickOutside(node, () => setOpen(false));
-  return (
+const Layout = ({ children }) => (
+  <>
     <ContentWrapper>
-      <div ref={node} className="Burger">
-        <Burger open={open} setOpen={setOpen} />
-        <BurgerMenu open={open} setOpen={setOpen} />
-      </div>
       <Nav />
-      <div>
-        <main>{children}</main>
-      </div>
+      <main>{children}</main>
       <Footer />
     </ContentWrapper>
-  );
-};
-
+  </>
+);
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
 };
@@ -35,10 +22,10 @@ Layout.propTypes = {
 export default Layout;
 
 const ContentWrapper = styled.div`
-  margin: 0 2vw;
-
-  @media only screen and (min-width: 650px) {
-    .Burger {
-      display: none;
-    }
+  max-width: 1920px;
+  min-height: 100vh;
+  overflow: hidden;
+  display: block;
+  position: relative;
+  padding-bottom: 100px;
 `;

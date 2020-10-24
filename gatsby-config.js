@@ -32,6 +32,7 @@ module.exports = {
         short_name: `starter`,
         start_url: `/`,
         display: `minimal-ui`,
+        icon: `src/images/BIRB_CawCaw.png`,
       },
     },
   ],

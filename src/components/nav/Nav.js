@@ -1,48 +1,72 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { StaticQuery, Link, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
+import Burger from './Burger';
+import BurgerMenu from './BurgerMenu.js';
+import { useOnClickOutside } from '../../hooks/hooks';
 
-const Nav = () => (
-  <StaticQuery
-    query={query}
-    render={data => (
-      <NavWrapper>
-        <div className="divLeft">
-          <Link to="/commercial">Commercial</Link>
-          <Link to="/">Studio</Link>
-        </div>
-        <Img className="logo" fluid={data.logo.childImageSharp.fluid} />
-        <div className="divRight">
-          <a href="https://staceyrozich.bigcartel.com/" target="_blank">
-            Shop
-          </a>
-          <Link to="/blog">Blog</Link>
-          <Link to="/about">About</Link>
-        </div>
-      </NavWrapper>
-    )}
-  />
-);
+const Nav = () => {
+  const [open, setOpen] = useState(false);
+  const node = useRef();
+  useOnClickOutside(node, () => setOpen(false));
+  return (
+    <StaticQuery
+      query={query}
+      render={data => (
+        <NavWrapper>
+          <div ref={node} className="Burger">
+            <BurgerMenu open={open} setOpen={setOpen} />
+            <Burger open={open} setOpen={setOpen} />
+          </div>
+          <NavMain>
+            <div className="divLeft">
+              <Link to="/commercial">Commercial</Link>
+              <Link to="/">Studio</Link>
+            </div>
+            <Img className="logo" fluid={data.logo.childImageSharp.fluid} />
+            <div className="divRight">
+              <a href="https://staceyrozich.bigcartel.com/" target="_blank">
+                Shop
+              </a>
+              <Link to="/blog">Blog</Link>
+              <Link to="/about">About</Link>
+            </div>
+          </NavMain>
+        </NavWrapper>
+      )}
+    />
+  );
+};
 
 export default Nav;
 
 const NavWrapper = styled.nav`
+  padding: 1rem 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  max-width: 1920px;
+  z-index: 1;
+  @media only screen and (min-width: 650px) {
+    .Burger {
+      display: none;
+    }
+  }
+`;
+
+const NavMain = styled.div`
   align-items: center;
   display: flex;
   justify-content: space-between;
-  margin-top: .5rem;
-  position:fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1;
+  margin-top: 0.5rem;
 
-  a{
+  a {
+    font-size: var(--mediumText);
     &[aria-current='page'] {
-    color: var(--secondary);
-    border-bottom: 2px solid var(--secondary);
-  }
+      color: var(--secondary);
+      border-bottom: 2px solid var(--secondary);
+    }
   }
   .divLeft {
     margin-left: 1.5rem;
@@ -58,25 +82,25 @@ const NavWrapper = styled.nav`
   }
   .logo {
     width: 11rem;
-    min-width: 9rem;
   }
-  @media only screen and (max-width: 800px) {
+  @media only screen and (max-width: 825px) {
     a {
-      font-size: 1rem;
+      font-size: var(--mediumSmallText);
     }
     .divLeft {
+      margin-left: 1rem;
       a {
-        margin-right: 2rem;
+        margin-right: 1.5rem;
       }
     }
     .divRight {
+      margin-right: 1rem;
       a {
-        margin-left: 2rem;
+        margin-left: 1.5rem;
       }
     }
     .logo {
-      width: 10rem;
-      min-width: 9rem;
+      width: 9rem;
     }
   }
   @media only screen and (max-width: 650px) {
@@ -87,6 +111,10 @@ const NavWrapper = styled.nav`
     .divRight {
       display: none;
     }
+    .Burger {
+      margin-top: 1rem;
+    }
+  }
 `;
 
 export const query = graphql`
