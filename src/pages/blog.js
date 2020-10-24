@@ -5,12 +5,15 @@ import Smiley from '../components/Smiley';
 
 const blog = () => (
   <Wrapper>
-    <SEO title="About" />
-    <Smiley />
+    <SEO title="Blog" />
+    <Smiley className="smiley" />
   </Wrapper>
 );
 export default blog;
 
 const Wrapper = styled.div`
-  text-align: center;
+  align-items: center;
+  display: flex;
+  height: 80vh;
+  justify-content: center;
 `;
