@@ -75,7 +75,7 @@ const about = () => {
           alt="Portrait of Stacey"
         />
 
-        <SelectedInterviews>
+        <SelectedInterviews className="interviews">
           <h4>SELECTED INTERVIEWS AND FEATURES</h4>
           <div>
             {blogPosts.map(post => (
@@ -182,21 +182,27 @@ const GridContainer = styled.div`
   @media only screen and (max-width: 950px) {
     display: flex;
     margin-top: -100px;
+    width: 90vw;
 
     flex-direction: column;
     .portrait {
       align-self: center;
     }
     .contact {
+      margin-top: 10px;
       margin-left: auto;
       margin-right: auto;
       padding: 0;
     }
     .clientList {
-      margin-top: -40px;
+      margin-top: -30px;
+      margin-bottom: 20px;
+    }
+    .interviews {
+      margin-top: 0px;
     }
     .elsewhere {
-      margin-top: -50px;
+      margin-top: -30px;
     }
   }
 `;
