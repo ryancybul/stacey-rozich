@@ -75,7 +75,6 @@ html {
   font-size: var(--baseFontSize);
   box-sizing: border-box;
   overflow-y: scroll;
-  margin-left: calc(100vw - 100%);
 } 
 
 *{
@@ -106,6 +105,11 @@ body {
     position:relative;
     height: 100%;
 }
+
+body.modal-open {
+  overflow: hidden;
+}
+
 
 header {
   background-color: var(--headerBackground);
@@ -224,7 +228,6 @@ hr {
 /* Layout */
 
 .fslightbox-container .fslightbox-full-dimension {
-  
 }
 
 .fslightbox-slide-number-container .fslightbox-flex-centered{
