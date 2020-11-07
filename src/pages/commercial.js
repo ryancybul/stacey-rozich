@@ -4,7 +4,7 @@ import CommercialGallery from '../components/gallery/CommercialGallery';
 
 const IndexPage = () => (
   <>
-    <SEO title="Commercial gallery" />
+    <SEO title="Commercial Gallery" />
     <CommercialGallery />
   </>
 );

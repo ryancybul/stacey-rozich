@@ -28,8 +28,9 @@
     --lineColor: var(--grey);
     --danger: var(--red);
     --buttonColor: var(--primary);
-    --headerBackground: var(--darkBlue);
-    --footerBackground: var(--darkBlue);
+    --headerBackground: var(--white);
+    --footerBackground: var(--white);
+    --transparent:rgba(52,52,52,0.0);
     --cardBg: var(--white);
 
     /* Styles */
@@ -229,15 +230,24 @@ hr {
   display: none;
 }
 
+.fslightbox-toolbar {
+  background:  rgba(52,52,52,0.0) !important;
+}
+
 .fslightbox-toolbar-button:nth-child(1) {
   display: none;
 } 
-.fslightbox-toolbar-button:nth-child(2){
-  background-color:none;
+
+.fslightbox-toolbar-button:nth-child(4){
+  display: none;
 } 
 
 .fslightbox-slide-btn {
-  
+  background:  var(--transparent) !important;
+}
+
+.fslightbox-container svg {
+  filter: invert(73%) sepia(14%) saturate(6827%) hue-rotate(306deg) brightness(89%) contrast(105%);
 }
 
 @media only screen and (max-width: 766px) {

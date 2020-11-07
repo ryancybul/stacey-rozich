@@ -40,15 +40,6 @@ const CommercialGallery = () => {
       );
     }
     return image.node.localFile.childImageSharp.fluid.originalImg;
-    /* Todo
-    Gatsby Image Suppoort
-    */
-    // return (
-    //   <Img
-    //     data-type="image"
-    //     fluid={image.node.localFile.childImageSharp.fluid}
-    //   />
-    // );
   });
 
   return <Artwork artwork={allArt} lightboxSources={customLightboxSources} />;

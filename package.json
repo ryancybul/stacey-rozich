@@ -6,8 +6,8 @@
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "@react-hook/window-size": "^3.0.7",
-    "fslightbox-react": "^1.5.0",
-    "gatsby": "^2.23.20",
+    "fslightbox-react": "file:src/lib/fslightbox-react/fslightbox-react-pro-1.3.0.tgz",
+    "gatsby": "^2.25.2",
     "gatsby-cli": "^2.12.61",
     "gatsby-image": "^2.4.12",
     "gatsby-plugin-manifest": "^2.4.17",
@@ -27,6 +27,7 @@
     "react-helmet": "^6.1.0",
     "react-measure": "^2.5.2",
     "react-photo-gallery": "^8.0.0",
+    "simple-react-lightbox": "^3.3.4-2",
     "styled-components": "^5.1.1"
   },
   "devDependencies": {

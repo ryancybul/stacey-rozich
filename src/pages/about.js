@@ -29,7 +29,7 @@ const about = () => {
         <p>
           Stacey Rozich is an <strong>artist, illustrator</strong> and
           <strong> muralist.</strong> She constructs vignettes in watercolor
-          that combine elements of folklore, medieval relgious iconography and
+          that combine elements of folklore, medieval religious iconography and
           American pop culture. Her storybook world is brought to life through
           lush patterning, symbolism, and nostalgia. She was born in Seattle and
           now resides in Los Angeles, California.
