@@ -34,7 +34,7 @@ export const commercialArtQuery = () => {
                   src
                 }
                 fluid(maxWidth: 1000, quality: 100) {
-                  ...GatsbyImageSharpFluid_withWebp_noBase64
+                  ...GatsbyImageSharpFluid_withWebp
                   originalImg
                   sizes
                   srcSet
