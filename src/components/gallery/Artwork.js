@@ -187,7 +187,11 @@ const ImageWrapper = styled.div`
     outline: none;
   }
   iframe {
+    top: 0px;
+    left: 0px;
     object-fit: cover;
+    object-position: cover cover;
+    position: absolute;
     width: 100%;
     height: 100%;
   }
