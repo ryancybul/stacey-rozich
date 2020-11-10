@@ -15,7 +15,7 @@ const Artwork = ({ artwork, lightboxSources }) => {
   const [columnNum, setColumnNum] = useState();
   const width = useWindowWidth();
   const options = {
-    settings: {},
+    settings: { disablePanzoom: true },
     caption: { showCaption: false },
     buttons: {
       backgroundColor: 'rgba(30,30,36,0.0)',
@@ -182,11 +182,14 @@ const GalleryWrapper = styled.div`
 `;
 
 const ImageWrapper = styled.div`
+  position: relative;
   padding: 10px;
+  text-align: center;
   :focus {
     outline: none;
   }
   iframe {
+    border: 1;
     display: block;
     top: 0px;
     left: 0px;
