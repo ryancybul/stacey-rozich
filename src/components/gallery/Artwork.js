@@ -183,11 +183,11 @@ const GalleryWrapper = styled.div`
 
 const ImageWrapper = styled.div`
   padding: 10px;
-  text-align: center;
   :focus {
     outline: none;
   }
   iframe {
+    display: block;
     top: 0px;
     left: 0px;
     object-fit: cover;
