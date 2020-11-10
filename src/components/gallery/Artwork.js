@@ -191,8 +191,8 @@ const ImageWrapper = styled.div`
   iframe {
     border: 1;
     display: block;
-    top: 0px;
-    left: 0px;
+    top: 0;
+    left: 0;
     margin: auto;
     position: absolute;
     width: 100%;
