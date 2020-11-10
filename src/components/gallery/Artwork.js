@@ -183,6 +183,7 @@ const GalleryWrapper = styled.div`
 
 const ImageWrapper = styled.div`
   padding: 10px;
+  text-align: center;
   :focus {
     outline: none;
   }
