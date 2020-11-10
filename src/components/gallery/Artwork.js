@@ -194,8 +194,6 @@ const ImageWrapper = styled.div`
     top: 0px;
     left: 0px;
     margin: auto;
-    object-fit: cover;
-    object-position: center center;
     position: absolute;
     width: 100%;
     height: 100%;
