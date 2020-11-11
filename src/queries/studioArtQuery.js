@@ -31,7 +31,7 @@ export const studioArtQuery = () => {
                   width
                   src
                 }
-                fluid {
+                fluid(quality: 75) {
                   ...GatsbyImageSharpFluid_withWebp_noBase64
                   originalImg
                   sizes

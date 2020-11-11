@@ -5,14 +5,14 @@ export const aboutPageQuery = () => {
     query {
       portrait1: file(relativePath: { eq: "StaceyPortrait1.jpg" }) {
         childImageSharp {
-          fluid(maxWidth: 1000, quality: 100) {
+          fluid(quality: 75) {
             ...GatsbyImageSharpFluid_withWebp_noBase64
           }
         }
       }
       portrait2: file(relativePath: { eq: "StaceyPortrait2.jpeg" }) {
         childImageSharp {
-          fluid(maxWidth: 1000, quality: 100) {
+          fluid(quality: 75) {
             ...GatsbyImageSharpFluid_withWebp_noBase64
           }
         }
