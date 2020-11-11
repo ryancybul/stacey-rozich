@@ -70,8 +70,6 @@ const Artwork = ({ artwork }) => {
           <iframe
             title={photo.title}
             src="https://player.vimeo.com/video/108940057?color=ffffff&title=0&byline=0&portrait=0&badge=0"
-            width="640"
-            height="360"
             frameBorder="0"
             allow="autoplay; fullscreen"
             allowFullScreen
@@ -130,7 +128,7 @@ const Artwork = ({ artwork }) => {
             photos={images}
             direction="column"
             columns={columnNum}
-            renderImage={GatsbyImage}
+            // renderImage={GatsbyImage}
           />
         </GalleryWrapper>
       </SRLWrapper>
