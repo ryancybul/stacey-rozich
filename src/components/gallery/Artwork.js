@@ -69,6 +69,7 @@ const Artwork = ({ artwork }) => {
           tabIndex={index}
         >
           <iframe
+            title={photo.title}
             src="https://player.vimeo.com/video/108940057?color=ffffff&title=0&byline=0&portrait=0&badge=0"
             width="640"
             height="360"

@@ -6,7 +6,6 @@
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "@react-hook/window-size": "^3.0.7",
-    "fslightbox-react": "^1.5.0",
     "gatsby": "^2.25.2",
     "gatsby-cli": "^2.12.61",
     "gatsby-image": "^2.4.12",
