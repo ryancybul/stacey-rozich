@@ -16,11 +16,8 @@ const Artwork = ({ artwork }) => {
       iconColor: '#E97B7C',
       iconPadding: '5px',
       showAutoplayButton: false,
-      showCloseButton: true,
       showDownloadButton: false,
       showFullscreenButton: false,
-      showNextButton: true,
-      showPrevButton: true,
       showThumbnailsButton: false,
       size: '35px',
     },
@@ -37,20 +34,6 @@ const Artwork = ({ artwork }) => {
       setColumnNum(1);
     }
   }, [width]);
-
-  const images = artwork.data.map(function(image) {
-    return {
-      alt: image.node.alt_text,
-      title: image.node.title,
-      fluid: image.node.localFile.childImageSharp.fluid,
-      id: image.node.id,
-      srcSet: image.node.localFile.childImageSharp.fluid.srcSet,
-      sizes: image.node.localFile.childImageSharp.fluid.sizes,
-      width: image.node.localFile.childImageSharp.original.width,
-      height: image.node.localFile.childImageSharp.original.height,
-      key: image.node.localFile.childImageSharp.fluid.src,
-    };
-  });
 
   const GatsbyImage = ({ index, photo, top, left, key }) => {
     if (photo.id === '6ab22f6d-d00b-5f6a-a5ed-42caa9b7d21d') {
@@ -115,7 +98,7 @@ const Artwork = ({ artwork }) => {
         key={key}
         tabIndex={index}
       >
-        <Image fluid={photo.fluid} alt={photo.title} />
+        <Img fluid={photo.fluid} alt={photo.title} />
       </ImageWrapper>
     );
   };
@@ -125,10 +108,10 @@ const Artwork = ({ artwork }) => {
       <SRLWrapper options={options}>
         <GalleryWrapper>
           <Gallery
-            photos={images}
+            photos={artwork}
             direction="column"
             columns={columnNum}
-            // renderImage={GatsbyImage}
+            renderImage={GatsbyImage}
           />
         </GalleryWrapper>
       </SRLWrapper>
@@ -159,18 +142,11 @@ const ImageWrapper = styled.div`
     outline: none;
   }
   iframe {
-    border: 1;
-    display: block;
     top: 0;
     left: 0;
-    margin: auto;
     position: absolute;
     width: 100%;
     height: 100%;
     padding: 10px;
   }
-`;
-
-const Image = styled(Img)`
-  color: transparent;
 `;
