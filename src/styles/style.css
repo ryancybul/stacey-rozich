@@ -227,37 +227,8 @@ hr {
 
 /* Layout */
 
-.fslightbox-container .fslightbox-full-dimension {
-}
+@media only screen and (max-width: 750px) {
 
-.fslightbox-slide-number-container .fslightbox-flex-centered{
-  display: none;
-}
-
-.fslightbox-toolbar {
-  background:  rgba(52,52,52,0.0) !important;
-}
-
-.fslightbox-toolbar-button:nth-child(1) {
-  display: none;
-} 
-
-.fslightbox-toolbar-button:nth-child(4){
-  display: none;
-} 
-
-.fslightbox-slide-btn {
-  background:  var(--transparent) !important;
-}
-
-.fslightbox-container svg {
-  filter: invert(73%) sepia(14%) saturate(6827%) hue-rotate(306deg) brightness(89%) contrast(105%);
-}
-
-@media only screen and (max-width: 766px) {
-  .fslightbox-slide-btn {
-    visibility: hidden;
-  }
 }
 
 @media only screen and (min-width: 500px) {

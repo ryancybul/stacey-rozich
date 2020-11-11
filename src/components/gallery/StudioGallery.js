@@ -10,14 +10,7 @@ const StudioGallery = () => {
     setArtwork({ data });
   }, [data]);
 
-  const lightboxSources = [];
-  data.map(image => {
-    lightboxSources.push(
-      image.node.localFile.childImageSharp.fluid.originalImg
-    );
-  });
-
-  return <Artwork artwork={allArt} lightboxSources={lightboxSources} />;
+  return <Artwork artwork={allArt} />;
 };
 
 export default StudioGallery;

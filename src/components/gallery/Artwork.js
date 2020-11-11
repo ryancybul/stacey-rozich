@@ -3,17 +3,12 @@ import Img from 'gatsby-image';
 import Gallery from 'react-photo-gallery';
 import styled from 'styled-components';
 import { useWindowWidth } from '@react-hook/window-size';
-import FsLightbox from 'fslightbox-react';
-import SimpleReactLightbox, { SRLWrapper } from 'simple-react-lightbox';
+import { SRLWrapper } from 'simple-react-lightbox';
 
-const Artwork = ({ artwork, lightboxSources }) => {
-  const [lightboxController, setLightboxController] = useState({
-    toggler: false,
-    isOpenOnMount: false,
-    sourceIndex: 0,
-  });
+const Artwork = ({ artwork }) => {
   const [columnNum, setColumnNum] = useState();
   const width = useWindowWidth();
+  console.log(width);
   const options = {
     settings: { disablePanzoom: true },
     caption: { showCaption: false },
@@ -28,7 +23,7 @@ const Artwork = ({ artwork, lightboxSources }) => {
       showNextButton: true,
       showPrevButton: true,
       showThumbnailsButton: false,
-      size: '30px',
+      size: '35px',
     },
     thumbnails: { showThumbnails: false },
     progressBar: {},
@@ -37,7 +32,7 @@ const Artwork = ({ artwork, lightboxSources }) => {
   useEffect(() => {
     if (width >= 1200) {
       setColumnNum(3);
-    } else if (width >= 750) {
+    } else if (width > 750) {
       setColumnNum(2);
     } else {
       setColumnNum(1);
@@ -57,14 +52,6 @@ const Artwork = ({ artwork, lightboxSources }) => {
       key: image.node.localFile.childImageSharp.fluid.src,
     };
   });
-
-  const openLightbox = sourceIndex => {
-    setLightboxController({
-      toggler: !lightboxController.toggler,
-      sourceIndex,
-      isOpenOnMount: true,
-    });
-  };
 
   const GatsbyImage = ({ index, photo, top, left, key }) => {
     if (photo.id === '6ab22f6d-d00b-5f6a-a5ed-42caa9b7d21d') {
@@ -128,16 +115,7 @@ const Artwork = ({ artwork, lightboxSources }) => {
         }}
         index={index}
         key={key}
-        // onClick={() => openLightbox(index)}
-        // onKeyDown={e => {
-        //   if (e.keyCode === 13) {
-        //     e.preventDefault();
-        //     openLightbox(index);
-        //   }
-        // }}
         tabIndex={index}
-        // aria-pressed="false"
-        // role="button"
       >
         <Image fluid={photo.fluid} alt={photo.title} />
       </ImageWrapper>
@@ -146,25 +124,16 @@ const Artwork = ({ artwork, lightboxSources }) => {
 
   return (
     <>
-      <SimpleReactLightbox>
-        <SRLWrapper options={options}>
-          <GalleryWrapper>
-            <Gallery
-              photos={images}
-              direction="column"
-              columns={columnNum}
-              renderImage={GatsbyImage}
-            />
-          </GalleryWrapper>
+      <GalleryWrapper>
+        <SRLWrapper options={options} className="SRLWrapper">
+          <Gallery
+            photos={images}
+            direction="column"
+            columns={columnNum}
+            renderImage={GatsbyImage}
+          />
         </SRLWrapper>
-      </SimpleReactLightbox>
-      {/* <FsLightbox
-        toggler={lightboxController.toggler}
-        sourceIndex={lightboxController.sourceIndex}
-        sources={lightboxSources}
-        openOnMount={lightboxController.isOpenOnMount}
-        key={lightboxController.sourceIndex}
-      /> */}
+      </GalleryWrapper>
     </>
   );
 };
@@ -175,6 +144,9 @@ const GalleryWrapper = styled.div`
   width: 100%;
   padding: 0 1.5rem;
   margin-top: 130px;
+  @media only screen and (max-width: 750px) {
+    pointer-events: none;
+  }
   @media only screen and (max-width: 650px) {
     padding: 0 0.25rem;
     margin-top: 100px;
