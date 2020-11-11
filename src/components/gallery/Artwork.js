@@ -96,7 +96,7 @@ const Artwork = ({ artwork }) => {
         >
           <iframe
             title={photo.title}
-            src="https://www.youtube.com./embed/9yAxIdkF2Qo?autoplay=0&showinfo=0"
+            src="https://www.youtube.com/embed/9yAxIdkF2Qo?autoplay=0&showinfo=0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; "
             allowFullScreen
             controls="0"
