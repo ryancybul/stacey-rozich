@@ -124,7 +124,7 @@ const Artwork = ({ artwork }) => {
 
   return (
     <>
-      <SRLWrapper options={options} className="SRLWrapper">
+      <SRLWrapper options={options}>
         <GalleryWrapper>
           <Gallery
             photos={images}
