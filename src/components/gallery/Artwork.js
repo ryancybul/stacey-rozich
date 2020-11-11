@@ -90,9 +90,9 @@ const Artwork = ({ artwork }) => {
         style={{
           height: photo.height,
           width: photo.width,
-          position: 'absolute',
-          top,
-          left,
+          // position: 'absolute',
+          // top,
+          // left,
         }}
         index={index}
         key={key}
@@ -109,8 +109,8 @@ const Artwork = ({ artwork }) => {
         <GalleryWrapper>
           <Gallery
             photos={artwork}
-            direction="column"
-            columns={columnNum}
+            // direction="column"
+            // columns={columnNum}
             renderImage={GatsbyImage}
           />
         </GalleryWrapper>
