@@ -8,7 +8,6 @@ import { SRLWrapper } from 'simple-react-lightbox';
 const Artwork = ({ artwork }) => {
   const [columnNum, setColumnNum] = useState();
   const width = useWindowWidth();
-  console.log(width);
   const options = {
     settings: { disablePanzoom: true },
     caption: { showCaption: false },
@@ -125,16 +124,16 @@ const Artwork = ({ artwork }) => {
 
   return (
     <>
-      <GalleryWrapper>
-        <SRLWrapper options={options} className="SRLWrapper">
+      <SRLWrapper options={options} className="SRLWrapper">
+        <GalleryWrapper>
           <Gallery
             photos={images}
             direction="column"
             columns={columnNum}
             renderImage={GatsbyImage}
           />
-        </SRLWrapper>
-      </GalleryWrapper>
+        </GalleryWrapper>
+      </SRLWrapper>
     </>
   );
 };
@@ -146,7 +145,7 @@ const GalleryWrapper = styled.div`
   padding: 0 1.5rem;
   margin-top: 130px;
   @media only screen and (max-width: 750px) {
-    pointer-events: none;
+    /* pointer-events: none; */
   }
   @media only screen and (max-width: 650px) {
     padding: 0 0.25rem;
