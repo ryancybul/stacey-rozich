@@ -118,7 +118,7 @@ const Artwork = ({ artwork }) => {
         key={key}
         tabIndex={index}
       >
-        <Image fluid={photo.fluid} alt={photo.title} loading="eager" />
+        <Image fluid={photo.fluid} alt={photo.title} />
       </ImageWrapper>
     );
   };
