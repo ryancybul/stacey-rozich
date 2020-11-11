@@ -25,7 +25,7 @@ const StudioGallery = () => {
     );
   }, [data]);
 
-  return <ArtworkCopy artwork={allArt} />;
+  return <Artwork artwork={allArt} />;
 };
 
 export default StudioGallery;
