@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { studioArtQuery } from '../../queries/studioArtQuery';
 import Artwork from './Artwork';
+import ArtworkCopy from './Artwork-copy';
 
 const StudioGallery = () => {
   const data = studioArtQuery().allWordpressWpMedia.edges;
-  const [allArt, setArtwork] = useState({ data: [] });
+  const [allArt, setArtwork] = useState([]);
 
   useEffect(() => {
     setArtwork(
@@ -24,7 +25,7 @@ const StudioGallery = () => {
     );
   }, [data]);
 
-  return <Artwork artwork={allArt} />;
+  return <ArtworkCopy artwork={allArt} />;
 };
 
 export default StudioGallery;
