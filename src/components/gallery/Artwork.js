@@ -3,7 +3,6 @@ import Img from 'gatsby-image';
 import Gallery from 'react-photo-gallery';
 import styled from 'styled-components';
 import { useWindowWidth } from '@react-hook/window-size';
-import { SRLWrapper } from 'simple-react-lightbox';
 
 const Artwork = ({ artwork }) => {
   const [columnNum, setColumnNum] = useState();
@@ -24,7 +23,6 @@ const Artwork = ({ artwork }) => {
     thumbnails: { showThumbnails: false },
     progressBar: {},
   };
-
   useEffect(() => {
     if (width >= 1200) {
       setColumnNum(3);
@@ -105,16 +103,16 @@ const Artwork = ({ artwork }) => {
 
   return (
     <>
-      <SRLWrapper options={options}>
-        <GalleryWrapper>
-          <Gallery
-            photos={artwork}
-            direction="column"
-            columns={columnNum}
-            renderImage={GatsbyImage}
-          />
-        </GalleryWrapper>
-      </SRLWrapper>
+      {/* <SRLWrapper options={options}> */}
+      <GalleryWrapper>
+        <Gallery
+          photos={artwork}
+          direction="column"
+          columns={columnNum}
+          renderImage={GatsbyImage}
+        />
+      </GalleryWrapper>
+      {/* </SRLWrapper> */}
     </>
   );
 };
