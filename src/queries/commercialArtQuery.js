@@ -31,7 +31,10 @@ export const commercialArtQuery = () => {
                   height
                   width
                 }
-                fluid(quality: 100) {
+                fluid(
+                  quality: 100
+                  sizes: "(max-width: 200px), (max-width: 400px), 800px"
+                ) {
                   ...GatsbyImageSharpFluid_withWebp
                 }
               }
