@@ -33,7 +33,7 @@ export const commercialArtQuery = () => {
                   width
                   src
                 }
-                fluid {
+                fluid(maxWidth: 500, quality: 100) {
                   ...GatsbyImageSharpFluid_withWebp
                   originalImg
                   sizes
