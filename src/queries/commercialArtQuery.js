@@ -32,7 +32,7 @@ export const commercialArtQuery = () => {
                   width
                 }
                 fluid(quality: 100) {
-                  ...GatsbyImageSharpFluid_withWebp_noBase64
+                  ...GatsbyImageSharpFluid_withWebp
                 }
               }
             }
