@@ -33,7 +33,7 @@ export const studioArtQuery = () => {
                   sizes: "(max-width: 200px), (max-width: 400px), 800px"
                   srcSetBreakpoints: [200, 400, 800]
                 ) {
-                  ...GatsbyImageSharpFluid_withWebp
+                  ...GatsbyImageSharpFluid
                 }
               }
             }
