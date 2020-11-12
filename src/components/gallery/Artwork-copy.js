@@ -45,13 +45,13 @@ const ArtworkCopy = () => {
 
   return (
     <>
-      <SRLWrapper options={options}>
-        <GalleryWrapper>
-          {artwork.map(photo => (
-            <Img fluid={photo.fluid} alt={photo.title} />
-          ))}
-        </GalleryWrapper>
-      </SRLWrapper>
+      {/* <SRLWrapper options={options}> */}
+      <GalleryWrapper>
+        {artwork.map(photo => (
+          <Img fluid={photo.fluid} alt={photo.title} />
+        ))}
+      </GalleryWrapper>
+      {/* </SRLWrapper> */}
     </>
   );
 };
