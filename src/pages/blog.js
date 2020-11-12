@@ -1,23 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
-import { SRLWrapper } from 'simple-react-lightbox';
 import SEO from '../components/seo';
-import Smiley from '../components/Smiley';
-import ArtworkCopy from '../components/gallery/Artwork-copy';
 
 const blog = () => (
   <Wrapper>
     <SEO title="Blog" />
-    <SRLWrapper>
-      <ArtworkCopy />
-    </SRLWrapper>
+    <h1>¯\_(ツ)_/¯</h1>
   </Wrapper>
 );
 export default blog;
 
 const Wrapper = styled.div`
-  /* align-items: center;
+  align-items: center;
   display: flex;
   height: 80vh;
-  justify-content: center; */
+  justify-content: center;
 `;

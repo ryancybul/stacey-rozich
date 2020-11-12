@@ -19,7 +19,6 @@ export const commercialArtQuery = () => {
             }
             alt_text
             title
-            source_url
             id
             media_details {
               image_meta {
@@ -31,13 +30,9 @@ export const commercialArtQuery = () => {
                 original {
                   height
                   width
-                  src
                 }
-                fluid(maxWidth: 500, quality: 100) {
-                  ...GatsbyImageSharpFluid_withWebp
-                  originalImg
-                  sizes
-                  srcSet
+                fluid(quality: 100) {
+                  ...GatsbyImageSharpFluid_withWebp_noBase64
                 }
               }
             }

@@ -17,7 +17,6 @@ export const studioArtQuery = () => {
             }
             alt_text
             title
-            source_url
             id
             media_details {
               image_meta {
@@ -29,13 +28,9 @@ export const studioArtQuery = () => {
                 original {
                   height
                   width
-                  src
                 }
-                fluid(maxWidth: 500, quality: 100) {
+                fluid(quality: 100) {
                   ...GatsbyImageSharpFluid_withWebp
-                  originalImg
-                  sizes
-                  srcSet
                 }
               }
             }
