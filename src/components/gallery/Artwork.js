@@ -14,12 +14,12 @@ const Artwork = ({ artwork }) => {
     buttons: {
       backgroundColor: 'rgba(30,30,36,0.0)',
       iconColor: '#E97B7C',
-      iconPadding: '5px',
+      iconPadding: '25px',
       showAutoplayButton: false,
       showDownloadButton: false,
       showFullscreenButton: false,
       showThumbnailsButton: false,
-      size: '35px',
+      size: '75px',
     },
     thumbnails: { showThumbnails: false },
     progressBar: {},
@@ -123,6 +123,7 @@ export default Artwork;
 
 const GalleryWrapper = styled.div`
   width: 100%;
+  min-height: 100vh;
   padding: 0 1.5rem;
   margin-top: 130px;
   @media only screen and (max-width: 750px) {
@@ -148,5 +149,8 @@ const ImageWrapper = styled.div`
     width: 100%;
     height: 100%;
     padding: 10px;
+  }
+  .gatsby-image-wrapper {
+    color: transparent;
   }
 `;

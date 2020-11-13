@@ -10,6 +10,11 @@ const Nav = () => {
   const [open, setOpen] = useState(false);
   const node = useRef();
   useOnClickOutside(node, () => setOpen(false));
+  const activeStyles = {
+    color: '#E97B7C',
+    borderBottom: '2px solid #E97B7C',
+  };
+
   return (
     <StaticQuery
       query={query}
@@ -21,16 +26,24 @@ const Nav = () => {
           </div>
           <NavMain>
             <div className="divLeft">
-              <Link to="/commercial">Commercial</Link>
-              <Link to="/">Studio</Link>
+              <Link to="/commercial" activeStyle={activeStyles}>
+                Commercial
+              </Link>
+              <Link to="/" activeStyle={activeStyles}>
+                Studio
+              </Link>
             </div>
             <Img className="logo" fluid={data.logo.childImageSharp.fluid} />
             <div className="divRight">
               <a href="https://staceyrozich.bigcartel.com/" target="_blank">
                 Shop
               </a>
-              <Link to="/blog">Blog</Link>
-              <Link to="/about">About</Link>
+              <Link to="/blog" activeStyle={activeStyles}>
+                Blog
+              </Link>
+              <Link to="/about" activeStyle={activeStyles}>
+                About
+              </Link>
             </div>
           </NavMain>
         </NavWrapper>

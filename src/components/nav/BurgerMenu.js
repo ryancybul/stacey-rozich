@@ -71,5 +71,9 @@ export const StyledMenu = styled.nav`
     &:hover {
       border-bottom: 2px solid var(--secondary);
     }
+    &[aria-current='page'] {
+      color: var(--secondary);
+      border-bottom: 2px solid var(--secondary);
+    }
   }
 `;

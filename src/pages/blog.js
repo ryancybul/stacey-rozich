@@ -13,6 +13,6 @@ export default blog;
 const Wrapper = styled.div`
   align-items: center;
   display: flex;
-  height: 80vh;
+  height: 100vh;
   justify-content: center;
 `;
