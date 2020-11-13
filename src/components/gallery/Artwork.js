@@ -14,12 +14,12 @@ const Artwork = ({ artwork }) => {
     buttons: {
       backgroundColor: 'rgba(30,30,36,0.0)',
       iconColor: '#E97B7C',
-      iconPadding: '25px',
+      iconPadding: '10px',
       showAutoplayButton: false,
       showDownloadButton: false,
       showFullscreenButton: false,
       showThumbnailsButton: false,
-      size: '75px',
+      size: '55px',
     },
     thumbnails: { showThumbnails: false },
     progressBar: {},
@@ -126,7 +126,7 @@ const GalleryWrapper = styled.div`
   min-height: 100vh;
   padding: 0 1.5rem;
   margin-top: 130px;
-  @media only screen and (max-width: 750px) {
+  @media only screen and (max-width: 400px) {
     /* pointer-events: none; */
   }
   @media only screen and (max-width: 650px) {

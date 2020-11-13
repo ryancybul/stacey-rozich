@@ -73,10 +73,9 @@
 /*  From TypeScale*/
 html {
   font-size: var(--baseFontSize);
-  /* box-sizing: border-box; */
-  /* overflow-y: scroll; */
+  box-sizing: border-box;
   width:100vw;
-  overflow-x:hidden;
+  /* overflow-x:hidden; */
 } 
 
 *{
