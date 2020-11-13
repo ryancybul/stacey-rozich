@@ -6,7 +6,7 @@ import styled from 'styled-components';
 const BurgerMenu = ({ open, setOpen }) => (
   <StyledMenu open={open}>
     <div>
-      <Link to="/commercial" onClick={() => setOpen(!open)}>
+      <Link to="/commercial/" onClick={() => setOpen(!open)}>
         Commercial
       </Link>
     </div>
@@ -25,12 +25,12 @@ const BurgerMenu = ({ open, setOpen }) => (
       </a>
     </div>
     <div>
-      <Link to="/blog" onClick={() => setOpen(!open)}>
+      <Link to="/blog/" onClick={() => setOpen(!open)}>
         Blog
       </Link>
     </div>
     <div>
-      <Link to="/about" onClick={() => setOpen(!open)}>
+      <Link to="/about/" onClick={() => setOpen(!open)}>
         About
       </Link>
     </div>
