@@ -14,8 +14,6 @@ const CommercialGallery = () => {
           title: image.node.title,
           fluid: image.node.localFile.childImageSharp.fluid,
           id: image.node.id,
-          srcSet: image.node.localFile.childImageSharp.fluid.srcSet,
-          sizes: image.node.localFile.childImageSharp.fluid.sizes,
           width: image.node.localFile.childImageSharp.original.width,
           height: image.node.localFile.childImageSharp.original.height,
           key: image.node.localFile.childImageSharp.fluid.src,

@@ -30,10 +30,10 @@ export const studioArtQuery = () => {
                   width
                 }
                 fluid(
-                  sizes: "(max-width: 200px), (max-width: 400px), 800px"
-                  srcSetBreakpoints: [200, 400, 800]
+                  srcSetBreakpoints: [200, 400, 600, 800]
+                  sizes: "(max-width: 200px) calc(100vw - 14px),(max-width: 400px) calc(100vw - 14px), (max-width: 750px) calc(100vw - 28px),"
                 ) {
-                  ...GatsbyImageSharpFluid
+                  ...GatsbyImageSharpFluid_withWebp
                 }
               }
             }
