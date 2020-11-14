@@ -32,8 +32,9 @@ export const commercialArtQuery = () => {
                   width
                 }
                 fluid(
-                  srcSetBreakpoints: [200, 400, 600, 800]
-                  sizes: "(max-width: 200px) calc(100vw - 14px),(max-width: 400px) calc(100vw - 14px), (max-width: 750px) calc(100vw - 28px),"
+                  quality: 75
+                  srcSetBreakpoints: [400, 600, 700, 800]
+                  sizes: "(max-width: 415px) 400px,(max-width: 1200px) 600px, (max-width: 1800px) 700px, 100vw"
                 ) {
                   ...GatsbyImageSharpFluid_withWebp
                 }

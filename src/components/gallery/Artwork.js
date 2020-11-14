@@ -8,6 +8,8 @@ import { SRLWrapper } from 'simple-react-lightbox';
 const Artwork = ({ artwork }) => {
   const [columnNum, setColumnNum] = useState();
   const width = useWindowWidth();
+  console.log({ width });
+
   const options = {
     settings: { disablePanzoom: true },
     caption: { showCaption: false },
@@ -28,7 +30,7 @@ const Artwork = ({ artwork }) => {
   useEffect(() => {
     if (width >= 1200) {
       setColumnNum(3);
-    } else if (width > 750) {
+    } else if (width > 650) {
       setColumnNum(2);
     } else {
       setColumnNum(1);
@@ -124,13 +126,12 @@ export default Artwork;
 const GalleryWrapper = styled.div`
   width: 100%;
   min-height: 100vh;
-  padding: 0 1.5rem;
+  padding: 0 1.5vw;
   margin-top: 130px;
   @media only screen and (max-width: 400px) {
     /* pointer-events: none; */
   }
   @media only screen and (max-width: 650px) {
-    padding: 0 0.25rem;
     margin-top: 100px;
   }
 `;
