@@ -101,7 +101,13 @@ const Artwork = ({ artwork }) => {
           tabIndex={index}
         >
           <a href={photo.src} data-attribute="SRL">
-            <Img fluid={photo.fluid} alt={photo.title} loading="eager" />
+            <Img
+              fluid={photo.fluid}
+              alt={photo.title}
+              height={photo.height}
+              width={photo.width}
+              loading="eager"
+            />
           </a>
         </ImageWrapper>
       );
@@ -120,7 +126,12 @@ const Artwork = ({ artwork }) => {
         tabIndex={index}
       >
         <a href={photo.src} data-attribute="SRL">
-          <Img fluid={photo.fluid} alt={photo.title} />
+          <Img
+            fluid={photo.fluid}
+            alt={photo.title}
+            height={photo.height}
+            width={photo.width}
+          />
         </a>
       </ImageWrapper>
     );
