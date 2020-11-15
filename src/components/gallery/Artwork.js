@@ -174,5 +174,6 @@ const ImageWrapper = styled.div`
   }
   .gatsby-image-wrapper {
     color: transparent;
+    transform: translate3d(0, 0, 0);
   }
 `;
