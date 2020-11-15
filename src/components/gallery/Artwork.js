@@ -86,6 +86,26 @@ const Artwork = ({ artwork }) => {
         </ImageWrapper>
       );
     }
+    if (index <= 6) {
+      return (
+        <ImageWrapper
+          style={{
+            height: photo.height,
+            width: photo.width,
+            position: 'absolute',
+            top,
+            left,
+          }}
+          index={index}
+          key={key}
+          tabIndex={index}
+        >
+          <a href={photo.src} data-attribute="SRL">
+            <Img fluid={photo.fluid} alt={photo.title} loading="eager" />
+          </a>
+        </ImageWrapper>
+      );
+    }
     return (
       <ImageWrapper
         style={{
