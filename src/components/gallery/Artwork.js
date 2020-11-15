@@ -158,6 +158,7 @@ const GalleryWrapper = styled.div`
 `;
 
 const ImageWrapper = styled.div`
+  transform: translate3d(0, 0, 0);
   position: relative;
   padding: 10px;
   text-align: center;
@@ -174,6 +175,5 @@ const ImageWrapper = styled.div`
   }
   .gatsby-image-wrapper {
     color: transparent;
-    transform: translate3d(0, 0, 0);
   }
 `;
