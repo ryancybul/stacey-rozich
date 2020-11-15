@@ -14,6 +14,7 @@ const StudioGallery = () => {
           title: image.node.title,
           fluid: image.node.localFile.childImageSharp.fluid,
           id: image.node.id,
+          src: image.node.localFile.childImageSharp.original.src,
           width: image.node.localFile.childImageSharp.original.width,
           height: image.node.localFile.childImageSharp.original.height,
           key: image.node.localFile.childImageSharp.fluid.src,

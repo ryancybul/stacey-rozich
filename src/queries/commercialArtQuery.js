@@ -30,6 +30,7 @@ export const commercialArtQuery = () => {
                 original {
                   height
                   width
+                  src
                 }
                 fluid(
                   quality: 75

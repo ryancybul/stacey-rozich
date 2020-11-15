@@ -8,7 +8,6 @@ import { SRLWrapper } from 'simple-react-lightbox';
 const Artwork = ({ artwork }) => {
   const [columnNum, setColumnNum] = useState();
   const width = useWindowWidth();
-  console.log({ width });
 
   const options = {
     settings: { disablePanzoom: true },
@@ -100,7 +99,9 @@ const Artwork = ({ artwork }) => {
         key={key}
         tabIndex={index}
       >
-        <Img fluid={photo.fluid} alt={photo.title} />
+        <a href={photo.src} data-attribute="SRL">
+          <Img fluid={photo.fluid} alt={photo.title} />
+        </a>
       </ImageWrapper>
     );
   };

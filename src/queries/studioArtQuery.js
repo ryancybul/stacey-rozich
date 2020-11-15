@@ -28,6 +28,7 @@ export const studioArtQuery = () => {
                 original {
                   height
                   width
+                  src
                 }
                 fluid(
                   quality: 75
