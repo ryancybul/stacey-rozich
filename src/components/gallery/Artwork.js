@@ -88,7 +88,9 @@ const Artwork = ({ artwork }) => {
     }
     if (index <= 6) {
       return (
-        <ImageWrapper
+        <a
+          href={photo.src}
+          data-attribute="SRL"
           style={{
             height: photo.height,
             width: photo.width,
@@ -96,30 +98,21 @@ const Artwork = ({ artwork }) => {
             top,
             left,
           }}
-          index={index}
-          key={key}
-          tabIndex={index}
         >
-          <a
-            href={photo.src}
-            data-attribute="SRL"
-            index={index}
-            key={key}
-            tabIndex={index}
-          >
-            <Img
-              fluid={photo.fluid}
-              alt={photo.title}
-              height={photo.height}
-              width={photo.width}
-              loading="eager"
-            />
-          </a>
-        </ImageWrapper>
+          <Img
+            fluid={photo.fluid}
+            alt={photo.title}
+            height={photo.height}
+            width={photo.width}
+            loading="eager"
+          />
+        </a>
       );
     }
     return (
-      <ImageWrapper
+      <a
+        href={photo.src}
+        data-attribute="SRL"
         style={{
           height: photo.height,
           width: photo.width,
@@ -127,25 +120,18 @@ const Artwork = ({ artwork }) => {
           top,
           left,
         }}
-        index={index}
-        key={key}
-        tabIndex={index}
       >
-        <a
-          href={photo.src}
-          data-attribute="SRL"
+        <Img
+          position="absolute"
+          top
+          left
           index={index}
           key={key}
           tabIndex={index}
-        >
-          <Img
-            height={photo.height}
-            width={photo.width}
-            fluid={photo.fluid}
-            alt={photo.title}
-          />
-        </a>
-      </ImageWrapper>
+          fluid={photo.fluid}
+          alt={photo.title}
+        />
+      </a>
     );
   };
 
