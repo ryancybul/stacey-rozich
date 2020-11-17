@@ -15,7 +15,7 @@ const Nav = () => {
     <StaticQuery
       query={query}
       render={data => (
-        <NavWrapper>
+        <NavWrapper className="nav">
           <div ref={node} className="Burger">
             <BurgerMenu open={open} setOpen={setOpen} />
             <Burger open={open} setOpen={setOpen} />
@@ -67,6 +67,9 @@ const NavMain = styled.div`
     &[aria-current='page'] {
       color: var(--secondary);
       border-bottom: 2px solid var(--secondary);
+    }
+    a:hover {
+      border-bottom: 2px solid var(--black);
     }
   }
   .divLeft {

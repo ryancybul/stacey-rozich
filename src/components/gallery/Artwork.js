@@ -53,10 +53,11 @@ const Artwork = ({ artwork }) => {
         >
           <iframe
             title={photo.title}
-            src="https://player.vimeo.com/video/108940057?color=ffffff&title=0&byline=0&portrait=0&badge=0"
-            frameBorder="0"
-            allow="autoplay; fullscreen"
+            src="https://www.youtube.com/embed/tnu_O5P8P5I?wmode=opaque&enablejsapi=1&autoplay=0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; "
             allowFullScreen
+            controls="0"
+            frameBorder="0"
           />
         </ImageWrapper>
       );
@@ -77,7 +78,7 @@ const Artwork = ({ artwork }) => {
         >
           <iframe
             title={photo.title}
-            src="https://www.youtube.com/embed/9yAxIdkF2Qo?autoplay=0&showinfo=0"
+            src="https://www.youtube.com/embed/9yAxIdkF2Qo?wmode=opaque&enablejsapi=1&autoplay=0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; "
             allowFullScreen
             controls="0"
@@ -88,7 +89,7 @@ const Artwork = ({ artwork }) => {
     }
     if (index <= 6) {
       return (
-        <a
+        <ImageWrapper
           href={photo.src}
           data-attribute="SRL"
           style={{
@@ -106,11 +107,11 @@ const Artwork = ({ artwork }) => {
             width={photo.width}
             loading="eager"
           />
-        </a>
+        </ImageWrapper>
       );
     }
     return (
-      <a
+      <ImageWrapper
         href={photo.src}
         data-attribute="SRL"
         style={{
@@ -131,7 +132,7 @@ const Artwork = ({ artwork }) => {
           fluid={photo.fluid}
           alt={photo.title}
         />
-      </a>
+      </ImageWrapper>
     );
   };
 
@@ -166,10 +167,15 @@ const GalleryWrapper = styled.div`
   }
 `;
 
-const ImageWrapper = styled.div`
+const ImageWrapper = styled.a`
+  display: block;
   position: relative;
   padding: 10px;
   text-align: center;
+  text-decoration: none;
+  :hover {
+    text-decoration: none;
+  }
   :focus {
     outline: none;
   }
