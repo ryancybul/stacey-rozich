@@ -100,7 +100,13 @@ const Artwork = ({ artwork }) => {
           key={key}
           tabIndex={index}
         >
-          <a href={photo.src} data-attribute="SRL">
+          <a
+            href={photo.src}
+            data-attribute="SRL"
+            index={index}
+            key={key}
+            tabIndex={index}
+          >
             <Img
               fluid={photo.fluid}
               alt={photo.title}
@@ -125,12 +131,18 @@ const Artwork = ({ artwork }) => {
         key={key}
         tabIndex={index}
       >
-        <a href={photo.src} data-attribute="SRL">
+        <a
+          href={photo.src}
+          data-attribute="SRL"
+          index={index}
+          key={key}
+          tabIndex={index}
+        >
           <Img
-            fluid={photo.fluid}
-            alt={photo.title}
             height={photo.height}
             width={photo.width}
+            fluid={photo.fluid}
+            alt={photo.title}
           />
         </a>
       </ImageWrapper>
@@ -169,7 +181,6 @@ const GalleryWrapper = styled.div`
 `;
 
 const ImageWrapper = styled.div`
-  transform: translate3d(0, 0, 0);
   position: relative;
   padding: 10px;
   text-align: center;
