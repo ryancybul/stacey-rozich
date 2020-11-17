@@ -92,6 +92,9 @@ const Artwork = ({ artwork }) => {
         <ImageWrapper
           href={photo.src}
           data-attribute="SRL"
+          index={index}
+          key={key}
+          tabIndex={index}
           style={{
             height: photo.height,
             width: photo.width,
@@ -100,13 +103,7 @@ const Artwork = ({ artwork }) => {
             left,
           }}
         >
-          <Img
-            fluid={photo.fluid}
-            alt={photo.title}
-            height={photo.height}
-            width={photo.width}
-            loading="eager"
-          />
+          <Img fluid={photo.fluid} alt={photo.title} loading="eager" />
         </ImageWrapper>
       );
     }
@@ -114,6 +111,9 @@ const Artwork = ({ artwork }) => {
       <ImageWrapper
         href={photo.src}
         data-attribute="SRL"
+        index={index}
+        key={key}
+        tabIndex={index}
         style={{
           height: photo.height,
           width: photo.width,
@@ -122,16 +122,7 @@ const Artwork = ({ artwork }) => {
           left,
         }}
       >
-        <Img
-          position="absolute"
-          top
-          left
-          index={index}
-          key={key}
-          tabIndex={index}
-          fluid={photo.fluid}
-          alt={photo.title}
-        />
+        <Img fluid={photo.fluid} alt={photo.title} loading="eager" />
       </ImageWrapper>
     );
   };
@@ -168,14 +159,8 @@ const GalleryWrapper = styled.div`
 `;
 
 const ImageWrapper = styled.a`
-  display: block;
   position: relative;
   padding: 10px;
-  text-align: center;
-  text-decoration: none;
-  :hover {
-    text-decoration: none;
-  }
   :focus {
     outline: none;
   }
