@@ -16,14 +16,11 @@ export const studioArtQuery = () => {
               name
             }
             alt_text
+            description
             title
             id
-            media_details {
-              image_meta {
-                created_timestamp
-              }
-            }
             localFile {
+              relativePath
               childImageSharp {
                 original {
                   height
@@ -35,7 +32,12 @@ export const studioArtQuery = () => {
                   srcSetBreakpoints: [400, 500, 600, 700]
                   sizes: "(max-width: 650px) calc(98.5vw - 20px),(max-width: 1200px) calc(49.25vw - 40px), (max-width: 1920px) calc(32.83vw - 60px), 100vw"
                 ) {
-                  ...GatsbyImageSharpFluid_withWebp_noBase64
+                  src
+                  srcSet
+                  base64
+                  aspectRatio
+                  originalImg
+                  sizes
                 }
               }
             }
