@@ -17,7 +17,7 @@ const CommercialGallery = () => {
           src: image.node.localFile.childImageSharp.original.src,
           width: image.node.localFile.childImageSharp.original.width,
           height: image.node.localFile.childImageSharp.original.height,
-          key: image.node.localFile.childImageSharp.fluid.src,
+          key: image.node.id,
         };
       })
     );
