@@ -37,26 +37,26 @@ const Artwork = ({ artwork }) => {
   }, [width]);
 
   const GatsbyImage = ({ index, photo, top, left, key }) => {
-    if (index <= 6) {
-      return (
-        <ImageWrapper
-          href={photo.src}
-          data-attribute="SRL"
-          index={index}
-          key={key}
-          tabIndex={index}
-          style={{
-            height: photo.height,
-            width: photo.width,
-            position: 'absolute',
-            top,
-            left,
-          }}
-        >
-          <Img fluid={photo.fluid} alt={photo.title} loading="eager" />
-        </ImageWrapper>
-      );
-    }
+    // if (index <= 6) {
+    //   return (
+    //     <ImageWrapper
+    //       href={photo.src}
+    //       data-attribute="SRL"
+    //       index={index}
+    //       key={key}
+    //       tabIndex={index}
+    //       style={{
+    //         height: photo.height,
+    //         width: photo.width,
+    //         position: 'absolute',
+    //         top,
+    //         left,
+    //       }}
+    //     >
+    //       <Img fluid={photo.fluid} alt={photo.title} loading="eager" />
+    //     </ImageWrapper>
+    //   );
+    // }
     if (photo.id === '6ab22f6d-d00b-5f6a-a5ed-42caa9b7d21d') {
       return (
         <ImageWrapper
@@ -122,7 +122,7 @@ const Artwork = ({ artwork }) => {
           left,
         }}
       >
-        <Img fluid={photo.fluid} alt={photo.title} loading="auto" />
+        <Img fluid={photo.fluid} alt={photo.title} loading="lazy" />
       </ImageWrapper>
     );
   };
