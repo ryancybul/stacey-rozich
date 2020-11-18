@@ -21,6 +21,7 @@ export const studioArtQuery = () => {
             id
             localFile {
               relativePath
+              url
               childImageSharp {
                 original {
                   height

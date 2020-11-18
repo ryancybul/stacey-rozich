@@ -26,6 +26,7 @@ export const commercialArtQuery = () => {
               }
             }
             localFile {
+              relativePath
               childImageSharp {
                 original {
                   height
