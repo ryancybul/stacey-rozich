@@ -122,7 +122,7 @@ const Artwork = ({ artwork }) => {
           left,
         }}
       >
-        <Img fluid={photo.fluid} alt={photo.title} />
+        <Img fluid={photo.fluid} alt={photo.title} loading="auto" />
       </ImageWrapper>
     );
   };
@@ -159,6 +159,7 @@ const GalleryWrapper = styled.div`
 `;
 
 const ImageWrapper = styled.a`
+  display: block;
   position: relative;
   padding: 10px;
   :focus {
