@@ -110,14 +110,14 @@ const Artwork = ({ artwork }) => {
   return (
     <>
       <GalleryWrapper>
-        <SRLWrapper options={options} />
-        <Gallery
-          photos={artwork}
-          direction="column"
-          columns={columnNum}
-          renderImage={GatsbyImage}
-        />
-        <SRLWrapper />
+        <SRLWrapper options={options}>
+          <Gallery
+            photos={artwork}
+            direction="column"
+            columns={columnNum}
+            renderImage={GatsbyImage}
+          />
+        </SRLWrapper>
       </GalleryWrapper>
     </>
   );
