@@ -115,7 +115,7 @@ const Artwork = ({ artwork }) => {
             photos={artwork}
             direction="column"
             columns={columnNum}
-            renderImage={GatsbyImage}
+            // renderImage={GatsbyImage}
           />
         </SRLWrapper>
       </GalleryWrapper>
