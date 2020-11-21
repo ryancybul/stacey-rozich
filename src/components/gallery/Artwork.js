@@ -102,7 +102,7 @@ const Artwork = ({ artwork }) => {
           left,
         }}
       >
-        <Img fluid={photo.fluid} alt={photo.title} />
+        <Img fluid={photo.fluid} alt={photo.title} loading="eager" />
       </ImageWrapper>
     );
   };
@@ -115,7 +115,7 @@ const Artwork = ({ artwork }) => {
             photos={artwork}
             direction="column"
             columns={columnNum}
-            // renderImage={GatsbyImage}
+            renderImage={GatsbyImage}
           />
         </SRLWrapper>
       </GalleryWrapper>
