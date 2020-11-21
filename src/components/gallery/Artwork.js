@@ -3,7 +3,7 @@ import Img from 'gatsby-image';
 import Gallery from 'react-photo-gallery';
 import styled from 'styled-components';
 import { useWindowWidth } from '@react-hook/window-size';
-import { SRLWrapper } from 'simple-react-lightbox';
+// import { SRLWrapper } from 'simple-react-lightbox';
 
 const Artwork = ({ artwork }) => {
   const [columnNum, setColumnNum] = useState();
@@ -103,11 +103,11 @@ const Artwork = ({ artwork }) => {
         }}
       >
         <Img
+          index={index}
+          key={key}
           fluid={photo.fluid}
           alt={photo.title}
           loading="auto"
-          height={photo.height}
-          width={photo.width}
         />
       </ImageWrapper>
     );

@@ -1,14 +1,14 @@
 import React from 'react';
-import SimpleReactLightbox from 'simple-react-lightbox';
+import { SRLWrapper } from 'simple-react-lightbox';
 import SEO from '../components/seo';
 import StudioGallery from '../components/gallery/StudioGallery';
 
 const IndexPage = () => (
   <>
-    <SimpleReactLightbox>
+    <SRLWrapper>
       <SEO title="Studio Gallery" />
       <StudioGallery />
-    </SimpleReactLightbox>
+    </SRLWrapper>
   </>
 );
 
