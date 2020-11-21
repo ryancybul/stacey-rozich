@@ -1,11 +1,14 @@
 import React from 'react';
+import SimpleReactLightbox from 'simple-react-lightbox';
 import SEO from '../components/seo';
 import StudioGallery from '../components/gallery/StudioGallery';
 
 const IndexPage = () => (
   <>
-    <SEO title="Studio Gallery" />
-    <StudioGallery />
+    <SimpleReactLightbox>
+      <SEO title="Studio Gallery" />
+      <StudioGallery />
+    </SimpleReactLightbox>
   </>
 );
 
