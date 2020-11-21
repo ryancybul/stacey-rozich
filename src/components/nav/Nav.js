@@ -25,7 +25,11 @@ const Nav = () => {
               <Link to="/commercial/">Commercial</Link>
               <Link to="/">Studio</Link>
             </div>
-            <Img className="logo" fluid={data.logo.childImageSharp.fluid} />
+            <Img
+              className="logo"
+              fluid={data.logo.childImageSharp.fluid}
+              loading="eager"
+            />
             <div className="divRight">
               <a href="https://staceyrozich.bigcartel.com/" target="_blank">
                 Shop
