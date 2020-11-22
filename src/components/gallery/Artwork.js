@@ -3,7 +3,7 @@ import Img from 'gatsby-image';
 import Gallery from 'react-photo-gallery';
 import styled from 'styled-components';
 import { useWindowWidth } from '@react-hook/window-size';
-// import { SRLWrapper } from 'simple-react-lightbox';
+import { SRLWrapper } from 'simple-react-lightbox';
 
 const Artwork = ({ artwork }) => {
   const [columnNum, setColumnNum] = useState();
@@ -116,14 +116,14 @@ const Artwork = ({ artwork }) => {
   return (
     <>
       <GalleryWrapper>
-        {/* <SRLWrapper options={options}> */}
-        <Gallery
-          photos={artwork}
-          direction="column"
-          columns={columnNum}
-          renderImage={GatsbyImage}
-        />
-        {/* </SRLWrapper> */}
+        <SRLWrapper options={options}>
+          <Gallery
+            photos={artwork}
+            direction="column"
+            columns={columnNum}
+            renderImage={GatsbyImage}
+          />
+        </SRLWrapper>
       </GalleryWrapper>
     </>
   );
