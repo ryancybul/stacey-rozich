@@ -18,7 +18,6 @@
     "gatsby-source-graphql": "^2.9.0",
     "gatsby-source-wordpress": "^3.6.0",
     "gatsby-transformer-sharp": "^2.7.0",
-    "lodash": "^4.17.20",
     "normalize.css": "^8.0.1",
     "prop-types": "^15.7.2",
     "react": "^16.14.0",
