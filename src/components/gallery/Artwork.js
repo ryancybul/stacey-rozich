@@ -102,7 +102,7 @@ const Artwork = ({ artwork }) => {
           left,
         }}
       >
-        <Img fluid={photo.fluid} alt={photo.title} />
+        <Img fluid={photo.fluid} alt={photo.title} loading="auto" />
       </ImageWrapper>
     );
   };
