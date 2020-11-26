@@ -130,7 +130,7 @@ export const query = graphql`
     logo: file(relativePath: { eq: "Logo_StaceyRozich.png" }) {
       childImageSharp {
         fluid(maxWidth: 700, quality: 100) {
-          ...GatsbyImageSharpFluid_withWebp_noBase64
+          ...GatsbyImageSharpFluid_noBase64
         }
       }
     }
