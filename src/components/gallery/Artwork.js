@@ -3,28 +3,13 @@ import Img from 'gatsby-image';
 import Gallery from 'react-photo-gallery';
 import styled from 'styled-components';
 import { useWindowWidth } from '@react-hook/window-size';
-import { SRLWrapper } from 'simple-react-lightbox';
 
 const Artwork = ({ artwork }) => {
+  const [lightboxDisplay, setLightboxDisplay] = useState(false);
+  const [imageToShow, setImageToShow] = useState('');
   const [columnNum, setColumnNum] = useState();
   const width = useWindowWidth();
-
-  const options = {
-    settings: { disablePanzoom: true },
-    caption: { showCaption: false },
-    buttons: {
-      backgroundColor: 'rgba(30,30,36,0.0)',
-      iconColor: '#E97B7C',
-      iconPadding: '10px',
-      showAutoplayButton: false,
-      showDownloadButton: false,
-      showFullscreenButton: false,
-      showThumbnailsButton: false,
-      size: '55px',
-    },
-    thumbnails: { showThumbnails: false },
-    progressBar: {},
-  };
+  const lightboxSources = artwork.map(art => art.src);
 
   useEffect(() => {
     if (width >= 1200) {
@@ -36,7 +21,41 @@ const Artwork = ({ artwork }) => {
     }
   }, [width]);
 
-  const GatsbyImage = ({ index, photo, top, left, key }) => {
+  // Shows the image lightbox
+  const showImage = image => {
+    setImageToShow(image);
+    setLightboxDisplay(true);
+  };
+
+  const hideLightbox = () => {
+    setLightboxDisplay(false);
+  };
+
+  // Show next and previous image in lightbox
+  const showNext = e => {
+    e.stopPropagation();
+    const currentIndex = lightboxSources.indexOf(imageToShow);
+    if (currentIndex >= lightboxSources.length - 1) {
+      setLightboxDisplay(false);
+    } else {
+      const nextImage = lightboxSources[currentIndex + 1];
+      setImageToShow(nextImage);
+    }
+  };
+
+  const showPrev = e => {
+    e.stopPropagation();
+    const currentIndex = lightboxSources.indexOf(imageToShow);
+    console.log({ currentIndex });
+    if (currentIndex <= 0) {
+      setLightboxDisplay(false);
+    } else {
+      const nextImage = lightboxSources[currentIndex - 1];
+      setImageToShow(nextImage);
+    }
+  };
+
+  const GatsbyImage = ({ index, onClick, photo, top, left, key }) => {
     if (photo.id === '6ab22f6d-d00b-5f6a-a5ed-42caa9b7d21d') {
       return (
         <ImageWrapper
@@ -89,11 +108,10 @@ const Artwork = ({ artwork }) => {
     }
     return (
       <ImageWrapper
-        href={photo.src}
-        data-attribute="SRL"
         index={index}
         key={key}
         tabIndex={index}
+        onClick={() => showImage(photo.src)}
         style={{
           height: photo.height,
           width: photo.width,
@@ -110,15 +128,23 @@ const Artwork = ({ artwork }) => {
   return (
     <>
       <GalleryWrapper>
-        <SRLWrapper options={options}>
-          <Gallery
-            photos={artwork}
-            direction="column"
-            columns={columnNum}
-            renderImage={GatsbyImage}
-          />
-        </SRLWrapper>
+        <Gallery
+          photos={artwork}
+          direction="column"
+          columns={columnNum}
+          onClick={showImage}
+          renderImage={GatsbyImage}
+        />
       </GalleryWrapper>
+      {lightboxDisplay ? (
+        <Lightbox id="lightbox" onClick={hideLightbox}>
+          <button onClick={showPrev}>←</button>
+          <img id="lightbox-img" src={imageToShow} />
+          <button onClick={showNext}>→</button>
+        </Lightbox>
+      ) : (
+        ''
+      )}
     </>
   );
 };
@@ -138,7 +164,7 @@ const GalleryWrapper = styled.div`
   }
 `;
 
-const ImageWrapper = styled.a`
+const ImageWrapper = styled.div`
   display: block;
   position: relative;
   padding: 10px;
@@ -155,5 +181,22 @@ const ImageWrapper = styled.a`
   }
   .gatsby-image-wrapper {
     color: transparent;
+  }
+`;
+
+const Lightbox = styled.div`
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(196, 155, 237, 0.52);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .gatsby-image-wrapper {
+    width: 50vw;
+    height: 50vw;
   }
 `;
