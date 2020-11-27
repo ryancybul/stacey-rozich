@@ -8,6 +8,7 @@ import { useOnClickOutside } from '../../hooks/hooks';
 
 const Nav = () => {
   const [open, setOpen] = useState(false);
+  const [hidden, sethidden] = useState(true);
   const node = useRef();
   useOnClickOutside(node, () => setOpen(false));
 
@@ -48,11 +49,10 @@ export default Nav;
 
 const NavWrapper = styled.nav`
   padding: 1rem 0;
-  position: fixed;
-  top: 0;
+  position: absolute;
   width: 100%;
   max-width: 1920px;
-  z-index: 1;
+  z-index: 2;
   @media only screen and (min-width: 650px) {
     .Burger {
       display: none;

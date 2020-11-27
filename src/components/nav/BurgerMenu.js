@@ -50,7 +50,7 @@ export const StyledMenu = styled.nav`
   background-color: rgba(52, 52, 52, 0.975);
   text-align: center;
   padding-top: 1.5rem;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   transition: transform 0.3s ease-in-out;

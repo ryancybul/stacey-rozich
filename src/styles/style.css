@@ -78,11 +78,6 @@ html {
   overflow-x:hidden;
 } 
 
-body.SRLOpened {
-  /* height: 100vh;
-  overflow-y: hidden; */
-}
-
 *{
   box-sizing: border-box;
 },
@@ -111,8 +106,6 @@ body {
     /* position:fixed; */
     height: 100%;
 }
-
-
 
 header {
   background-color: var(--headerBackground);

@@ -31,7 +31,7 @@ const CommercialGallery = () => {
     );
   }, [data]);
 
-  return <Artwork artwork={allArt} lightboxSources={allSources} />;
+  return <Artwork artwork={allArt} lighbtoxSources={allSources} />;
 };
 
 export default CommercialGallery;

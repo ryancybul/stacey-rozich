@@ -17,7 +17,7 @@ Burger.propTypes = {
 export default Burger;
 
 export const StyledBurger = styled.button`
-  position: absolute;
+  position: fixed;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
