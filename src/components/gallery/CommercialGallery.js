@@ -4,7 +4,8 @@ import Artwork from './Artwork';
 
 const CommercialGallery = () => {
   const data = commercialArtQuery().allWordpressWpMedia.edges;
-  const [allArt, setArtwork] = useState({ data: [] });
+  const [allArt, setArtwork] = useState([]);
+  const [allSources, setSources] = useState([]);
 
   useEffect(() => {
     setArtwork(
@@ -23,9 +24,14 @@ const CommercialGallery = () => {
         };
       })
     );
+    setSources(
+      data.map(function(image) {
+        return image.node.localFile.childImageSharp.original.src;
+      })
+    );
   }, [data]);
 
-  return <Artwork artwork={allArt} />;
+  return <Artwork artwork={allArt} lightboxSources={allSources} />;
 };
 
 export default CommercialGallery;

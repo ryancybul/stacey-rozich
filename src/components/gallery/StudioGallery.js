@@ -5,6 +5,7 @@ import Artwork from './Artwork';
 const StudioGallery = () => {
   const data = studioArtQuery().allWordpressWpMedia.edges;
   const [allArt, setArtwork] = useState([]);
+  const [allSources, setSources] = useState([]);
 
   useEffect(() => {
     setArtwork(
@@ -23,9 +24,14 @@ const StudioGallery = () => {
         };
       })
     );
+    setSources(
+      data.map(function(image) {
+        return image.node.localFile.childImageSharp.original.src;
+      })
+    );
   }, [data]);
 
-  return <Artwork artwork={allArt} />;
+  return <Artwork artwork={allArt} lighbtoxSources={allSources} />;
 };
 
 export default StudioGallery;

@@ -4,12 +4,11 @@ import Gallery from 'react-photo-gallery';
 import styled from 'styled-components';
 import { useWindowWidth } from '@react-hook/window-size';
 
-const Artwork = ({ artwork }) => {
+const Artwork = ({ artwork, lighbtoxSources }) => {
   const [lightboxDisplay, setLightboxDisplay] = useState(false);
   const [imageToShow, setImageToShow] = useState('');
   const [columnNum, setColumnNum] = useState();
   const width = useWindowWidth();
-  const lightboxSources = artwork.map(art => art.src);
 
   useEffect(() => {
     if (width >= 1200) {
@@ -34,23 +33,23 @@ const Artwork = ({ artwork }) => {
   // Show next and previous image in lightbox
   const showNext = e => {
     e.stopPropagation();
-    const currentIndex = lightboxSources.indexOf(imageToShow);
-    if (currentIndex >= lightboxSources.length - 1) {
+    const currentIndex = lighbtoxSources.indexOf(imageToShow);
+    if (currentIndex >= lighbtoxSources.length - 1) {
       setLightboxDisplay(false);
     } else {
-      const nextImage = lightboxSources[currentIndex + 1];
+      const nextImage = lighbtoxSources[currentIndex + 1];
       setImageToShow(nextImage);
     }
   };
 
   const showPrev = e => {
     e.stopPropagation();
-    const currentIndex = lightboxSources.indexOf(imageToShow);
+    const currentIndex = lighbtoxSources.indexOf(imageToShow);
     console.log({ currentIndex });
     if (currentIndex <= 0) {
       setLightboxDisplay(false);
     } else {
-      const nextImage = lightboxSources[currentIndex - 1];
+      const nextImage = lighbtoxSources[currentIndex - 1];
       setImageToShow(nextImage);
     }
   };
