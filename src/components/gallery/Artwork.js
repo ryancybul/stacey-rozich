@@ -126,12 +126,8 @@ const GalleryWrapper = styled.div`
   width: 100%;
   min-height: 100vh;
   padding: 0 1.5vw;
-  margin-top: 130px;
   @media only screen and (max-width: 400px) {
     /* pointer-events: none; */
-  }
-  @media only screen and (max-width: 650px) {
-    margin-top: 100px;
   }
 `;
 
@@ -160,10 +156,11 @@ const Lightbox = styled.div`
   justify-content: space-between;
   button {
     border: none;
-    background-color: var(--transparent);
+    background: transparent;
     cursor: pointer;
     width: 80px;
     height: 80px;
+    outline: 0;
     padding: 20px;
     z-index: 11;
     div {

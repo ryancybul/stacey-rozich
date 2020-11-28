@@ -8,7 +8,6 @@ import { useOnClickOutside } from '../../hooks/hooks';
 
 const Nav = () => {
   const [open, setOpen] = useState(false);
-  const [hidden, sethidden] = useState(true);
   const node = useRef();
   useOnClickOutside(node, () => setOpen(false));
 
@@ -29,7 +28,7 @@ const Nav = () => {
             <Img
               className="logo"
               fluid={data.logo.childImageSharp.fluid}
-              loading="eager"
+              critical
             />
             <div className="divRight">
               <a href="https://staceyrozich.bigcartel.com/" target="_blank">
@@ -49,8 +48,7 @@ export default Nav;
 
 const NavWrapper = styled.nav`
   padding: 1rem 0;
-  position: absolute;
-  width: 100%;
+  width: 100vw;
   max-width: 1920px;
   z-index: 2;
   @media only screen and (min-width: 650px) {
@@ -65,16 +63,15 @@ const NavMain = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 0.5rem;
-
   a {
     font-size: var(--mediumText);
     &[aria-current='page'] {
       color: var(--secondary);
       border-bottom: 2px solid var(--secondary);
     }
-    a:hover {
-      border-bottom: 2px solid var(--black);
-    }
+  }
+  a:hover {
+    border-bottom: 2px solid var(--secondary);
   }
   .divLeft {
     margin-left: 1.5rem;
@@ -89,7 +86,7 @@ const NavMain = styled.div`
     }
   }
   .logo {
-    width: 11rem;
+    width: 9rem;
   }
   @media only screen and (max-width: 825px) {
     a {
@@ -129,7 +126,7 @@ export const query = graphql`
   query {
     logo: file(relativePath: { eq: "Logo_StaceyRozich.png" }) {
       childImageSharp {
-        fluid(maxWidth: 700, quality: 100) {
+        fluid(maxWidth: 200, quality: 100) {
           ...GatsbyImageSharpFluid_noBase64
         }
       }

@@ -131,6 +131,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   line-height: 1.3;
   letter-spacing: 1.35px;
+  transform: translateY(-130px);
 `;
 
 const Introduction = styled.div`
