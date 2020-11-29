@@ -26,7 +26,6 @@
     "react-helmet": "^6.1.0",
     "react-measure": "^2.5.2",
     "react-photo-gallery": "^8.0.0",
-    "simple-react-lightbox": "^3.3.4-2",
     "styled-components": "^5.2.1"
   },
   "devDependencies": {
