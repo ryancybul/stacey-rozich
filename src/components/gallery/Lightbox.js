@@ -54,7 +54,6 @@ const Lightbox = ({ selectedImage, lighbtoxSources }) => {
 
   // Keyboard nav
   const keyHandler = e => {
-    console.log(e);
     if (e.keyCode === 37) {
       showPrev(e);
     } else if (e.keyCode === 39) {

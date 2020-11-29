@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import { StaticQuery, Link, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
+import disableScroll from 'disable-scroll';
 import Burger from './Burger';
 import BurgerMenu from './BurgerMenu.js';
 import { useOnClickOutside } from '../../hooks/hooks';
@@ -10,6 +11,9 @@ const Nav = () => {
   const [open, setOpen] = useState(false);
   const node = useRef();
   useOnClickOutside(node, () => setOpen(false));
+
+  // Disable scroll if mobile nav is open
+  open ? disableScroll.on() : disableScroll.off();
 
   return (
     <StaticQuery
