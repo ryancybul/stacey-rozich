@@ -1,6 +1,7 @@
 /* eslint-disable react/button-has-type */
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import disableScroll from 'disable-scroll';
 
 const Lightbox = ({ selectedImage, lighbtoxSources }) => {
   const [imageToShow, setImageToShow] = useState('');
@@ -12,6 +13,14 @@ const Lightbox = ({ selectedImage, lighbtoxSources }) => {
     setImageToShow(selectedImage);
     selectedImage != '' ? setLightboxDisplay(true) : null;
   }, [selectedImage]);
+
+  useEffect(() => {
+    window.addEventListener('keydown', keyHandler);
+    // Remove event listeners on cleanup
+    return () => {
+      window.removeEventListener('keydown', keyHandler);
+    };
+  });
 
   const hideLightbox = () => {
     setLightboxDisplay(false);
@@ -43,7 +52,20 @@ const Lightbox = ({ selectedImage, lighbtoxSources }) => {
     }
   };
 
-  // Add event listeners for keyhandlers
+  // Keyboard nav
+  const keyHandler = e => {
+    console.log(e);
+    if (e.keyCode === 37) {
+      showPrev(e);
+    } else if (e.keyCode === 39) {
+      showNext(e);
+    } else if (e.keyCode === 27) {
+      hideLightbox(e);
+    }
+  };
+
+  // Prevent scrolling when lightbox is active
+  lightboxDisplay ? disableScroll.on() : disableScroll.off();
 
   // If lightbox image is music video display iFrame
   if (imageToShow === '/static/img-1-2a8132b25a74466576f4bc44d9653885.jpg') {
@@ -55,8 +77,8 @@ const Lightbox = ({ selectedImage, lighbtoxSources }) => {
         allowFullScreen
         controls="0"
         frameBorder="0"
-        width="560"
-        height="315"
+        width="840"
+        height="472.5"
       />
     );
   } else if (
@@ -70,8 +92,8 @@ const Lightbox = ({ selectedImage, lighbtoxSources }) => {
         allowFullScreen
         controls="0"
         frameBorder="0"
-        width="560"
-        height="315"
+        width="840"
+        height="472.5"
       />
     );
   } else {

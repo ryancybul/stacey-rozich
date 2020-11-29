@@ -28,7 +28,7 @@ const Nav = () => {
             <Img
               className="logo"
               fluid={data.logo.childImageSharp.fluid}
-              critical
+              loading="eager"
             />
             <div className="divRight">
               <a href="https://staceyrozich.bigcartel.com/" target="_blank">
@@ -61,8 +61,8 @@ const NavWrapper = styled.nav`
 const NavMain = styled.div`
   align-items: center;
   display: flex;
+  height: var(--headerHeight);
   justify-content: space-between;
-  margin-top: 0.5rem;
   a {
     font-size: var(--mediumText);
     &[aria-current='page'] {

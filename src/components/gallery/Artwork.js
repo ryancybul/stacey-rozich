@@ -23,8 +23,9 @@ const Artwork = ({ artwork, lighbtoxSources }) => {
   }, [width]);
 
   // Set the image for the lightbox the image lightbox
-  const showImage = image => {
-    setLightboxImage(image);
+  const showImage = async image => {
+    await setLightboxImage(null);
+    await setLightboxImage(image);
   };
 
   const GatsbyImage = ({ index, photo, top, left, key }) => (

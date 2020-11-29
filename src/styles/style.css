@@ -65,6 +65,9 @@
     --headerHeight: 3rem;
     --borderRadius: 10px;
 
+    /* Misc Variables */
+    --headerHeight: 90px;
+
     max-width: 1920px;
     margin-left: auto;
     margin-right: auto;
@@ -133,6 +136,11 @@ header nav a {
 
 header nav a + a {
   margin-left: 10px;
+}
+
+.headroom-wrapper .kJYmak{
+  height: var(--headerHeight);
+  padding: 0;
 }
 
 footer {
