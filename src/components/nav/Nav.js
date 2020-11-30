@@ -75,7 +75,7 @@ const NavMain = styled.div`
     }
   }
   a:hover {
-    border-bottom: 2px solid var(--secondary);
+    color: var(--secondary);
   }
   .divLeft {
     margin-left: 1.5rem;
