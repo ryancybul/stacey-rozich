@@ -110,7 +110,7 @@ const Lightbox = ({ selectedImage, lighbtoxSources }) => {
                 xmlns="http://www.w3.org/2000/svg"
                 xmlnsXlink="http://www.w3.org/1999/xlink"
                 viewBox="0 0 50 50"
-                className="svgLightbox"
+                version="1.1"
               >
                 <path d="M27.92 25l8.84-8.84 1.82-1.82c.27-.27.27-.71 0-.97l-1.95-1.95a.682.682 0 0 0-.97 0L25 22.08 14.34 11.42a.682.682 0 0 0-.97 0l-1.95 1.95c-.27.27-.27.71 0 .97L22.08 25 11.42 35.66c-.27.27-.27.71 0 .97l1.95 1.95c.27.27.71.27.97 0L25 27.92l8.84 8.84 1.82 1.82c.27.27.71.27.97 0l1.95-1.95c.27-.27.27-.71 0-.97L27.92 25z"></path>
               </svg>
@@ -166,14 +166,8 @@ const LightboxWrapper = styled.div`
       justify-content: center;
     }
     svg {
-      fill: #e97b7c !important;
-      stroke: #e97b7c !important;
-      display: block;
-      height: 100%;
-      width: auto;
-    }
-    .svgLightbox use {
-      fill: #e97b7c !important;
+      position: relative;
+      fill: #e97b7c;
     }
   }
   .closeButton {
