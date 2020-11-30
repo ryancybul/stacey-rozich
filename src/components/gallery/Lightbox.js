@@ -165,7 +165,7 @@ const LightboxWrapper = styled.div`
       justify-content: center;
     }
     svg {
-      fill: var(--secondary);
+      fill: #e97b7c !important;
       display: block;
       height: 100%;
       width: auto;
