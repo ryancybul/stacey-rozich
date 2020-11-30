@@ -130,7 +130,9 @@ const Lightbox = ({ selectedImage, lighbtoxSources }) => {
             </div>
           </button>
         </LightboxWrapper>
-      ) :}
+      ) : (
+        ''
+      )}
     </>
   );
 };
