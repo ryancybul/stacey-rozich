@@ -162,6 +162,8 @@ const LightboxWrapper = styled.div`
     }
     svg {
       fill: var(--secondary);
+      height: 100%;
+      width: auto;
     }
   }
   .closeButton {
