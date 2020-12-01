@@ -28,23 +28,76 @@ const Artwork = ({ artwork, lighbtoxSources }) => {
     await setLightboxImage(image);
   };
 
-  const GatsbyImage = ({ index, photo, top, left, key }) => (
-    <ImageWrapper
-      index={index}
-      key={key}
-      tabIndex={index}
-      onClick={() => showImage(photo.src)}
-      style={{
-        height: photo.height,
-        width: photo.width,
-        position: 'absolute',
-        top,
-        left,
-      }}
-    >
-      <Img fluid={photo.fluid} alt={photo.title} loading="auto" />
-    </ImageWrapper>
-  );
+  const GatsbyImage = ({ index, photo, top, left, key }) => {
+    if (photo.id === '6ab22f6d-d00b-5f6a-a5ed-42caa9b7d21d' && width <= 430) {
+      return (
+        <ImageWrapper
+          style={{
+            height: photo.height,
+            width: photo.width,
+            position: 'absolute',
+            top,
+            left,
+          }}
+          index={index}
+          key={key}
+          tabIndex={index}
+        >
+          <iframe
+            title={photo.title}
+            src="https://www.youtube.com/embed/tnu_O5P8P5I?wmode=opaque&enablejsapi=1&autoplay=0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; "
+            allowFullScreen
+            controls="0"
+            frameBorder="0"
+          />
+        </ImageWrapper>
+      );
+    }
+    if (photo.id === '40b2ecab-d7b3-572c-a273-21a4fcf9c9d1' && width <= 430) {
+      return (
+        <ImageWrapper
+          style={{
+            height: photo.height,
+            width: photo.width,
+            position: 'absolute',
+            top,
+            left,
+          }}
+          index={index}
+          key={key}
+          tabIndex={index}
+        >
+          <iframe
+            title={photo.title}
+            src="https://www.youtube.com/embed/9yAxIdkF2Qo?wmode=opaque&enablejsapi=1&autoplay=0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; "
+            allowFullScreen
+            controls="0"
+            frameBorder="0"
+          />
+        </ImageWrapper>
+      );
+    }
+    return (
+      <ImageWrapper
+        href={photo.src}
+        data-attribute="SRL"
+        index={index}
+        key={key}
+        tabIndex={index}
+        style={{
+          height: photo.height,
+          width: photo.width,
+          position: 'absolute',
+          top,
+          left,
+        }}
+      >
+        <Img fluid={photo.fluid} alt={photo.title} loading="auto" />
+      </ImageWrapper>
+    );
+  };
 
   return (
     <>
@@ -73,7 +126,9 @@ const GalleryWrapper = styled.div`
   padding: 0 1.5vw;
   // Media query for width of iPhone 12 Pro Max
   @media only screen and (max-width: 430px) {
-    pointer-events: none;
+    .gatsby-image-wrapper {
+      pointer-events: none;
+    }
   }
 `;
 
@@ -83,6 +138,14 @@ const ImageWrapper = styled.div`
   padding: 10px;
   :focus {
     outline: none;
+  }
+  iframe {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
   }
   .gatsby-image-wrapper {
     color: transparent;
