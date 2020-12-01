@@ -83,6 +83,7 @@ const Artwork = ({ artwork, lighbtoxSources }) => {
       <ImageWrapper
         href={photo.src}
         data-attribute="SRL"
+        onClick={() => setLightboxImage(photo.src)}
         index={index}
         key={key}
         tabIndex={index}
