@@ -1,11 +1,13 @@
 /* eslint-disable react/button-has-type */
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { useWindowWidth } from '@react-hook/window-size';
 import disableScroll from 'disable-scroll';
 
 const Lightbox = ({ selectedImage, lighbtoxSources }) => {
   const [imageToShow, setImageToShow] = useState('');
   const [lightboxDisplay, setLightboxDisplay] = useState(false);
+  const width = useWindowWidth();
   let lightboxImage;
 
   // Sets the image to display and opens the ligthbox
@@ -21,6 +23,11 @@ const Lightbox = ({ selectedImage, lighbtoxSources }) => {
       window.removeEventListener('keydown', keyHandler);
     };
   });
+
+  useEffect(() => {
+    // Hides lightbox on mobile
+    width <= 430 ? setLightboxDisplay(false) : null;
+  }, [width]);
 
   const hideLightbox = () => {
     setLightboxDisplay(false);
@@ -176,6 +183,9 @@ const LightboxWrapper = styled.div`
     top: 0;
     right: 0;
     padding: 20px;
+  }
+  // Media query for width of iPhone 12 Pro Max
+  @media only screen and (max-width: 430px) {
   }
 `;
 

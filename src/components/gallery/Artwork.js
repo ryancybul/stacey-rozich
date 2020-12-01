@@ -59,6 +59,7 @@ const Artwork = ({ artwork, lighbtoxSources }) => {
       <Lightbox
         selectedImage={selectedImage}
         lighbtoxSources={lighbtoxSources}
+        width={width}
       />
     </>
   );
@@ -70,8 +71,9 @@ const GalleryWrapper = styled.div`
   width: 100%;
   min-height: 100vh;
   padding: 0 1.5vw;
-  @media only screen and (max-width: 400px) {
-    /* pointer-events: none; */
+  // Media query for width of iPhone 12 Pro Max
+  @media only screen and (max-width: 430px) {
+    pointer-events: none;
   }
 `;
 

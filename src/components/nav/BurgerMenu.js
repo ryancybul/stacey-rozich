@@ -31,7 +31,7 @@ const BurgerMenu = ({ open, setOpen }) => (
     </div>
     <div>
       <Link to="/about/" onClick={() => setOpen(!open)}>
-        About
+        Info
       </Link>
     </div>
   </StyledMenu>

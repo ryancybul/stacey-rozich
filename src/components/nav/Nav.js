@@ -39,7 +39,7 @@ const Nav = () => {
                 Shop
               </a>
               <Link to="/blog/">Blog</Link>
-              <Link to="/about/">About</Link>
+              <Link to="/about/">Info</Link>
             </div>
           </NavMain>
         </NavWrapper>
