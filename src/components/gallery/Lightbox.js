@@ -3,6 +3,9 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useWindowWidth } from '@react-hook/window-size';
 import disableScroll from 'disable-scroll';
+import leftArrow from '../../images/leftArrow.png';
+import rightArrow from '../../images/rightArrow.png';
+import closeButton from '../../images/closeButton.png';
 
 const Lightbox = ({ selectedImage, lighbtoxSources }) => {
   const [imageToShow, setImageToShow] = useState('');
@@ -113,28 +116,17 @@ const Lightbox = ({ selectedImage, lighbtoxSources }) => {
           <LightboxImageWrapper>{lightboxImage}</LightboxImageWrapper>
           <button onClick={hideLightbox} title="Close" className="closeButton">
             <div>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                xmlnsXlink="http://www.w3.org/1999/xlink"
-                viewBox="0 0 50 50"
-                version="1.1"
-              >
-                <path d="M27.92 25l8.84-8.84 1.82-1.82c.27-.27.27-.71 0-.97l-1.95-1.95a.682.682 0 0 0-.97 0L25 22.08 14.34 11.42a.682.682 0 0 0-.97 0l-1.95 1.95c-.27.27-.27.71 0 .97L22.08 25 11.42 35.66c-.27.27-.27.71 0 .97l1.95 1.95c.27.27.71.27.97 0L25 27.92l8.84 8.84 1.82 1.82c.27.27.71.27.97 0l1.95-1.95c.27-.27.27-.71 0-.97L27.92 25z"></path>
-              </svg>
+              <img src={closeButton} alt="Close ligthbox" />
             </div>
           </button>
           <button onClick={showPrev} title="Previous">
             <div>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
-                <path d="M25.47 38.64l.44-.44c.29-.29.29-.76 0-1.05L14.82 26.06h23.35c.41 0 .75-.33.75-.75v-.62c0-.41-.33-.75-.75-.75H14.82l11.09-11.09c.29-.29.29-.76 0-1.05l-.44-.44a.742.742 0 0 0-1.05 0L11.31 24.47c-.29.29-.29.76 0 1.05l13.11 13.11c.29.3.76.3 1.05.01z"></path>
-              </svg>
+              <img src={leftArrow} alt="Next" />
             </div>
           </button>
           <button onClick={showNext} title="Next">
             <div>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
-                <path d="M24.53 11.36l-.44.44c-.29.29-.29.76 0 1.05l11.09 11.09H11.83c-.41 0-.75.33-.75.75v.62c0 .41.33.75.75.75h23.35L24.09 37.14c-.29.29-.29.76 0 1.05l.44.44c.29.29.76.29 1.05 0l13.11-13.11c.29-.29.29-.76 0-1.05l-13.1-13.11a.754.754 0 0 0-1.06 0z"></path>
-              </svg>
+              <img src={rightArrow} alt="Previous" />
             </div>
           </button>
         </LightboxWrapper>
@@ -173,9 +165,10 @@ const LightboxWrapper = styled.div`
       justify-content: center;
       position: relative;
     }
-    svg {
+    img {
       position: relative;
-      fill: #e97b7c;
+      height: 50px;
+      width: 50px;
     }
   }
   .closeButton {
