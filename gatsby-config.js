@@ -25,7 +25,6 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     'gatsby-plugin-styled-components',
-
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -37,4 +36,9 @@ module.exports = {
       },
     },
   ],
+  flags: {
+    LAZY_IMAGES: true,
+    PRESERVE_WEBPACK_CACHE: true,
+    PRESERVE_FILE_DOWNLOAD_CACHE: true,
+  },
 };

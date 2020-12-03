@@ -83,7 +83,7 @@ const Artwork = ({ artwork, lighbtoxSources }) => {
       <ImageWrapper
         href={photo.src}
         data-attribute="SRL"
-        onClick={() => setLightboxImage(photo.src)}
+        onClick={() => showImage(photo.src)}
         index={index}
         key={key}
         tabIndex={index}
@@ -125,12 +125,6 @@ const GalleryWrapper = styled.div`
   width: 100%;
   min-height: 100vh;
   padding: 0 1.5vw;
-  // Media query for width of iPhone 12 Pro Max
-  @media only screen and (max-width: 430px) {
-    .gatsby-image-wrapper {
-      pointer-events: none;
-    }
-  }
 `;
 
 const ImageWrapper = styled.div`
@@ -150,5 +144,9 @@ const ImageWrapper = styled.div`
   }
   .gatsby-image-wrapper {
     color: transparent;
+  }
+  // Media query for width of iPhone 12 Pro Max
+  @media only screen and (max-width: 430px) {
+    pointer-events: none;
   }
 `;
