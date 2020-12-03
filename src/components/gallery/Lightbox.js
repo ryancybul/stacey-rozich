@@ -148,7 +148,7 @@ const LightboxWrapper = styled.div`
   height: 100%;
   background-color: rgba(0, 0, 0, 0.9);
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
   button {
     border: none;
@@ -167,8 +167,8 @@ const LightboxWrapper = styled.div`
     }
     img {
       position: relative;
-      height: 50px;
-      width: 50px;
+      height: 40px;
+      width: 40px;
     }
   }
   .closeButton {
@@ -185,7 +185,7 @@ const LightboxWrapper = styled.div`
 const LightboxImageWrapper = styled.div`
   position: absolute;
   width: 100%;
-  height: 90%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -195,7 +195,7 @@ const LightboxImageWrapper = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
     max-width: 100%;
-    max-height: 100%;
+    max-height: 90%;
     width: auto;
     height: auto;
   }
