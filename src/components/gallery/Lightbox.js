@@ -114,21 +114,23 @@ const Lightbox = ({ selectedImage, lighbtoxSources }) => {
       {lightboxDisplay ? (
         <LightboxWrapper id="lightbox" onClick={hideLightbox}>
           <LightboxImageWrapper>{lightboxImage}</LightboxImageWrapper>
-          <button onClick={hideLightbox} title="Close" className="closeButton">
-            <div>
+          <button onClick={hideLightbox} title="Close">
+            <div className="closeButton">
               <img src={closeButton} alt="Close ligthbox" />
             </div>
           </button>
-          <button onClick={showPrev} title="Previous">
-            <div>
-              <img src={leftArrow} alt="Next" />
-            </div>
-          </button>
-          <button onClick={showNext} title="Next">
-            <div>
-              <img src={rightArrow} alt="Previous" />
-            </div>
-          </button>
+          <div>
+            <button onClick={showPrev} title="Previous">
+              <div>
+                <img src={leftArrow} alt="Next" />
+              </div>
+            </button>
+            <button onClick={showNext} title="Next">
+              <div>
+                <img src={rightArrow} alt="Previous" />
+              </div>
+            </button>
+          </div>
         </LightboxWrapper>
       ) : (
         ''
@@ -148,34 +150,38 @@ const LightboxWrapper = styled.div`
   height: 100%;
   background-color: rgba(0, 0, 0, 0.9);
   display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
   button {
     border: none;
     background: transparent;
     cursor: pointer;
-    width: 80px;
-    height: 80px;
     outline: 0;
-    padding: 20px;
     z-index: 11;
     div {
-      display: flex;
       align-items: center;
+      display: flex;
       justify-content: center;
       position: relative;
+      width: 80px;
+      height: 50px;
     }
     img {
+      /* border: 1px solid red; */
       position: relative;
       height: 40px;
       width: 40px;
     }
   }
   .closeButton {
+    justify-content: flex-end;
     position: absolute;
     top: 0;
     right: 0;
-    padding: 20px;
+    img {
+      margin: 10px;
+    }
   }
   // Media query for width of iPhone 12 Pro Max
   @media only screen and (max-width: 430px) {
@@ -183,7 +189,7 @@ const LightboxWrapper = styled.div`
 `;
 
 const LightboxImageWrapper = styled.div`
-  position: absolute;
+  position: relative;
   width: 100%;
   height: 100%;
   display: flex;
@@ -195,7 +201,7 @@ const LightboxImageWrapper = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
     max-width: 100%;
-    max-height: 90%;
+    max-height: 100%;
     width: auto;
     height: auto;
   }
