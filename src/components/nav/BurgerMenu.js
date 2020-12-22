@@ -68,6 +68,7 @@ export const StyledMenu = styled.nav`
     color: var(--secondary);
     font-size: 1.75rem;
     font-weight: bold;
+    transition: all 0.2s ease-in-out;
     &:hover {
       border-bottom: 2px solid var(--secondary);
     }

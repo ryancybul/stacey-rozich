@@ -1,3 +1,7 @@
+require('dotenv').config({
+  path: `./.env.${process.env.NODE_ENV}`,
+});
+
 module.exports = {
   siteMetadata: {
     title: `Stacey Rozich`,
@@ -8,10 +12,19 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress`,
       options: {
-        baseUrl: `54.212.35.84`,
+        baseUrl: process.env.WPGRAPHQL_URL,
         protocol: `http`,
         hostingWPCOM: false,
         useACF: true,
+        minimizeDeprecationNotice: true,
+        includedRoutes: [
+          '**/categories',
+          '**/posts',
+          '**/media',
+          '**/tags',
+          '**/taxonomies',
+          '**/users',
+        ],
       },
     },
     `gatsby-plugin-react-helmet`,
@@ -28,7 +41,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
+        name: `Stacey Rozich`,
         short_name: `starter`,
         start_url: `/`,
         display: `minimal-ui`,

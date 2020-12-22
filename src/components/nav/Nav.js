@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import disableScroll from 'disable-scroll';
 import Burger from './Burger';
 import BurgerMenu from './BurgerMenu.js';
-import { useOnClickOutside } from '../../hooks/hooks';
+import { useOnClickOutside } from '../../hooks/useOnClickOutside';
 
 const Nav = () => {
   const [open, setOpen] = useState(false);
@@ -69,6 +69,7 @@ const NavMain = styled.div`
   justify-content: space-between;
   a {
     font-size: var(--mediumText);
+    transition: all 0.2s ease-in-out;
     &[aria-current='page'] {
       color: var(--secondary);
       border-bottom: 2px solid var(--secondary);

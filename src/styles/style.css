@@ -148,6 +148,11 @@ header nav a + a {
   padding: 0;
 }
 
+.flexCenter{
+  display: flex;
+  align-self: center;
+}
+
 footer {
   color: var(--footerTextColor);
   padding: 2rem var(--containerPadding);

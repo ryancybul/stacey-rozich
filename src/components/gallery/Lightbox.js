@@ -1,8 +1,8 @@
 /* eslint-disable react/button-has-type */
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { useWindowWidth } from '@react-hook/window-size';
 import disableScroll from 'disable-scroll';
+import useWindowWidth from '../../hooks/useWindowWidth';
 import leftArrow from '../../images/leftArrow.png';
 import rightArrow from '../../images/rightArrow.png';
 import closeButton from '../../images/closeButton.png';
@@ -208,5 +208,13 @@ const LightboxImageWrapper = styled.div`
   iframe {
     max-width: 100%;
     max-height: 100%;
+  }
+  .fadeIn {
+    opacity: 1;
+    transition: width 0.5s, height 0.5s, opacity 0.5s 0.5s;
+  }
+  .fadeOut {
+    opacity: 0;
+    transition: width 0.5s 0.5s, height 0.5s 0.5s, opacity 0.5s;
   }
 `;

@@ -5,10 +5,11 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
-    "@react-hook/window-size": "^3.0.7",
+    "@wordpress/block-library": "^2.26.6",
     "disable-scroll": "^0.5.1",
+    "dotenv": "^8.2.0",
     "gatsby": "^2.27.0",
-    "gatsby-cli": "^2.14.0",
+    "gatsby-cli": "^2.15.1",
     "gatsby-image": "^2.6.0",
     "gatsby-plugin-manifest": "^2.7.0",
     "gatsby-plugin-offline": "^3.5.0",
@@ -17,8 +18,9 @@
     "gatsby-plugin-styled-components": "^3.5.0",
     "gatsby-source-filesystem": "^2.6.0",
     "gatsby-source-graphql": "^2.9.0",
-    "gatsby-source-wordpress": "^3.6.0",
+    "gatsby-source-wordpress": "^3.7.0",
     "gatsby-transformer-sharp": "^2.7.0",
+    "html-react-parser": "^1.0.0",
     "normalize.css": "^8.0.1",
     "prop-types": "^15.7.2",
     "react": "^16.14.0",
@@ -42,6 +44,7 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^1.7.0",
+    "esm": "^3.2.25",
     "prettier": "^1.19.1"
   },
   "keywords": [
@@ -49,15 +52,15 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
+    "build": "npx --node-arg '-r esm' gatsby build",
+    "develop": "npx --node-arg '-r esm' gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
+    "start": "npx --node-arg '-r esm' npm run develop",
+    "serve": "npx --node-arg '-r esm' gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
   },
   "repository": {
     "type": "git",

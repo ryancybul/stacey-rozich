@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Img from 'gatsby-image';
 import Gallery from 'react-photo-gallery';
 import styled from 'styled-components';
-import { useWindowWidth } from '@react-hook/window-size';
+import useWindowWidth from '../../hooks/useWindowWidth';
 import Lightbox from './Lightbox';
 
 const Artwork = ({ artwork, lighbtoxSources }) => {
