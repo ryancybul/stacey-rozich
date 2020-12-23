@@ -12,19 +12,19 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress`,
       options: {
-        baseUrl: process.env.WPGRAPHQL_URL,
+        baseUrl: '54.212.35.84',
         protocol: `http`,
         hostingWPCOM: false,
         useACF: true,
         minimizeDeprecationNotice: true,
-        // includedRoutes: [
-        //   '**/categories',
-        //   '**/posts',
-        //   '**/media',
-        //   '**/tags',
-        //   '**/taxonomies',
-        //   '**/users',
-        // ],
+        includedRoutes: [
+          '**/categories',
+          '**/posts',
+          '**/media',
+          '**/tags',
+          '**/taxonomies',
+          '**/users',
+        ],
       },
     },
     `gatsby-plugin-react-helmet`,
