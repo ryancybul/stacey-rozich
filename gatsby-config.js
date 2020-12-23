@@ -1,6 +1,13 @@
+const activeEnv =
+  process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || 'development';
+
+console.log(`Using environment config: '${activeEnv}'`);
+
 require('dotenv').config({
-  path: `./.env.${process.env.NODE_ENV}`,
+  path: `./.env.${activeEnv}`,
 });
+
+console.log(`This WordPress Endpoint is used: '${process.env.WORDPRESS_URL}'`);
 
 module.exports = {
   siteMetadata: {
@@ -12,7 +19,7 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress`,
       options: {
-        baseUrl: '54.212.35.84',
+        baseUrl: process.env.WORDPRESS_URL,
         protocol: `http`,
         hostingWPCOM: false,
         useACF: true,

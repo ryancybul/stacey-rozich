@@ -80,10 +80,9 @@ const PostStyles = styled.div`
   flex-direction: column;
   background-color: var(--primary);
   border-radius: 25px;
-  margin: 40px;
+  margin: 30px;
   padding: 15px;
   min-height: 400px;
-  
   width: 350px;
   -webkit-box-shadow: 5px 5px 15px 5px #ff8080, -9px 5px 15px 5px #ffe488,
       -7px -5px 15px 5px #8cff85, 12px -5px 15px 5px #80c7ff,
