@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import disableScroll from 'disable-scroll';
-import useWindowWidth from '../../hooks/useWindowWidth';
+import { useWindowWidth } from '@react-hook/window-size';
 import leftArrow from '../../images/leftArrow.png';
 import rightArrow from '../../images/rightArrow.png';
 import closeButton from '../../images/closeButton.png';

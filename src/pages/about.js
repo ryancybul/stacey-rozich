@@ -126,6 +126,12 @@ const about = () => {
 
 export default about;
 
+// export const query = graphql`
+//   query {
+
+//   }
+// `
+
 const Wrapper = styled.div`
   align-items: center;
   display: flex;
