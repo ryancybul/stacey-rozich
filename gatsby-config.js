@@ -12,7 +12,7 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress`,
       options: {
-        baseUrl: '54.212.35.84',
+        baseUrl: process.env.WPGRAPHQL_URL,
         protocol: `http`,
         hostingWPCOM: false,
         useACF: true,
