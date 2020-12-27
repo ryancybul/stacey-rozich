@@ -24,6 +24,15 @@ module.exports = {
         hostingWPCOM: false,
         useACF: true,
         minimizeDeprecationNotice: true,
+        plugins: [
+          {
+            resolve: `@draftbox-co/gatsby-wordpress-inline-images`,
+            options: {
+              baseUrl: `54.212.35.84`,
+              protocol: `http`,
+            },
+          },
+        ],
       },
     },
     `gatsby-plugin-react-helmet`,
