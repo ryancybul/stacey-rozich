@@ -16,6 +16,11 @@ const BurgerMenu = ({ open, setOpen }) => (
       </Link>
     </div>
     <div>
+      <Link to="/murals" onClick={() => setOpen(!open)}>
+        Mural
+      </Link>
+    </div>
+    <div>
       <a
         href="https://staceyrozich.bigcartel.com/"
         target="_blank"

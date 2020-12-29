@@ -30,6 +30,13 @@ module.exports = {
             options: {
               baseUrl: `54.212.35.84`,
               protocol: `http`,
+              wrapperStyle: ``,
+              maxWidth: 650,
+              postTypes: ['post'],
+              withWebp: true, // enable WebP files generation
+              useACF: false, // process <img> tags in ACF fields too
+              // add any image sharp fluid options here
+              // ...
             },
           },
         ],

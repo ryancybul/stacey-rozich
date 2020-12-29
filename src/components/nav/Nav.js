@@ -28,6 +28,7 @@ const Nav = () => {
             <div className="divLeft">
               <Link to="/commercial/">Commercial</Link>
               <Link to="/">Studio</Link>
+              <Link to="/murals">Mural</Link>
             </div>
             <Img
               className="logo"
@@ -79,13 +80,15 @@ const NavMain = styled.div`
     color: var(--secondary);
   }
   .divLeft {
+    /* border: 1px solid red; */
     margin-left: 1.5rem;
     a {
-      margin-right: 3rem;
+      margin-right: 1.35rem;
     }
   }
   .divRight {
-    margin-right: 1.5rem;
+    /* border: 1px solid green; */
+    margin-right: 1.35rem;
     a {
       margin-left: 3rem;
     }
