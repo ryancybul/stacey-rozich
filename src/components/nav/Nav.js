@@ -103,7 +103,7 @@ const NavMain = styled.div`
     .divLeft {
       margin-left: 1rem;
       a {
-        margin-right: 1.5rem;
+        margin-right: 0.5rem;
       }
     }
     .divRight {
