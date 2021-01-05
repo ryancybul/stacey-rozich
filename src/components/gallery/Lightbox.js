@@ -34,6 +34,7 @@ const Lightbox = ({ selectedImage, lighbtoxSources }) => {
 
   const hideLightbox = () => {
     setLightboxDisplay(false);
+    setImageToShow('');
   };
 
   // Show next image in lightbox

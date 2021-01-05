@@ -12,6 +12,8 @@ const MuralGallery = () => {
       data.map(function(image) {
         return {
           alt: image.node.alt_text,
+          caption: image.node.caption,
+          date: image.node.date,
           title: image.node.title,
           fluid: image.node.localFile.childImageSharp.fluid,
           id: image.node.id,

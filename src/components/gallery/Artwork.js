@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Img from 'gatsby-image';
 import Gallery from 'react-photo-gallery';
 import styled from 'styled-components';
+import parse from 'html-react-parser';
 import { useWindowWidth } from '@react-hook/window-size';
 import Lightbox from './Lightbox';
 
@@ -60,9 +61,6 @@ const Artwork = ({ artwork, lighbtoxSources }) => {
           style={{
             height: photo.height,
             width: photo.width,
-            position: 'absolute',
-            top,
-            left,
           }}
           index={index}
           key={key}
@@ -95,7 +93,11 @@ const Artwork = ({ artwork, lighbtoxSources }) => {
           left,
         }}
       >
-        <Img fluid={photo.fluid} alt={photo.title} loading="auto" />
+        <Img fluid={photo.fluid} alt={photo.alt} loading="auto" />
+        <div className="imageInfo">
+          <h2>{parse(photo.title)}</h2>
+          <span>{photo.date}</span>
+        </div>
       </ImageWrapper>
     );
   };
@@ -128,11 +130,32 @@ const GalleryWrapper = styled.div`
 `;
 
 const ImageWrapper = styled.div`
+  cursor: pointer;
   display: block;
-  position: relative;
   padding: 10px;
   :focus {
     outline: none;
+  }
+  .imageInfo {
+    justify-content: center;
+    color: var(--secondary);
+    display: flex;
+    flex-direction: column;
+    transition: 0.5s ease;
+    opacity: 0;
+    position: absolute;
+    text-align: center;
+    top: 10px;
+    left: 10px;
+    bottom: 10px;
+    right: 10px;
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.75);
+      opacity: 1;
+    }
+    h2 {
+      font-size: 1.5rem;
+    }
   }
   iframe {
     top: 0;
@@ -143,6 +166,8 @@ const ImageWrapper = styled.div`
     padding: 10px;
   }
   .gatsby-image-wrapper {
+    width: 100%;
+    height: 100%;
     color: transparent;
   }
   // Media query for width of iPhone 12 Pro Max

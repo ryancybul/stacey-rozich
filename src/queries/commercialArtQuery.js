@@ -7,17 +7,20 @@ export const commercialArtQuery = () => {
         filter: {
           categories: { elemMatch: { name: { regex: "/Commercial/" } } }
         }
-        sort: {
-          order: DESC
-          fields: media_details___image_meta___created_timestamp
-        }
+        sort: { order: DESC, fields: date }
       ) {
         edges {
           node {
+            acf {
+              date_created
+            }
             categories {
               name
             }
             alt_text
+            caption
+            date(formatString: "M/YY")
+            description
             title
             id
             localFile {

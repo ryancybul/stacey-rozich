@@ -7,8 +7,6 @@ require('dotenv').config({
   path: `./.env.${activeEnv}`,
 });
 
-console.log(`This WordPress Endpoint is used: '${process.env.WORDPRESS_URL}'`);
-
 module.exports = {
   siteMetadata: {
     title: `Stacey Rozich`,
@@ -51,6 +49,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
     'gatsby-plugin-styled-components',
     {
