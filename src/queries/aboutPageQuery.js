@@ -38,6 +38,16 @@ export const aboutPageQuery = () => {
           }
         }
       }
+      interviews: allWordpressWpInterviews {
+        edges {
+          node {
+            title
+            acf {
+              hyperlink
+            }
+          }
+        }
+      }
     }
   `);
   return aboutData;

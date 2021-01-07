@@ -1,12 +1,13 @@
 import React from 'react';
-import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
+import parse from 'html-react-parser';
 import SEO from '../components/seo';
 import { aboutPageQuery } from '../queries/aboutPageQuery';
 
 const about = () => {
   const data = aboutPageQuery();
+  console.log({ data });
 
   const blogPosts = [
     'House of Vans',
@@ -79,20 +80,22 @@ const about = () => {
         <SelectedInterviews className="interviews">
           <h4>SELECTED INTERVIEWS AND FEATURES</h4>
           <div>
-            {blogPosts.map(post => (
-              <div className="blogButton">
-                {post}
-                <Img
-                  className="arrow"
-                  fluid={data.arrow.childImageSharp.fluid}
-                  alt="arrow"
-                />
-                <Img
-                  className="arrowPink"
-                  fluid={data.arrowPink.childImageSharp.fluid}
-                  alt="arrow"
-                />
-              </div>
+            {data.interviews.edges.map(post => (
+              <a href={post.node.acf.hyperlink} target="blank">
+                <div className="blogButton">
+                  {parse(post.node.title)}
+                  <Img
+                    className="arrow"
+                    fluid={data.arrow.childImageSharp.fluid}
+                    alt="arrow"
+                  />
+                  <Img
+                    className="arrowPink"
+                    fluid={data.arrowPink.childImageSharp.fluid}
+                    alt="arrow"
+                  />
+                </div>
+              </a>
             ))}
           </div>
         </SelectedInterviews>
@@ -125,12 +128,6 @@ const about = () => {
 };
 
 export default about;
-
-// export const query = graphql`
-//   query {
-
-//   }
-// `
 
 const Wrapper = styled.div`
   align-items: center;
