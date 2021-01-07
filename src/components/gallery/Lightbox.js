@@ -2,22 +2,21 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import disableScroll from 'disable-scroll';
+import parse from 'html-react-parser';
 import { useWindowWidth } from '@react-hook/window-size';
 import leftArrow from '../../images/leftArrow.png';
 import rightArrow from '../../images/rightArrow.png';
 import closeButton from '../../images/closeButton.png';
 
-const Lightbox = ({ selectedImage, lighbtoxSources }) => {
-  const [imageToShow, setImageToShow] = useState('');
-  const [lightboxDisplay, setLightboxDisplay] = useState(false);
+const Lightbox = ({ image, lightboxSources, toggleModal, modalOpen }) => {
+  const [imageToShow, setImageToShow] = useState({});
   const width = useWindowWidth();
   let lightboxImage;
 
   // Sets the image to display and opens the ligthbox
   useEffect(() => {
-    setImageToShow(selectedImage);
-    selectedImage != '' ? setLightboxDisplay(true) : null;
-  }, [selectedImage]);
+    setImageToShow(image);
+  }, [image]);
 
   useEffect(() => {
     window.addEventListener('keydown', keyHandler);
@@ -27,25 +26,20 @@ const Lightbox = ({ selectedImage, lighbtoxSources }) => {
     };
   });
 
-  useEffect(() => {
-    // Hides lightbox on mobile
-    width <= 430 ? setLightboxDisplay(false) : null;
-  }, [width]);
-
-  const hideLightbox = () => {
-    setLightboxDisplay(false);
-    setImageToShow('');
-  };
+  // useEffect(() => {
+  //   // Hides lightbox on mobile
+  //   width <= 430 ? toggleModal() : null;
+  // }, [toggleModal, width]);
 
   // Show next image in lightbox
   const showNext = e => {
     e.stopPropagation();
-    const currentIndex = lighbtoxSources.indexOf(imageToShow);
-    if (currentIndex >= lighbtoxSources.length - 1) {
-      const nextImage = lighbtoxSources[0];
+    const currentIndex = lightboxSources.indexOf(imageToShow);
+    if (currentIndex >= lightboxSources.length - 1) {
+      const nextImage = lightboxSources[0];
       setImageToShow(nextImage);
     } else {
-      const nextImage = lighbtoxSources[currentIndex + 1];
+      const nextImage = lightboxSources[currentIndex + 1];
       setImageToShow(nextImage);
     }
   };
@@ -53,12 +47,12 @@ const Lightbox = ({ selectedImage, lighbtoxSources }) => {
   // Shows previous image in lightbox
   const showPrev = e => {
     e.stopPropagation();
-    const currentIndex = lighbtoxSources.indexOf(imageToShow);
+    const currentIndex = lightboxSources.indexOf(imageToShow);
     if (currentIndex <= 0) {
-      const nextImage = lighbtoxSources[lighbtoxSources.length - 1];
+      const nextImage = lightboxSources[lightboxSources.length - 1];
       setImageToShow(nextImage);
     } else {
-      const nextImage = lighbtoxSources[currentIndex - 1];
+      const nextImage = lightboxSources[currentIndex - 1];
       setImageToShow(nextImage);
     }
   };
@@ -70,15 +64,17 @@ const Lightbox = ({ selectedImage, lighbtoxSources }) => {
     } else if (e.keyCode === 39) {
       showNext(e);
     } else if (e.keyCode === 27) {
-      hideLightbox(e);
+      toggleModal();
     }
   };
 
   // Prevent scrolling when lightbox is active
-  lightboxDisplay ? disableScroll.on() : disableScroll.off();
+  modalOpen ? disableScroll.on() : disableScroll.off();
 
   // If lightbox image is music video display iFrame
-  if (imageToShow === '/static/img-1-2a8132b25a74466576f4bc44d9653885.jpg') {
+  if (
+    imageToShow.src === '/static/img-1-2a8132b25a74466576f4bc44d9653885.jpg'
+  ) {
     lightboxImage = (
       <iframe
         title="Goat Hide From The Sun"
@@ -92,7 +88,7 @@ const Lightbox = ({ selectedImage, lighbtoxSources }) => {
       />
     );
   } else if (
-    imageToShow === '/static/img-c0f5b640adc30e0dfb2df2643f83f260.jpg'
+    imageToShow.src === '/static/img-c0f5b640adc30e0dfb2df2643f83f260.jpg'
   ) {
     lightboxImage = (
       <iframe
@@ -107,19 +103,28 @@ const Lightbox = ({ selectedImage, lighbtoxSources }) => {
       />
     );
   } else {
-    lightboxImage = <img id="lightbox-img" src={imageToShow} />;
+    lightboxImage = (
+      <img id="lightbox-img" src={imageToShow.src} alt={imageToShow.alt} />
+    );
   }
 
   return (
     <>
-      {lightboxDisplay ? (
-        <LightboxWrapper id="lightbox" onClick={hideLightbox}>
+      {modalOpen ? (
+        <LightboxWrapper id="lightbox" onClick={toggleModal}>
           <LightboxImageWrapper>{lightboxImage}</LightboxImageWrapper>
-          <button onClick={hideLightbox} title="Close">
+          <div className="imageInfo">
+            <p>
+              "{parse(imageToShow.title)}" - {parse(imageToShow.caption)}
+            </p>
+          </div>
+
+          <button onClick={toggleModal} title="Close">
             <div className="closeButton">
               <img src={closeButton} alt="Close ligthbox" />
             </div>
           </button>
+
           <div>
             <button onClick={showPrev} title="Previous">
               <div>
@@ -184,8 +189,13 @@ const LightboxWrapper = styled.div`
       margin: 10px;
     }
   }
-  // Media query for width of iPhone 12 Pro Max
-  @media only screen and (max-width: 430px) {
+
+  .imageInfo {
+    color: var(--secondary);
+    text-align: center;
+    p {
+      display: inline;
+    }
   }
 `;
 
@@ -196,6 +206,7 @@ const LightboxImageWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 25px;
   img {
     position: absolute;
     top: 50%;
@@ -217,5 +228,9 @@ const LightboxImageWrapper = styled.div`
   .fadeOut {
     opacity: 0;
     transition: width 0.5s 0.5s, height 0.5s 0.5s, opacity 0.5s;
+  }
+  // Media query for width of iPhone 12 Pro Max
+  @media only screen and (max-width: 430px) {
+    margin: 0px;
   }
 `;

@@ -7,8 +7,9 @@ import parse from 'html-react-parser';
 import { useWindowWidth } from '@react-hook/window-size';
 import Lightbox from './Lightbox';
 
-const Artwork = ({ artwork, lighbtoxSources }) => {
-  const [selectedImage, setLightboxImage] = useState('');
+const Artwork = ({ artwork }) => {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [image, setLightboxImage] = useState('');
   const [columnNum, setColumnNum] = useState();
   const width = useWindowWidth();
 
@@ -24,9 +25,16 @@ const Artwork = ({ artwork, lighbtoxSources }) => {
   }, [width]);
 
   // Set the image for the lightbox the image lightbox
-  const showImage = async image => {
-    await setLightboxImage(null);
+  const showImage = async imageId => {
+    const index = artwork.findIndex(i => i.id === imageId);
+    const image = artwork[index];
     await setLightboxImage(image);
+    await toggleModal();
+  };
+
+  const toggleModal = () => {
+    setModalOpen(!modalOpen);
+    console.log('Toggled');
   };
 
   const GatsbyImage = ({ index, photo, top, left, key }) => {
@@ -61,6 +69,9 @@ const Artwork = ({ artwork, lighbtoxSources }) => {
           style={{
             height: photo.height,
             width: photo.width,
+            position: 'absolute',
+            top,
+            left,
           }}
           index={index}
           key={key}
@@ -81,7 +92,7 @@ const Artwork = ({ artwork, lighbtoxSources }) => {
       <ImageWrapper
         href={photo.src}
         data-attribute="SRL"
-        onClick={() => showImage(photo.src)}
+        onClick={() => showImage(photo.id)}
         index={index}
         key={key}
         tabIndex={index}
@@ -113,8 +124,10 @@ const Artwork = ({ artwork, lighbtoxSources }) => {
         />
       </GalleryWrapper>
       <Lightbox
-        selectedImage={selectedImage}
-        lighbtoxSources={lighbtoxSources}
+        image={image}
+        toggleModal={toggleModal}
+        modalOpen={modalOpen}
+        lightboxSources={artwork}
         width={width}
       />
     </>
@@ -154,13 +167,14 @@ const ImageWrapper = styled.div`
       opacity: 1;
     }
     h2 {
-      font-size: 1.5rem;
+      font-size: 1.25rem;
+      margin: 5px;
+    }
+    span {
+      font-size: 0.75rem;
     }
   }
   iframe {
-    top: 0;
-    left: 0;
-    position: absolute;
     width: 100%;
     height: 100%;
     padding: 10px;
@@ -172,6 +186,6 @@ const ImageWrapper = styled.div`
   }
   // Media query for width of iPhone 12 Pro Max
   @media only screen and (max-width: 430px) {
-    pointer-events: none;
+    /* pointer-events: none; */
   }
 `;
