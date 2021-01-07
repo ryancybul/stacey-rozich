@@ -186,6 +186,6 @@ const ImageWrapper = styled.div`
   }
   // Media query for width of iPhone 12 Pro Max
   @media only screen and (max-width: 430px) {
-    /* pointer-events: none; */
+    pointer-events: none;
   }
 `;

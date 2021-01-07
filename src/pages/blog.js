@@ -107,4 +107,7 @@ const PostStyles = styled.div`
     font-size: 1.5rem;
     z-index: 2;
   }
+  @media only screen and (max-width: 430px) {
+    width: 325px;
+  }
 `;

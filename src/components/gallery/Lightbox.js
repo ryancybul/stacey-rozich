@@ -26,10 +26,10 @@ const Lightbox = ({ image, lightboxSources, toggleModal, modalOpen }) => {
     };
   });
 
-  // useEffect(() => {
-  //   // Hides lightbox on mobile
-  //   width <= 430 ? toggleModal() : null;
-  // }, [toggleModal, width]);
+  useEffect(() => {
+    // Hides lightbox on mobile
+    modalOpen && width <= 430 ? toggleModal() : null;
+  }, [modalOpen, toggleModal, width]);
 
   // Show next image in lightbox
   const showNext = e => {
