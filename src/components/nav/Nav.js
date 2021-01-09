@@ -70,7 +70,7 @@ const NavMain = styled.div`
   justify-content: space-between;
   a {
     font-size: var(--mediumText);
-    transition: all 0.2s ease-in-out;
+    transition: all 0.4s ease-in-out;
     &[aria-current='page'] {
       color: var(--secondary);
       border-bottom: 2px solid var(--secondary);

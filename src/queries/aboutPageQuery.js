@@ -38,7 +38,9 @@ export const aboutPageQuery = () => {
           }
         }
       }
-      interviews: allWordpressWpInterviews {
+      interviews: allWordpressWpInterviews(
+        sort: { fields: date, order: DESC }
+      ) {
         edges {
           node {
             title
