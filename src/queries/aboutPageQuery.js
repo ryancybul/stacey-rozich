@@ -38,13 +38,11 @@ export const aboutPageQuery = () => {
           }
         }
       }
-      interviews: allWordpressWpInterviews(
-        sort: { fields: date, order: DESC }
-      ) {
+      interviews: allWpInterview(sort: { fields: date, order: DESC }) {
         edges {
           node {
             title
-            acf {
+            Interviews {
               hyperlink
             }
           }

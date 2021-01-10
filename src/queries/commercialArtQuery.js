@@ -3,21 +3,25 @@ import { useStaticQuery, graphql } from 'gatsby';
 export const commercialArtQuery = () => {
   const artData = useStaticQuery(graphql`
     query {
-      allWordpressWpMedia(
+      allWpMediaItem(
         filter: {
-          categories: { elemMatch: { name: { regex: "/Commercial/" } } }
+          categories: {
+            nodes: { elemMatch: { name: { regex: "/Commercial/" } } }
+          }
         }
         sort: { order: DESC, fields: date }
       ) {
         edges {
           node {
-            acf {
-              date_created
+            artwork {
+              dateCreated
             }
             categories {
-              name
+              nodes {
+                name
+              }
             }
-            alt_text
+            altText
             caption
             date(formatString: "M/YY")
             description

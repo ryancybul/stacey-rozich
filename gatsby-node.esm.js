@@ -6,7 +6,7 @@ async function turnPizzasIntoPages({ graphql, actions }) {
   // Query all blog posts
   const { data } = await graphql(`
     query {
-      allWordpressPost(sort: { order: DESC, fields: date }) {
+      allWpPost(sort: { order: DESC, fields: date }) {
         edges {
           previous {
             slug
@@ -16,7 +16,9 @@ async function turnPizzasIntoPages({ graphql, actions }) {
           }
           node {
             author {
-              name
+              node {
+                name
+              }
             }
             content
             date
@@ -29,7 +31,7 @@ async function turnPizzasIntoPages({ graphql, actions }) {
     }
   `);
   // Loop over each post
-  data.allWordpressPost.edges.forEach(post => {
+  data.allWpPost.edges.forEach(post => {
     actions.createPage({
       path: `/blog/${post.node.slug}`,
       component: blogPostTemplate,

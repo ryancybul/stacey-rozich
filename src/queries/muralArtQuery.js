@@ -3,19 +3,23 @@ import { useStaticQuery, graphql } from 'gatsby';
 export const muralArtQuery = () => {
   const artData = useStaticQuery(graphql`
     query {
-      allWordpressWpMedia(
-        filter: { categories: { elemMatch: { name: { regex: "/Mural/" } } } }
+      allWpMediaItem(
+        filter: {
+          categories: { nodes: { elemMatch: { name: { regex: "/Mural/" } } } }
+        }
         sort: { order: DESC, fields: date }
       ) {
         edges {
           node {
-            acf {
-              date_created
+            artwork {
+              dateCreated
             }
             categories {
-              name
+              nodes {
+                name
+              }
             }
-            alt_text
+            altText
             caption
             date(formatString: "M/YY")
             description

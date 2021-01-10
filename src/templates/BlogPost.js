@@ -6,19 +6,19 @@ import parse from 'html-react-parser';
 import SEO from '../components/seo';
 
 const blogPost = ({ data }) => {
-  const title = parse(data.wordpressPost.title);
-  const slugs = data.allWordpressPost.edges.map(post => post.node.slug);
-  const currentSlug = slugs.indexOf(data.wordpressPost.slug);
+  const title = parse(data.wpPost.title);
+  const slugs = data.allWpPost.edges.map(post => post.node.slug);
+  const currentSlug = slugs.indexOf(data.wpPost.slug);
   const nextSlug = slugs[currentSlug + 1];
   const prevSlug = slugs[currentSlug - 1];
   const disabledNext = nextSlug ? '' : 'disabled-link';
   const disabledPrev = prevSlug ? '' : 'disabled-link';
-  const author = data.wordpressPost.author.name;
-  const { date } = data.wordpressPost;
+  const author = data.wpPost.author.name;
+  const { date } = data.wpPost;
 
   return (
     <Wrapper>
-      <SEO title={title} description={data.wordpressPost.excerpt} />
+      <SEO title={title} description={data.wpPost.excerpt} />
       <div className="backdrop"></div>
       <PostWrapper>
         <div>
@@ -29,14 +29,14 @@ const blogPost = ({ data }) => {
         </div>
         <Img
           fluid={
-            data.wordpressPost.acf.featured_image.localFile.childImageSharp
-              .fluid
+            data.wpPost.title_image.titleImage.localFile.childImageSharp.fluid
           }
           alt={title}
+          className="titleImage"
         />
         <div
           className="subhead"
-          dangerouslySetInnerHTML={{ __html: data.wordpressPost.content }}
+          dangerouslySetInnerHTML={{ __html: data.wpPost.content }}
         />
       </PostWrapper>
       <div className="paginationWrapper">
@@ -67,17 +67,19 @@ export default blogPost;
 
 export const query = graphql`
   query($slug: String!) {
-    wordpressPost(slug: { eq: $slug }) {
+    wpPost(slug: { eq: $slug }) {
       author {
-        name
+        node {
+          name
+        }
       }
       content
       date(formatString: "MMMM DD, YYYY")
       excerpt
       slug
       title
-      acf {
-        featured_image {
+      title_image {
+        titleImage {
           localFile {
             childImageSharp {
               fluid(maxWidth: 1200) {
@@ -88,7 +90,7 @@ export const query = graphql`
         }
       }
     }
-    allWordpressPost(sort: { order: DESC, fields: date }) {
+    allWpPost(sort: { order: DESC, fields: date }) {
       edges {
         node {
           slug
@@ -132,24 +134,24 @@ const Wrapper = styled.div`
 `;
 
 const PostWrapper = styled.div`
-  align-items: center;
+  align-content: center;
   display: flex;
   flex-direction: column;
   padding: 20px;
   margin-top: -425px;
-  max-width: 800px;
-  img {
-    width: 75vw;
-    height: auto;
+  .inline-gatsby-image-wrapper {
+    max-width: 100%;
+    max-width: 800px;
+    width: auto !important;
   }
-  .gatsby-image-wrapper {
+  .titleImage {
+    align-self: center;
     width: 100%;
-    height: auto;
+    max-width: 800px;
   }
   h1 {
     font-size: 2.75rem;
     text-align: center;
-    margin: 0px;
   }
   span {
     display: block;

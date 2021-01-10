@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/normalize.css';
 import '../styles/style.css';
-import '@wordpress/block-library/build-style/style.css';
+// import '@wordpress/block-library/build-style/style.css';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Headroom from 'react-headroom';

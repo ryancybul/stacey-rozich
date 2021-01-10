@@ -3,17 +3,16 @@ import { muralArtQuery } from '../../queries/muralArtQuery';
 import Artwork from './Artwork';
 
 const MuralGallery = () => {
-  const data = muralArtQuery().allWordpressWpMedia.edges;
+  const data = muralArtQuery().allWpMediaItem.edges;
   const [allArt, setArtwork] = useState([]);
-  const [allSources, setSources] = useState([]);
 
   useEffect(() => {
     setArtwork(
       data.map(function(image) {
         return {
-          alt: image.node.alt_text,
-          caption: image.node.caption,
+          alt: image.node.altText,
           date: image.node.date,
+          caption: image.node.caption,
           title: image.node.title,
           fluid: image.node.localFile.childImageSharp.fluid,
           id: image.node.id,
@@ -26,14 +25,9 @@ const MuralGallery = () => {
         };
       })
     );
-    setSources(
-      data.map(function(image) {
-        return image.node.localFile.childImageSharp.original.src;
-      })
-    );
   }, [data]);
 
-  return <Artwork artwork={allArt} lighbtoxSources={allSources} />;
+  return <Artwork artwork={allArt} />;
 };
 
 export default MuralGallery;

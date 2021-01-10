@@ -7,22 +7,6 @@ import { aboutPageQuery } from '../queries/aboutPageQuery';
 
 const about = () => {
   const data = aboutPageQuery();
-  console.log({ data });
-
-  const blogPosts = [
-    'House of Vans',
-    'The Ordinary Girls',
-    'MAKE NIICE BLOG',
-    'Urban Outfitters Blog',
-    'Sleepover Shows',
-    'Juxtapoz "Shrine"s',
-    "It's Nice That",
-    'SCCA Alumni Blog',
-    'Mr. Monkey Show (video) One, Two',
-    'New American Paintings',
-    'Seattle Weekly',
-    'Seattle Magazine',
-  ];
 
   return (
     <Wrapper>
@@ -81,7 +65,7 @@ const about = () => {
           <h4>SELECTED INTERVIEWS AND FEATURES</h4>
           <div>
             {data.interviews.edges.map(post => (
-              <a href={post.node.acf.hyperlink} target="blank">
+              <a href={post.node.Interviews.hyperlink} target="blank">
                 <div className="blogButton">
                   {parse(post.node.title)}
                   <Img

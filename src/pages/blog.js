@@ -9,12 +9,12 @@ const blog = ({ data }) => (
   <PageWrapper>
     <SEO title="Blog" />
     <Wrapper>
-      {data.allWordpressPost.edges.map(post => (
+      {data.allWpPost.edges.map(post => (
         <Link to={`/blog/${post.node.slug}`}>
           <PostStyles key={post.node.slug} className="grow">
             <Img
               fluid={
-                post.node.acf.featured_image.localFile.childImageSharp.fluid
+                post.node.title_image.titleImage.localFile.childImageSharp.fluid
               }
             />
             <div className="blogText">
@@ -32,14 +32,14 @@ export default blog;
 
 export const query = graphql`
   query {
-    allWordpressPost(sort: { order: DESC, fields: date }) {
+    allWpPost(sort: { order: DESC, fields: date }) {
       edges {
         node {
           date(formatString: "MM/DD/YY")
           slug
           title
-          acf {
-            featured_image {
+          title_image {
+            titleImage {
               localFile {
                 childImageSharp {
                   fluid(maxWidth: 400) {

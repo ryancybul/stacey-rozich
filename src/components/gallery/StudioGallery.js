@@ -3,15 +3,14 @@ import { studioArtQuery } from '../../queries/studioArtQuery';
 import Artwork from './Artwork';
 
 const StudioGallery = () => {
-  const data = studioArtQuery().allWordpressWpMedia.edges;
+  const data = studioArtQuery().allWpMediaItem.edges;
   const [allArt, setArtwork] = useState([]);
-  const [allSources, setSources] = useState([]);
 
   useEffect(() => {
     setArtwork(
       data.map(function(image) {
         return {
-          alt: image.node.alt_text,
+          alt: image.node.altText,
           date: image.node.date,
           caption: image.node.caption,
           title: image.node.title,
@@ -26,14 +25,9 @@ const StudioGallery = () => {
         };
       })
     );
-    setSources(
-      data.map(function(image) {
-        return image.node.localFile.childImageSharp.original.src;
-      })
-    );
   }, [data]);
 
-  return <Artwork artwork={allArt} lighbtoxSources={allSources} />;
+  return <Artwork artwork={allArt} />;
 };
 
 export default StudioGallery;

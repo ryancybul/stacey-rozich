@@ -1,7 +1,4 @@
-const activeEnv =
-  process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || 'development';
-
-console.log(`Using environment config: '${activeEnv}'`);
+const activeEnv = process.env.NODE_ENV;
 
 require('dotenv').config({
   path: `./.env.${activeEnv}`,
@@ -15,29 +12,13 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: `gatsby-source-wordpress`,
+      resolve: `gatsby-source-wordpress-experimental`,
       options: {
-        baseUrl: process.env.WORDPRESS_URL,
-        protocol: `http`,
-        hostingWPCOM: false,
-        useACF: true,
-        minimizeDeprecationNotice: true,
-        plugins: [
-          {
-            resolve: `@draftbox-co/gatsby-wordpress-inline-images`,
-            options: {
-              baseUrl: `54.212.35.84`,
-              protocol: `http`,
-              wrapperStyle: ``,
-              maxWidth: 650,
-              postTypes: ['post'],
-              withWebp: true, // enable WebP files generation
-              useACF: false, // process <img> tags in ACF fields too
-              // add any image sharp fluid options here
-              // ...
-            },
-          },
-        ],
+        url: process.env.WORDPRESS_URL,
+        verbose: true,
+        html: {
+          useGatsbyImage: true,
+        },
       },
     },
     `gatsby-plugin-react-helmet`,
