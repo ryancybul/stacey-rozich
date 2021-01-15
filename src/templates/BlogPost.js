@@ -139,6 +139,7 @@ const PostWrapper = styled.div`
   flex-direction: column;
   padding: 20px;
   margin-top: -425px;
+  width: 100%;
   .inline-gatsby-image-wrapper {
     max-width: 100%;
     max-width: 800px;

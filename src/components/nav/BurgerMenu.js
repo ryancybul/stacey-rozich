@@ -17,7 +17,7 @@ const BurgerMenu = ({ open, setOpen }) => (
     </div>
     <div>
       <Link to="/murals" onClick={() => setOpen(!open)}>
-        Mural
+        Murals
       </Link>
     </div>
     <div>

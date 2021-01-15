@@ -19,11 +19,13 @@ const Lightbox = ({ image, lightboxSources, toggleModal, modalOpen }) => {
   }, [image]);
 
   useEffect(() => {
-    window.addEventListener('keydown', keyHandler);
-    // Remove event listeners on cleanup
-    return () => {
-      window.removeEventListener('keydown', keyHandler);
-    };
+    if (modalOpen) {
+      window.addEventListener('keydown', keyHandler);
+      // Remove event listeners on cleanup
+      return () => {
+        window.removeEventListener('keydown', keyHandler);
+      };
+    }
   });
 
   useEffect(() => {

@@ -184,7 +184,6 @@ const ImageWrapper = styled.div`
     height: 100%;
     color: transparent;
   }
-  // Media query for width of iPhone 12 Pro Max
   @media only screen and (max-width: 430px) {
     pointer-events: none;
   }

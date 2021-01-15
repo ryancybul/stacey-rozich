@@ -9,105 +9,110 @@ const about = () => {
   const data = aboutPageQuery();
 
   return (
-    <Wrapper>
-      <SEO title="About" />
-      <Introduction>
-        <p>
-          Stacey Rozich is an <strong>artist, illustrator</strong> and
-          <strong> muralist.</strong> She constructs vignettes in watercolor
-          that combine elements of folklore, medieval religious iconography and
-          American pop culture. Her storybook world is brought to life through
-          lush patterning, symbolism, and nostalgia. She was born in Seattle and
-          now resides in Los Angeles, California.
-        </p>
-      </Introduction>
-      <GridContainer>
-        <Img
-          className="portrait"
-          fluid={data.portrait1.childImageSharp.fluid}
-          alt="Portrait of Stacey"
-        />
-        <div>
-          <Contact className="contact">
-            <div className="birdWrapper">
-              <Img
-                fluid={data.bird.childImageSharp.fluid}
-                alt="Bird"
-                className="bird"
-              />
-            </div>
-            <div>
-              <a href="mailto: staceyrozich@gmail.com">
-                staceyrozich@gmail.com
-              </a>
-              <p>
-                Availiable for commercial illustration, murals, and sometimes
-                personal commissions.
-              </p>
-            </div>
-          </Contact>
-          <ClientList className="clientList">
-            <h4>COMMERCIAL CLIENT LIST</h4>
-            <p>
-              The New Yorker, Starbucks, Playbox Magazine, Refinery29, Lucky
-              Peach Magazine, Red Bull Music Academy, The Museum of Pop Culture
-              (MoPOP), The Stranger, Sub Pop Records, and many more.{' '}
-            </p>
-          </ClientList>
-        </div>
-        <Img
-          className="portrait"
-          fluid={data.portrait2.childImageSharp.fluid}
-          alt="Portrait of Stacey"
-        />
-
-        <SelectedInterviews className="interviews">
-          <h4>SELECTED INTERVIEWS AND FEATURES</h4>
+    <>
+      <Wrapper>
+        <SEO title="About" />
+        <Introduction>
+          <p>
+            Stacey Rozich is an <strong>artist, illustrator</strong> and
+            <strong> muralist.</strong> She constructs vignettes in watercolor
+            that combine elements of folklore, medieval religious iconography
+            and American pop culture. Her storybook world is brought to life
+            through lush patterning, symbolism, and nostalgia. She was born in
+            Seattle and now resides in Los Angeles, California.
+          </p>
+        </Introduction>
+        <GridContainer>
+          <Img
+            className="portrait"
+            fluid={data.portrait1.childImageSharp.fluid}
+            alt="Portrait of Stacey"
+          />
           <div>
-            {data.interviews.edges.map(post => (
-              <a href={post.node.Interviews.hyperlink} target="blank">
-                <div className="blogButton">
-                  {parse(post.node.title)}
-                  <Img
-                    className="arrow"
-                    fluid={data.arrow.childImageSharp.fluid}
-                    alt="arrow"
-                  />
-                  <Img
-                    className="arrowPink"
-                    fluid={data.arrowPink.childImageSharp.fluid}
-                    alt="arrow"
-                  />
-                </div>
-              </a>
-            ))}
+            <Contact className="contact">
+              <div className="birdWrapper">
+                <Img
+                  fluid={data.bird.childImageSharp.fluid}
+                  alt="Bird"
+                  className="bird"
+                />
+              </div>
+              <div>
+                <a href="mailto: staceyrozich@gmail.com">
+                  staceyrozich@gmail.com
+                </a>
+                <p>
+                  Availiable for commercial illustration, murals, and sometimes
+                  personal commissions.
+                </p>
+              </div>
+            </Contact>
+            <ClientList className="clientList">
+              <h4>COMMERCIAL CLIENT LIST</h4>
+              <p>
+                The New Yorker, Starbucks, Playbox Magazine, Refinery29, Lucky
+                Peach Magazine, Red Bull Music Academy, The Museum of Pop
+                Culture (MoPOP), The Stranger, Sub Pop Records, and many more.{' '}
+              </p>
+            </ClientList>
           </div>
-        </SelectedInterviews>
-        <Elsewhere className="elsewhere">
-          <h4>ELSEWHERE</h4>
-          <ul>
-            <li>
-              <a
-                href="https://www.instagram.com/staceyrozich/?hl=en"
-                target="blank"
-              >
-                instagram
-              </a>
-            </li>
-            <li>
-              <a href="https://www.facebook.com/Staceyrozich" target="blank">
-                facebook
-              </a>
-            </li>
-            <li>
-              <a href="https://twitter.com/staceyrozich?lang=en" target="blank">
-                twitter
-              </a>
-            </li>
-          </ul>
-        </Elsewhere>
-      </GridContainer>
-    </Wrapper>
+          <Img
+            className="portrait"
+            fluid={data.portrait2.childImageSharp.fluid}
+            alt="Portrait of Stacey"
+          />
+
+          <SelectedInterviews className="interviews">
+            <h4>SELECTED INTERVIEWS AND FEATURES</h4>
+            <div>
+              {data.interviews.edges.map(post => (
+                <a href={post.node.Interviews.hyperlink} target="blank">
+                  <div className="blogButton">
+                    {parse(post.node.title)}
+                    <Img
+                      className="arrow"
+                      fluid={data.arrow.childImageSharp.fluid}
+                      alt="arrow"
+                    />
+                    <Img
+                      className="arrowPink"
+                      fluid={data.arrowPink.childImageSharp.fluid}
+                      alt="arrow"
+                    />
+                  </div>
+                </a>
+              ))}
+            </div>
+          </SelectedInterviews>
+          <Elsewhere className="elsewhere">
+            <h4>ELSEWHERE</h4>
+            <ul>
+              <li>
+                <a
+                  href="https://www.instagram.com/staceyrozich/?hl=en"
+                  target="blank"
+                >
+                  instagram
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/Staceyrozich" target="blank">
+                  facebook
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://twitter.com/staceyrozich?lang=en"
+                  target="blank"
+                >
+                  twitter
+                </a>
+              </li>
+            </ul>
+          </Elsewhere>
+        </GridContainer>
+      </Wrapper>
+    </>
   );
 };
 

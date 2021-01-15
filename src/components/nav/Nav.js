@@ -28,7 +28,7 @@ const Nav = () => {
             <div className="divLeft">
               <Link to="/commercial/">Commercial</Link>
               <Link to="/">Studio</Link>
-              <Link to="/murals">Mural</Link>
+              <Link to="/murals">Murals</Link>
             </div>
             <Img
               className="logo"
