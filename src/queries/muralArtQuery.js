@@ -11,7 +11,7 @@ export const muralArtQuery = () => {
       ) {
         edges {
           node {
-            artwork {
+            dateCreated {
               dateCreated
             }
             categories {

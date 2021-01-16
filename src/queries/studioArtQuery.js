@@ -11,7 +11,7 @@ export const studioArtQuery = () => {
       ) {
         edges {
           node {
-            artwork {
+            dateCreated {
               dateCreated
             }
             categories {

@@ -13,7 +13,7 @@ export const commercialArtQuery = () => {
       ) {
         edges {
           node {
-            artwork {
+            dateCreated {
               dateCreated
             }
             categories {

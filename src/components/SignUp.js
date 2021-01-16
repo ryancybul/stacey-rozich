@@ -7,7 +7,7 @@ import closeButton from '../images/closeButton.png';
 import { signUpQuery } from '../queries/signUpQuery';
 
 const SignUp = () => {
-  const [modalOpen, setModalOpen] = useState(true);
+  const [modalOpen, setModalOpen] = useState();
   const [email, setEmail] = useState('');
   const [mapleSyrup, setMapleSyrup] = useState('');
   const data = signUpQuery();
