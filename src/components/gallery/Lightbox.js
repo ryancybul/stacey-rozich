@@ -220,8 +220,14 @@ const LightboxImageWrapper = styled.div`
     height: auto;
   }
   iframe {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     max-width: 100%;
     max-height: 100%;
+    width: auto;
+    height: auto;
   }
   .fadeIn {
     opacity: 1;

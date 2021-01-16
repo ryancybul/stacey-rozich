@@ -7,7 +7,7 @@ import closeButton from '../images/closeButton.png';
 import { signUpQuery } from '../queries/signUpQuery';
 
 const SignUp = () => {
-  const [modalOpen, setModalOpen] = useState();
+  const [modalOpen, setModalOpen] = useState(true);
   const [email, setEmail] = useState('');
   const [mapleSyrup, setMapleSyrup] = useState('');
   const data = signUpQuery();
@@ -133,19 +133,27 @@ const Wrapper = styled.div`
     }
   }
   .formWrapper {
+    max-width: 650px;
+    margin: 5px;
+  }
+  form {
     text-align: center;
-    padding: 1rem;
-    max-width: 850px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
   }
   .gatsby-image-wrapper {
-    width: 400px;
-    max-width: 60%;
-    min-width: 20%;
+    width: clamp(200px, 50%, 325px);
+    align-self: center;
     height: auto;
+  }
+  input {
+    display: block;
   }
   label {
     font-family: 'Petit Formal Script';
-    font-size: var(--largeText);
+    font-size: var(--mediumText);
     font-weight: var(--fontWeigthBold);
   }
   p {
