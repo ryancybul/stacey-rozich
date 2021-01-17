@@ -45,3 +45,13 @@ async function turnPizzasIntoPages({ graphql, actions }) {
 export async function createPages(params) {
   await turnPizzasIntoPages(params);
 }
+
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions;
+  const typeDefs = `
+    type WpMediaItem_Datecreated implements Node {
+      dateCreated: Date
+    }
+  `;
+  createTypes(typeDefs);
+};

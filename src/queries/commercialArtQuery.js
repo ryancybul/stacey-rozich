@@ -9,7 +9,6 @@ export const commercialArtQuery = () => {
             nodes: { elemMatch: { name: { regex: "/Commercial/" } } }
           }
         }
-        sort: { order: DESC, fields: date }
       ) {
         edges {
           node {
@@ -23,7 +22,7 @@ export const commercialArtQuery = () => {
             }
             altText
             caption
-            date(formatString: "M/YY")
+            date
             description
             title
             id

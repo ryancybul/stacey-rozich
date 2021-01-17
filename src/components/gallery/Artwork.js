@@ -5,6 +5,7 @@ import Gallery from 'react-photo-gallery';
 import styled from 'styled-components';
 import parse from 'html-react-parser';
 import { useWindowWidth } from '@react-hook/window-size';
+import moment from 'moment';
 import Lightbox from './Lightbox';
 
 const Artwork = ({ artwork }) => {
@@ -107,7 +108,7 @@ const Artwork = ({ artwork }) => {
         <Img fluid={photo.fluid} alt={photo.alt} loading="auto" />
         <div className="imageInfo">
           <h2>{parse(photo.title)}</h2>
-          <span>{photo.date}</span>
+          <span>{moment(photo.dateCreated).format('MM / YY')}</span>
         </div>
       </ImageWrapper>
     );

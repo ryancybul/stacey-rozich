@@ -5,13 +5,23 @@ import Artwork from './Artwork';
 const MuralGallery = () => {
   const data = muralArtQuery().allWpMediaItem.edges;
   const [allArt, setArtwork] = useState([]);
+  allArt
+    .sort((a, b) => new Date(a.dateCreated) - new Date(b.dateCreated))
+    .reverse();
 
   useEffect(() => {
     setArtwork(
       data.map(function(image) {
+        let DateCreated;
+        if (image.node.dateCreated.dateCreated === null) {
+          DateCreated = '01/01/2000';
+        } else {
+          DateCreated = image.node.dateCreated.dateCreated;
+        }
         return {
           alt: image.node.altText,
           date: image.node.date,
+          dateCreated: DateCreated,
           caption: image.node.caption,
           title: image.node.title,
           fluid: image.node.localFile.childImageSharp.fluid,

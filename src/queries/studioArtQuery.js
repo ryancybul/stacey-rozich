@@ -7,7 +7,6 @@ export const studioArtQuery = () => {
         filter: {
           categories: { nodes: { elemMatch: { name: { regex: "/Studio/" } } } }
         }
-        sort: { order: DESC, fields: date }
       ) {
         edges {
           node {
@@ -21,7 +20,7 @@ export const studioArtQuery = () => {
             }
             altText
             caption
-            date(formatString: "M/YY")
+            date
             description
             title
             id

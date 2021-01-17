@@ -7,7 +7,6 @@ export const muralArtQuery = () => {
         filter: {
           categories: { nodes: { elemMatch: { name: { regex: "/Mural/" } } } }
         }
-        sort: { order: DESC, fields: date }
       ) {
         edges {
           node {
@@ -21,7 +20,7 @@ export const muralArtQuery = () => {
             }
             altText
             caption
-            date(formatString: "M/YY")
+            date
             description
             title
             id
