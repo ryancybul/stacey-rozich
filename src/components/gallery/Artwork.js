@@ -108,7 +108,7 @@ const Artwork = ({ artwork }) => {
         <Img fluid={photo.fluid} alt={photo.alt} loading="auto" />
         <div className="imageInfo">
           <h2>{parse(photo.title)}</h2>
-          <span>{moment(photo.dateCreated).format('MM / YY')}</span>
+          <span>{moment(photo.dateCreated).format('MM / DD / YY')}</span>
         </div>
       </ImageWrapper>
     );

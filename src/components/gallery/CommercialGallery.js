@@ -14,7 +14,7 @@ const CommercialGallery = () => {
       data.map(function(image) {
         let DateCreated;
         if (image.node.dateCreated.dateCreated === null) {
-          DateCreated = '01/01/2000';
+          DateCreated = image.node.date;
         } else {
           DateCreated = image.node.dateCreated.dateCreated;
         }
