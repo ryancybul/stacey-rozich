@@ -8,17 +8,15 @@ import leftArrow from '../../images/leftArrow.png';
 import rightArrow from '../../images/rightArrow.png';
 import closeButton from '../../images/closeButton.png';
 
-const Lightbox = ({ image, artwork, toggleModal, modalOpen }) => {
+const Lightbox = ({ image, lightboxSources, toggleModal, modalOpen }) => {
   const [imageToShow, setImageToShow] = useState({});
-  const [index, setIndex] = useState(0);
   const width = useWindowWidth();
   let lightboxImage;
 
   // Sets the image to display and opens the ligthbox
   useEffect(() => {
-    setIndex(artwork.indexOf(image));
     setImageToShow(image);
-  }, [artwork, image]);
+  }, [image]);
 
   useEffect(() => {
     if (modalOpen) {
@@ -38,14 +36,12 @@ const Lightbox = ({ image, artwork, toggleModal, modalOpen }) => {
   // Show next image in lightbox
   const showNext = e => {
     e.stopPropagation();
-    const currentIndex = artwork.indexOf(imageToShow);
-    if (currentIndex >= artwork.length - 1) {
-      const nextImage = artwork[0];
-      setIndex(0);
+    const currentIndex = lightboxSources.indexOf(imageToShow);
+    if (currentIndex >= lightboxSources.length - 1) {
+      const nextImage = lightboxSources[0];
       setImageToShow(nextImage);
     } else {
-      const nextImage = artwork[currentIndex + 1];
-      setIndex(currentIndex + 1);
+      const nextImage = lightboxSources[currentIndex + 1];
       setImageToShow(nextImage);
     }
   };
@@ -53,14 +49,12 @@ const Lightbox = ({ image, artwork, toggleModal, modalOpen }) => {
   // Shows previous image in lightbox
   const showPrev = e => {
     e.stopPropagation();
-    const currentIndex = artwork.indexOf(imageToShow);
+    const currentIndex = lightboxSources.indexOf(imageToShow);
     if (currentIndex <= 0) {
-      const nextImage = artwork[artwork.length - 1];
-      setIndex(artwork.length - 1);
+      const nextImage = lightboxSources[lightboxSources.length - 1];
       setImageToShow(nextImage);
     } else {
-      const nextImage = artwork[currentIndex - 1];
-      setIndex(currentIndex - 1);
+      const nextImage = lightboxSources[currentIndex - 1];
       setImageToShow(nextImage);
     }
   };

@@ -3,6 +3,7 @@ import Img from 'gatsby-image';
 import addToMailchimp from 'gatsby-plugin-mailchimp';
 import styled from 'styled-components';
 import disableScroll from 'disable-scroll';
+import { useWindowHeight } from '@react-hook/window-size';
 import closeButton from '../images/closeButton.png';
 import { signUpQuery } from '../queries/signUpQuery';
 
@@ -11,6 +12,8 @@ const SignUp = () => {
   const [email, setEmail] = useState('');
   const [mapleSyrup, setMapleSyrup] = useState('');
   const data = signUpQuery();
+  const windowHeight = useWindowHeight();
+  console.log(windowHeight);
 
   modalOpen ? disableScroll.on() : disableScroll.off();
 
@@ -66,6 +69,7 @@ const SignUp = () => {
         <Img
           fluid={data.TheGorgeousHussy.childImageSharp.fluid}
           alt="The Gorgeous Hussy"
+          className={windowHeight < 475 ? 'hidden' : null}
         />
         <div className="formWrapper">
           <form onSubmit={e => handleSubmit(e, email, mapleSyrup)}>
@@ -123,6 +127,8 @@ const Wrapper = styled.div`
     top: 0;
     right: 0;
     img {
+      width: 40px;
+      height: auto;
       margin: 10px;
     }
     button {
@@ -144,9 +150,12 @@ const Wrapper = styled.div`
     justify-items: center;
   }
   .gatsby-image-wrapper {
-    width: clamp(200px, 50%, 325px);
+    width: clamp(200px, 50%, 300px);
     align-self: center;
     height: auto;
+  }
+  .hidden {
+    display: none;
   }
   input {
     display: block;
@@ -172,7 +181,7 @@ const Wrapper = styled.div`
     cursor: pointer;
     font-size: 1em;
     font-weight: var(--fontWeigthThin);
-    margin: 15px;
+    margin: 5px;
     padding: 10px 20px;
     :hover {
       background-color: var(--black);

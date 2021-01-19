@@ -35,6 +35,7 @@ const Artwork = ({ artwork }) => {
 
   const toggleModal = () => {
     setModalOpen(!modalOpen);
+    console.log('Toggled');
   };
 
   const GatsbyImage = ({ index, photo, top, left, key }) => {
@@ -127,7 +128,7 @@ const Artwork = ({ artwork }) => {
         image={image}
         toggleModal={toggleModal}
         modalOpen={modalOpen}
-        artwork={artwork}
+        lightboxSources={artwork}
         width={width}
       />
     </>
