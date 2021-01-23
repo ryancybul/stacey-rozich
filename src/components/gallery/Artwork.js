@@ -4,7 +4,6 @@ import Img from 'gatsby-image';
 import Gallery from 'react-photo-gallery';
 import styled from 'styled-components';
 import parse from 'html-react-parser';
-import { useSpring, animated, config } from 'react-spring';
 import { useWindowWidth } from '@react-hook/window-size';
 import moment from 'moment';
 import Lightbox from './Lightbox';
@@ -14,14 +13,6 @@ const Artwork = ({ artwork }) => {
   const [lightboxImage, setLightboxImage] = useState(artwork[0]);
   const [columnNum, setColumnNum] = useState();
   const width = useWindowWidth();
-
-  // const fadeStyles = useSpring({
-  //   config: { ...config.stiff },
-  //   from: { opacity: 0 },
-  //   to: {
-  //     opacity: modalOpen ? 1 : 0,
-  //   },
-  // });
 
   // sets the number of columns
   useEffect(() => {
@@ -36,6 +27,7 @@ const Artwork = ({ artwork }) => {
 
   // Set the image for the lightbox the image lightbox
   const showImage = async imageId => {
+    console.log({ imageId });
     const index = artwork.findIndex(i => i.id === imageId);
     const image = artwork[index];
     await setLightboxImage(image);
@@ -47,7 +39,7 @@ const Artwork = ({ artwork }) => {
   };
 
   const GatsbyImage = ({ index, photo, top, left, key }) => {
-    if (photo.id === '6ab22f6d-d00b-5f6a-a5ed-42caa9b7d21d' && width <= 430) {
+    if (photo.id === 'cG9zdDoyNzA=' && width <= 430) {
       return (
         <ImageWrapper
           style={{
@@ -56,6 +48,7 @@ const Artwork = ({ artwork }) => {
             position: 'absolute',
             top,
             left,
+            pointerEvents: 'auto',
           }}
           index={index}
           key={key}
@@ -72,7 +65,7 @@ const Artwork = ({ artwork }) => {
         </ImageWrapper>
       );
     }
-    if (photo.id === '40b2ecab-d7b3-572c-a273-21a4fcf9c9d1' && width <= 430) {
+    if (photo.id === 'cG9zdDoyNjk=' && width <= 430) {
       return (
         <ImageWrapper
           style={{
@@ -81,6 +74,7 @@ const Artwork = ({ artwork }) => {
             position: 'absolute',
             top,
             left,
+            pointerEvents: 'auto',
           }}
           index={index}
           key={key}
@@ -132,7 +126,6 @@ const Artwork = ({ artwork }) => {
           renderImage={GatsbyImage}
         />
       </GalleryWrapper>
-      {/* <animated.div style={fadeStyles}> */}
       <Lightbox
         image={lightboxImage}
         toggleModal={toggleModal}
@@ -140,7 +133,6 @@ const Artwork = ({ artwork }) => {
         artwork={artwork}
         width={width}
       />
-      {/* </animated.div> */}
     </>
   );
 };
@@ -197,5 +189,14 @@ const ImageWrapper = styled.div`
   }
   @media only screen and (max-width: 430px) {
     pointer-events: none;
+    /* cursor: default;
+    .mobileWrapper {
+      pointer-events: none;
+    }
+    .imageInfo {
+      &:hover {
+        opacity: 0;
+      }
+    } */
   }
 `;
