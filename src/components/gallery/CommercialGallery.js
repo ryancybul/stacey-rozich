@@ -5,7 +5,7 @@ import Artwork from './Artwork';
 const CommercialGallery = () => {
   const data = commercialArtQuery().allWpMediaItem.edges;
   const [allArt, setArtwork] = useState([]);
-  allArt
+  const sortedArt = allArt
     .sort((a, b) => new Date(a.dateCreated) - new Date(b.dateCreated))
     .reverse();
 
@@ -37,7 +37,7 @@ const CommercialGallery = () => {
     );
   }, [data]);
 
-  return <Artwork artwork={allArt} />;
+  return sortedArt.length > 0 ? <Artwork artwork={sortedArt} /> : null;
 };
 
 export default CommercialGallery;

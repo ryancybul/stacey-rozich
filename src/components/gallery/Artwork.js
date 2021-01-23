@@ -4,15 +4,24 @@ import Img from 'gatsby-image';
 import Gallery from 'react-photo-gallery';
 import styled from 'styled-components';
 import parse from 'html-react-parser';
+import { useSpring, animated, config } from 'react-spring';
 import { useWindowWidth } from '@react-hook/window-size';
 import moment from 'moment';
 import Lightbox from './Lightbox';
 
 const Artwork = ({ artwork }) => {
   const [modalOpen, setModalOpen] = useState(false);
-  const [image, setLightboxImage] = useState('');
+  const [lightboxImage, setLightboxImage] = useState(artwork[0]);
   const [columnNum, setColumnNum] = useState();
   const width = useWindowWidth();
+
+  // const fadeStyles = useSpring({
+  //   config: { ...config.stiff },
+  //   from: { opacity: 0 },
+  //   to: {
+  //     opacity: modalOpen ? 1 : 0,
+  //   },
+  // });
 
   // sets the number of columns
   useEffect(() => {
@@ -107,7 +116,7 @@ const Artwork = ({ artwork }) => {
         <Img fluid={photo.fluid} alt={photo.alt} loading="auto" />
         <div className="imageInfo">
           <h2>{parse(photo.title)}</h2>
-          <span>{moment(photo.dateCreated).format('MM / DD / YY')}</span>
+          <span>{moment(photo.dateCreated).format('MM-DD-YY')}</span>
         </div>
       </ImageWrapper>
     );
@@ -123,13 +132,15 @@ const Artwork = ({ artwork }) => {
           renderImage={GatsbyImage}
         />
       </GalleryWrapper>
+      {/* <animated.div style={fadeStyles}> */}
       <Lightbox
-        image={image}
+        image={lightboxImage}
         toggleModal={toggleModal}
         modalOpen={modalOpen}
         artwork={artwork}
         width={width}
       />
+      {/* </animated.div> */}
     </>
   );
 };

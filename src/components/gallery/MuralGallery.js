@@ -5,7 +5,7 @@ import Artwork from './Artwork';
 const MuralGallery = () => {
   const data = muralArtQuery().allWpMediaItem.edges;
   const [allArt, setArtwork] = useState([]);
-  allArt
+  const sortedArt = allArt
     .sort((a, b) => new Date(a.dateCreated) - new Date(b.dateCreated))
     .reverse();
 
@@ -37,7 +37,7 @@ const MuralGallery = () => {
     );
   }, [data]);
 
-  return <Artwork artwork={allArt} />;
+  return sortedArt.length > 0 ? <Artwork artwork={sortedArt} /> : null;
 };
 
 export default MuralGallery;

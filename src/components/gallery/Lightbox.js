@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import disableScroll from 'disable-scroll';
 import parse from 'html-react-parser';
 import { useWindowWidth } from '@react-hook/window-size';
+import { useTransition, animated, config } from 'react-spring';
 import leftArrow from '../../images/leftArrow.png';
 import rightArrow from '../../images/rightArrow.png';
 import closeButton from '../../images/closeButton.png';
@@ -13,12 +14,23 @@ const Lightbox = ({ image, artwork, toggleModal, modalOpen }) => {
   const [index, setIndex] = useState(0);
   const width = useWindowWidth();
   let lightboxImage;
+  console.log({ index });
 
   // Sets the image to display and opens the ligthbox
   useEffect(() => {
     setIndex(artwork.indexOf(image));
+    // To do make sure index is never -1
     setImageToShow(image);
   }, [artwork, image]);
+
+  // To do artwork is an empty array at first, does it re-render?
+  const transitions = useTransition(artwork[index], item => item.id, {
+    from: { opacity: 0 },
+    enter: { opacity: 1 },
+    leave: { opacity: 0 },
+    update: { opacity: modalOpen ? 1 : 0 },
+    config: config.slow,
+  });
 
   useEffect(() => {
     if (modalOpen) {
@@ -111,9 +123,16 @@ const Lightbox = ({ image, artwork, toggleModal, modalOpen }) => {
       />
     );
   } else {
-    lightboxImage = (
-      <img id="lightbox-img" src={imageToShow.src} alt={imageToShow.alt} />
-    );
+    lightboxImage = transitions.map(({ item, props, key }) => (
+      <animated.img
+        src={item.src}
+        alt={item.alt}
+        key={key}
+        style={{
+          ...props,
+        }}
+      />
+    ));
   }
 
   return (
@@ -232,8 +251,6 @@ const LightboxImageWrapper = styled.div`
     transform: translate(-50%, -50%);
     max-width: 100%;
     max-height: 100%;
-    width: auto;
-    height: auto;
   }
   .fadeIn {
     opacity: 1;

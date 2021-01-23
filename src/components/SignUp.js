@@ -3,7 +3,6 @@ import Img from 'gatsby-image';
 import addToMailchimp from 'gatsby-plugin-mailchimp';
 import styled from 'styled-components';
 import disableScroll from 'disable-scroll';
-import { useWindowHeight } from '@react-hook/window-size';
 import closeButton from '../images/closeButton.png';
 import { signUpQuery } from '../queries/signUpQuery';
 
@@ -12,8 +11,6 @@ const SignUp = () => {
   const [email, setEmail] = useState('');
   const [mapleSyrup, setMapleSyrup] = useState('');
   const data = signUpQuery();
-  const windowHeight = useWindowHeight();
-  console.log(windowHeight);
 
   modalOpen ? disableScroll.on() : disableScroll.off();
 
@@ -69,7 +66,6 @@ const SignUp = () => {
         <Img
           fluid={data.TheGorgeousHussy.childImageSharp.fluid}
           alt="The Gorgeous Hussy"
-          className={windowHeight < 475 ? 'hidden' : null}
         />
         <div className="formWrapper">
           <form onSubmit={e => handleSubmit(e, email, mapleSyrup)}>
@@ -151,6 +147,7 @@ const Wrapper = styled.div`
   }
   .gatsby-image-wrapper {
     width: clamp(200px, 50%, 300px);
+    min-width: 200px;
     align-self: center;
     height: auto;
   }
@@ -159,6 +156,7 @@ const Wrapper = styled.div`
   }
   input {
     display: block;
+    margin: 5px;
   }
   label {
     font-family: 'Petit Formal Script';
@@ -186,6 +184,24 @@ const Wrapper = styled.div`
     :hover {
       background-color: var(--black);
       color: var(--primary);
+    }
+  }
+  @media screen and (max-height: 550px) {
+    .contentWrapper {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      margin: 20px;
+    }
+    form {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-items: center;
     }
   }
 `;

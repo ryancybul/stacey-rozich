@@ -5,7 +5,7 @@ import Artwork from './Artwork';
 const StudioGallery = () => {
   const data = studioArtQuery().allWpMediaItem.edges;
   const [allArt, setArtwork] = useState([]);
-  allArt
+  const sortedArt = allArt
     .sort((a, b) => new Date(a.dateCreated) - new Date(b.dateCreated))
     .reverse();
 
@@ -37,7 +37,7 @@ const StudioGallery = () => {
     );
   }, [data]);
 
-  return <Artwork artwork={allArt} />;
+  return sortedArt.length > 0 ? <Artwork artwork={sortedArt} /> : null;
 };
 
 export default StudioGallery;

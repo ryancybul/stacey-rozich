@@ -55,7 +55,7 @@ const NavWrapper = styled.nav`
   padding: 1rem 0;
   width: 100vw;
   max-width: 1920px;
-  z-index: 2;
+  z-index: 0;
   @media only screen and (min-width: 650px) {
     .Burger {
       display: none;

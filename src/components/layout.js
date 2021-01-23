@@ -31,4 +31,7 @@ const ContentWrapper = styled.div`
   display: block;
   position: relative;
   padding-bottom: 65px;
+  .headroom-wrapper {
+    z-index: 0;
+  }
 `;

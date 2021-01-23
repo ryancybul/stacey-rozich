@@ -5,8 +5,8 @@ export const signUpQuery = () => {
     query {
       TheGorgeousHussy: file(relativePath: { eq: "TheGorgeousHussy.png" }) {
         childImageSharp {
-          fluid(quality: 75, maxWidth: 450) {
-            ...GatsbyImageSharpFluid_noBase64
+          fluid(quality: 75, maxWidth: 300) {
+            ...GatsbyImageSharpFluid_tracedSVG
           }
         }
       }

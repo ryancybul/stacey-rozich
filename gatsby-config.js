@@ -58,7 +58,8 @@ module.exports = {
     },
   ],
   flags: {
-    LAZY_IMAGES: true,
+    FAST_DEV: true,
+    DEV_SSR: true,
     PRESERVE_WEBPACK_CACHE: true,
     PRESERVE_FILE_DOWNLOAD_CACHE: true,
   },
