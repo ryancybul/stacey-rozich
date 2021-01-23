@@ -164,7 +164,9 @@ const PostWrapper = styled.div`
   a {
     font-size: 1rem;
   }
-  .subhead p:first-of-type::first-letter {
+  .subhead {
+    align-self: center;
+    p:first-of-type::first-letter {
     font-size: 1.5rem;
   }
 `;
