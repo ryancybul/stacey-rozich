@@ -152,7 +152,7 @@ const Lightbox = ({ image, artwork, toggleModal, modalOpen }) => {
             </div>
           </button>
 
-          <div>
+          <div className="nav">
             <button onClick={showPrev} title="Previous">
               <div>
                 <img src={leftArrow} alt="Next" />
@@ -201,7 +201,6 @@ const LightboxWrapper = styled.div`
       height: 50px;
     }
     img {
-      /* border: 1px solid red; */
       position: relative;
       height: 40px;
       width: 40px;
@@ -224,6 +223,21 @@ const LightboxWrapper = styled.div`
       display: inline;
     }
   }
+  @media only screen and (max-width: 767px), (max-height: 414px) {
+    margin: 0px;
+    .imageInfo {
+      display: none;
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      position: absolute;
+      width: 100%;
+      div {
+        width: 40px;
+      }
+    }
+  }
 `;
 
 const LightboxImageWrapper = styled.div`
@@ -233,7 +247,7 @@ const LightboxImageWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 25px;
+  margin: 15px;
   img {
     position: absolute;
     top: 50%;
@@ -251,14 +265,6 @@ const LightboxImageWrapper = styled.div`
     transform: translate(-50%, -50%);
     max-width: 100%;
     max-height: 100%;
-  }
-  .fadeIn {
-    opacity: 1;
-    transition: width 0.5s, height 0.5s, opacity 0.5s 0.5s;
-  }
-  .fadeOut {
-    opacity: 0;
-    transition: width 0.5s 0.5s, height 0.5s 0.5s, opacity 0.5s;
   }
   // Media query for width of iPhone 12 Pro Max
   @media only screen and (max-width: 430px) {
