@@ -6,7 +6,6 @@ const IndexPage = () => (
   <>
     <SEO title="Mural Gallery" />
     <MuralGallery />
-    <h1>¯\_(ツ)_/¯</h1>
   </>
 );
 
