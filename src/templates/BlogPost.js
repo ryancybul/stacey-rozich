@@ -104,7 +104,7 @@ const Wrapper = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
-  transform: translateY(-100px);
+  transform: translateY(-125px);
   width: 100%;
   .backdrop {
     background-color: var(--primary);
@@ -138,8 +138,9 @@ const PostWrapper = styled.div`
   display: flex;
   flex-direction: column;
   padding: 20px;
-  margin-top: -425px;
+  margin-top: -415px;
   width: 100%;
+  max-width: 800px;
   .inline-gatsby-image-wrapper {
     max-width: 100%;
     max-width: 800px;
@@ -165,6 +166,8 @@ const PostWrapper = styled.div`
     font-size: 1rem;
   }
   .subhead {
+    overflow-wrap: anywhere;
+    width: 95%;
     align-self: center;
     p:first-of-type::first-letter {
     font-size: 1.5rem;
