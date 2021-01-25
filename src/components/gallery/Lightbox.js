@@ -225,7 +225,7 @@ const LightboxWrapper = styled.div`
       display: inline;
     }
   }
-  @media only screen and (max-width: 767px), (max-height: 700px) {
+  @media only screen and (max-width: 767px), (max-height: 600px) {
     margin: 0px;
     .imageWrapper {
       margin: 0px;
