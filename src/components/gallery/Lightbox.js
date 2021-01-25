@@ -139,7 +139,9 @@ const Lightbox = ({ image, artwork, toggleModal, modalOpen }) => {
     <>
       {modalOpen ? (
         <LightboxWrapper id="lightbox" onClick={toggleModal}>
-          <LightboxImageWrapper>{lightboxImage}</LightboxImageWrapper>
+          <LightboxImageWrapper className="imageWrapper">
+            {lightboxImage}
+          </LightboxImageWrapper>
           <div className="imageInfo">
             <p>
               "{parse(imageToShow.title)}" - {parse(imageToShow.caption)}
@@ -223,8 +225,11 @@ const LightboxWrapper = styled.div`
       display: inline;
     }
   }
-  @media only screen and (max-width: 767px), (max-height: 414px) {
+  @media only screen and (max-width: 767px), (max-height: 700px) {
     margin: 0px;
+    .imageWrapper {
+      margin: 0px;
+    }
     .imageInfo {
       display: none;
     }
