@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { StaticQuery, Link, graphql } from 'gatsby';
-import { GatsbyImage } from "gatsby-plugin-image";
+import { GatsbyImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 import disableScroll from 'disable-scroll';
 import Burger from './Burger';
@@ -33,7 +33,8 @@ const Nav = () => {
             <GatsbyImage
               image={data.logo.childImageSharp.gatsbyImageData}
               className="logo"
-              loading="eager" />
+              loading="eager"
+            />
             <div className="divRight">
               <a href="https://staceyrozich.bigcartel.com/" target="_blank">
                 Shop
@@ -129,11 +130,18 @@ const NavMain = styled.div`
   }
 `;
 
-export const query = graphql`{
-  logo: file(relativePath: {eq: "Logo_StaceyRozich.png"}) {
-    childImageSharp {
-      gatsbyImageData(width: 200, quality: 100, placeholder: NONE, layout: CONSTRAINED)
+export const query = graphql`
+  {
+    logo: file(relativePath: { eq: "Logo_StaceyRozich.png" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 200
+          quality: 100
+          placeholder: NONE
+          layout: CONSTRAINED
+          formats: [AUTO]
+        )
+      }
     }
   }
-}
 `;
