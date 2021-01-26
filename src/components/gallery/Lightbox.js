@@ -14,7 +14,6 @@ const Lightbox = ({ image, artwork, toggleModal, modalOpen }) => {
   const [index, setIndex] = useState(0);
   const width = useWindowWidth();
   let lightboxImage;
-  console.log({ index });
 
   // Sets the image to display and opens the ligthbox
   useEffect(() => {

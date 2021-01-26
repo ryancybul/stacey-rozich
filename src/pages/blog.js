@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 import parse from 'html-react-parser';
 import SEO from '../components/seo';
@@ -12,9 +12,10 @@ const blog = ({ data }) => (
       {data.allWpPost.edges.map(post => (
         <Link to={`/blog/${post.node.slug}`}>
           <PostStyles key={post.node.slug} className="grow">
-            <Img
-              fluid={
-                post.node.title_image.titleImage.localFile.childImageSharp.fluid
+            <GatsbyImage
+              image={
+                post.node.title_image.titleImage.localFile.childImageSharp
+                  .gatsbyImageData
               }
             />
             <div className="blogText">
@@ -31,7 +32,7 @@ const blog = ({ data }) => (
 export default blog;
 
 export const query = graphql`
-  query {
+  {
     allWpPost(sort: { order: DESC, fields: date }) {
       edges {
         node {
@@ -42,9 +43,11 @@ export const query = graphql`
             titleImage {
               localFile {
                 childImageSharp {
-                  fluid(maxWidth: 400) {
-                    ...GatsbyImageSharpFluid
-                  }
+                  gatsbyImageData(
+                    width: 400
+                    layout: CONSTRAINED
+                    placeholder: BLURRED
+                  )
                 }
               }
             }

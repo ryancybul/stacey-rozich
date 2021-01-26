@@ -2,40 +2,45 @@ import { useStaticQuery, graphql } from 'gatsby';
 
 export const aboutPageQuery = () => {
   const aboutData = useStaticQuery(graphql`
-    query {
+    {
       portrait1: file(relativePath: { eq: "StaceyPortrait1.jpg" }) {
         childImageSharp {
-          fluid(quality: 75) {
-            ...GatsbyImageSharpFluid_noBase64
-          }
+          gatsbyImageData(quality: 75, placeholder: NONE, layout: FULL_WIDTH)
         }
       }
       portrait2: file(relativePath: { eq: "StaceyPortrait2.jpeg" }) {
         childImageSharp {
-          fluid(quality: 75) {
-            ...GatsbyImageSharpFluid_noBase64
-          }
+          gatsbyImageData(quality: 75, placeholder: NONE, layout: FULL_WIDTH)
         }
       }
       bird: file(relativePath: { eq: "BIRB_CawCaw.png" }) {
         childImageSharp {
-          fluid(maxWidth: 500, quality: 100) {
-            ...GatsbyImageSharpFluid_noBase64
-          }
+          gatsbyImageData(
+            width: 500
+            quality: 100
+            placeholder: NONE
+            layout: CONSTRAINED
+          )
         }
       }
       arrow: file(relativePath: { eq: "arrow.png" }) {
         childImageSharp {
-          fluid(maxWidth: 50, quality: 100) {
-            ...GatsbyImageSharpFluid_noBase64
-          }
+          gatsbyImageData(
+            width: 50
+            quality: 100
+            placeholder: NONE
+            layout: CONSTRAINED
+          )
         }
       }
       arrowPink: file(relativePath: { eq: "arrow_pink.png" }) {
         childImageSharp {
-          fluid(maxWidth: 50, quality: 100) {
-            ...GatsbyImageSharpFluid_noBase64
-          }
+          gatsbyImageData(
+            width: 50
+            quality: 100
+            placeholder: NONE
+            layout: CONSTRAINED
+          )
         }
       }
       interviews: allWpInterview(sort: { fields: date, order: DESC }) {

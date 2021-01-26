@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql, Link } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 import parse from 'html-react-parser';
 import SEO from '../components/seo';
@@ -27,9 +27,10 @@ const blogPost = ({ data }) => {
             by {author} - {date}
           </span>
         </div>
-        <Img
-          fluid={
-            data.wpPost.title_image.titleImage.localFile.childImageSharp.fluid
+        <GatsbyImage
+          image={
+            data.wpPost.title_image.titleImage.localFile.childImageSharp
+              .gatsbyImageData
           }
           alt={title}
           className="titleImage"
@@ -82,9 +83,7 @@ export const query = graphql`
         titleImage {
           localFile {
             childImageSharp {
-              fluid(maxWidth: 1200) {
-                ...GatsbyImageSharpFluid
-              }
+              gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
             }
           }
         }

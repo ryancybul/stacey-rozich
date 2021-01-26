@@ -1,6 +1,6 @@
 /* eslint-disable react/button-has-type */
 import React, { useState, useEffect } from 'react';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import Gallery from 'react-photo-gallery';
 import styled from 'styled-components';
 import parse from 'html-react-parser';
@@ -27,7 +27,6 @@ const Artwork = ({ artwork }) => {
 
   // Set the image for the lightbox the image lightbox
   const showImage = async imageId => {
-    console.log({ imageId });
     const index = artwork.findIndex(i => i.id === imageId);
     const image = artwork[index];
     await setLightboxImage(image);
@@ -38,7 +37,7 @@ const Artwork = ({ artwork }) => {
     setModalOpen(!modalOpen);
   };
 
-  const GatsbyImage = ({ index, photo, top, left, key }) => {
+  const renderImage = ({ index, photo, top, left, key }) => {
     if (photo.id === 'cG9zdDoyNzA=' && width <= 430) {
       return (
         <ImageWrapper
@@ -107,7 +106,11 @@ const Artwork = ({ artwork }) => {
           left,
         }}
       >
-        <Img fluid={photo.fluid} alt={photo.alt} loading="auto" />
+        <GatsbyImage
+          image={photo.gatsbyImageData}
+          alt={photo.alt}
+          loading="auto"
+        />
         <div className="imageInfo">
           <h2>{parse(photo.title)}</h2>
           <span>{moment(photo.dateCreated).format('MM-DD-YY')}</span>
@@ -123,7 +126,7 @@ const Artwork = ({ artwork }) => {
           photos={artwork}
           direction="column"
           columns={columnNum}
-          renderImage={GatsbyImage}
+          renderImage={renderImage}
         />
       </GalleryWrapper>
       <Lightbox

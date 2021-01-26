@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Img from 'gatsby-image';
+import { GatsbyImage } from "gatsby-plugin-image";
 import addToMailchimp from 'gatsby-plugin-mailchimp';
 import styled from 'styled-components';
 import disableScroll from 'disable-scroll';
@@ -63,10 +63,9 @@ const SignUp = () => {
         </button>
       </div>
       <div className="contentWrapper">
-        <Img
-          fluid={data.TheGorgeousHussy.childImageSharp.fluid}
-          alt="The Gorgeous Hussy"
-        />
+        <GatsbyImage
+          image={data.TheGorgeousHussy.childImageSharp.gatsbyImageData}
+          alt="The Gorgeous Hussy" />
         <div className="formWrapper">
           <form onSubmit={e => handleSubmit(e, email, mapleSyrup)}>
             <label htmlFor="email">
