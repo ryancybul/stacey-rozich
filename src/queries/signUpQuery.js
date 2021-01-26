@@ -10,6 +10,7 @@ export const signUpQuery = () => {
             width: 300
             placeholder: TRACED_SVG
             layout: CONSTRAINED
+            formats: [AUTO, AVIF]
           )
         }
       }

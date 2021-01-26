@@ -83,7 +83,11 @@ export const query = graphql`
         titleImage {
           localFile {
             childImageSharp {
-              gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+              gatsbyImageData(
+                layout: FULL_WIDTH
+                placeholder: BLURRED
+                formats: [AUTO, AVIF]
+              )
             }
           }
         }

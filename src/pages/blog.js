@@ -47,6 +47,7 @@ export const query = graphql`
                     width: 400
                     layout: CONSTRAINED
                     placeholder: BLURRED
+                    formats: [AUTO, AVIF]
                   )
                 }
               }
