@@ -5,12 +5,22 @@ export const aboutPageQuery = () => {
     {
       portrait1: file(relativePath: { eq: "StaceyPortrait1.jpg" }) {
         childImageSharp {
-          gatsbyImageData(quality: 75, placeholder: NONE, layout: FULL_WIDTH)
+          gatsbyImageData(
+            quality: 75
+            placeholder: NONE
+            layout: FULL_WIDTH
+            formats: [AUTO]
+          )
         }
       }
       portrait2: file(relativePath: { eq: "StaceyPortrait2.jpeg" }) {
         childImageSharp {
-          gatsbyImageData(quality: 75, placeholder: NONE, layout: FULL_WIDTH)
+          gatsbyImageData(
+            quality: 75
+            placeholder: NONE
+            layout: FULL_WIDTH
+            formats: [AUTO]
+          )
         }
       }
       bird: file(relativePath: { eq: "BIRB_CawCaw.png" }) {
@@ -20,6 +30,7 @@ export const aboutPageQuery = () => {
             quality: 100
             placeholder: NONE
             layout: CONSTRAINED
+            formats: [AUTO]
           )
         }
       }
@@ -30,6 +41,7 @@ export const aboutPageQuery = () => {
             quality: 100
             placeholder: NONE
             layout: CONSTRAINED
+            formats: [AUTO]
           )
         }
       }
@@ -40,6 +52,7 @@ export const aboutPageQuery = () => {
             quality: 100
             placeholder: NONE
             layout: CONSTRAINED
+            formats: [AUTO]
           )
         }
       }
