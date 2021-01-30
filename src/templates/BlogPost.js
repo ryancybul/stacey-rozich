@@ -36,7 +36,7 @@ const blogPost = ({ data }) => {
           className="titleImage"
         />
         <div
-          className="subhead"
+          className="subhead break-long-words"
           dangerouslySetInnerHTML={{ __html: data.wpPost.content }}
         />
       </PostWrapper>
@@ -169,7 +169,6 @@ const PostWrapper = styled.div`
     font-size: 1rem;
   }
   .subhead {
-    overflow-wrap: anywhere;
     width: 95%;
     align-self: center;
     p:first-of-type::first-letter {
