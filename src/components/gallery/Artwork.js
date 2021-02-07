@@ -168,10 +168,6 @@ const ImageWrapper = styled.div`
     left: 10px;
     bottom: 10px;
     right: 10px;
-    &:hover {
-      background-color: rgba(0, 0, 0, 0.75);
-      opacity: 1;
-    }
     h2 {
       font-size: 1.25rem;
       margin: 5px;
@@ -202,4 +198,10 @@ const ImageWrapper = styled.div`
       }
     } */
   }
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .imageInfo:hover {
+      background-color: rgba(0, 0, 0, 0.75);
+      opacity: 1;
+    }
 `;
