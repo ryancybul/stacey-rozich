@@ -80,14 +80,12 @@ const NavMain = styled.div`
     color: var(--secondary);
   }
   .divLeft {
-    /* border: 1px solid red; */
     margin-left: 1.5rem;
     a {
       margin-right: 1.35rem;
     }
   }
   .divRight {
-    /* border: 1px solid green; */
     margin-right: 1.35rem;
     a {
       margin-left: 3rem;
@@ -105,11 +103,17 @@ const NavMain = styled.div`
       a {
         margin-right: 0.5rem;
       }
+      a:nth-child(3) {
+        margin-right: 0;
+      }
     }
     .divRight {
       margin-right: 1rem;
       a {
         margin-left: 1.5rem;
+      }
+      a:nth-child(1) {
+        margin-left: 3rem;
       }
     }
     .logo {

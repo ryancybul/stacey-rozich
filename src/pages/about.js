@@ -170,7 +170,7 @@ const GridContainer = styled.div`
     margin-bottom: 25px;
   }
   .portrait {
-    min-width: 375px;
+    min-width: 500px;
     max-width: 600px;
   }
   @media only screen and (max-width: 950px) {
