@@ -233,7 +233,8 @@ const LightboxWrapper = styled.div`
       margin: 0px;
     }
     .imageInfo {
-      display: none;
+      /* display: none; */
+      font-size: var(--mediumSmallText);
     }
     .nav {
       display: flex;
