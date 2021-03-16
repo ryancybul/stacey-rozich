@@ -244,16 +244,16 @@ const SelectedInterviews = styled.div`
   margin-top: -50px;
   margin-bottom: 40px;
   .arrowWrapper {
-    border: 1px solid blue;
     display: inline-block;
     position: relative;
-    transform: translateY(2px);
+    transform: translateY(2px) translateX(15%);
     /* width: 20px; */
   }
   .arrow {
     width: 20px;
   }
   .arrowPink {
+    width: 20px;
     visibility: hidden;
     position: absolute;
     bottom: 0;
