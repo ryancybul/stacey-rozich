@@ -185,10 +185,10 @@ const GridContainer = styled.div`
       align-self: center;
     }
     .contact {
-      margin-top: 20px;
       margin-left: auto;
       margin-right: auto;
       padding: 0;
+      padding-top: 10px;
     }
     .clientList {
       margin-top: -30px;
