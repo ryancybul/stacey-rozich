@@ -40,7 +40,7 @@ const Nav = () => {
                 Shop
               </a>
               <Link to="/blog/">Blog</Link>
-              <Link to="/about/">Info</Link>
+              <Link to="/info/">Info</Link>
             </div>
           </NavMain>
         </NavWrapper>

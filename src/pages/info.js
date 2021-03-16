@@ -11,7 +11,7 @@ const about = () => {
   return (
     <>
       <Wrapper>
-        <SEO title="About" />
+        <SEO title="Info" />
         <Introduction>
           <p>
             Stacey Rozich is an <strong>artist, illustrator</strong> and
