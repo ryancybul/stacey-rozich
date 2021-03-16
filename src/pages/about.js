@@ -69,16 +69,18 @@ const about = () => {
                 <a href={post.node.Interviews.hyperlink} target="blank">
                   <div className="blogButton">
                     {parse(post.node.title)}
-                    <GatsbyImage
-                      image={data.arrow.childImageSharp.gatsbyImageData}
-                      className="arrow"
-                      alt="arrow"
-                    />
-                    <GatsbyImage
-                      image={data.arrowPink.childImageSharp.gatsbyImageData}
-                      className="arrowPink"
-                      alt="arrow"
-                    />
+                    <div className="arrowWrapper">
+                      <GatsbyImage
+                        image={data.arrow.childImageSharp.gatsbyImageData}
+                        className="arrow"
+                        alt="arrow"
+                      />
+                      <GatsbyImage
+                        image={data.arrowPink.childImageSharp.gatsbyImageData}
+                        className="arrowPink"
+                        alt="arrow"
+                      />
+                    </div>
                   </div>
                 </a>
               ))}
@@ -241,15 +243,22 @@ const ClientList = styled.div`
 const SelectedInterviews = styled.div`
   margin-top: -50px;
   margin-bottom: 40px;
-  .arrow,
-  .arrowPink {
-    width: 20px;
-    margin-left: 4px;
+  .arrowWrapper {
+    border: 1px solid blue;
     display: inline-block;
+    position: relative;
     transform: translateY(2px);
+    /* width: 20px; */
+  }
+  .arrow {
+    width: 20px;
   }
   .arrowPink {
-    display: none;
+    visibility: hidden;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
   }
   .blogButton {
     align-items: center;
@@ -267,7 +276,7 @@ const SelectedInterviews = styled.div`
         display: none;
       }
       .arrowPink {
-        display: inline-block;
+        visibility: visible;
       }
     }
   }

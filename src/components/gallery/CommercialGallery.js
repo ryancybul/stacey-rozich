@@ -12,16 +12,13 @@ const CommercialGallery = () => {
   useEffect(() => {
     setArtwork(
       data.map(function(image) {
-        let DateCreated;
-        if (image.node.dateCreated.dateCreated === null) {
-          DateCreated = image.node.date;
-        } else {
-          DateCreated = image.node.dateCreated.dateCreated;
-        }
         return {
           alt: image.node.altText,
           date: image.node.date,
-          dateCreated: DateCreated,
+          dateCreated:
+            image.node.dateCreated.dateCreated === null
+              ? image.node.date
+              : image.node.dateCreated.dateCreated,
           caption: image.node.caption,
           title: image.node.title,
           gatsbyImageData: image.node.localFile.childImageSharp.gatsbyImageData,
