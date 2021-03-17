@@ -247,7 +247,6 @@ const SelectedInterviews = styled.div`
     display: inline-block;
     position: relative;
     transform: translateY(2px) translateX(15%);
-    /* width: 20px; */
   }
   .arrow {
     width: 20px;
@@ -258,7 +257,6 @@ const SelectedInterviews = styled.div`
     position: absolute;
     bottom: 0;
     left: 0;
-    transform: translateX(-100%);
   }
   .blogButton {
     align-items: center;
