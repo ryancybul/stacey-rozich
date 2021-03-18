@@ -1,9 +1,9 @@
-import React from 'react';
-import { GatsbyImage } from 'gatsby-plugin-image';
-import styled from 'styled-components';
-import parse from 'html-react-parser';
-import SEO from '../components/seo';
-import { aboutPageQuery } from '../queries/aboutPageQuery';
+import React from "react";
+import { GatsbyImage } from "gatsby-plugin-image";
+import styled from "styled-components";
+import parse from "html-react-parser";
+import SEO from "../components/seo";
+import { aboutPageQuery } from "../queries/aboutPageQuery";
 
 const about = () => {
   const data = aboutPageQuery();
@@ -52,7 +52,7 @@ const about = () => {
               <p>
                 The New Yorker, Starbucks, Playbox Magazine, Refinery29, Lucky
                 Peach Magazine, Red Bull Music Academy, The Museum of Pop
-                Culture (MoPOP), The Stranger, Sub Pop Records, and many more.{' '}
+                Culture (MoPOP), The Stranger, Sub Pop Records, and many more.{" "}
               </p>
             </ClientList>
           </div>
@@ -65,7 +65,7 @@ const about = () => {
           <SelectedInterviews className="interviews">
             <h4>SELECTED INTERVIEWS AND FEATURES</h4>
             <div>
-              {data.interviews.edges.map(post => (
+              {data.interviews.edges.map((post) => (
                 <a href={post.node.Interviews.hyperlink} target="blank">
                   <div className="blogButton">
                     {parse(post.node.title)}
@@ -185,6 +185,7 @@ const GridContainer = styled.div`
     flex-direction: column;
     .portrait {
       align-self: center;
+      margin-bottom: 20px;
     }
     .contact {
       margin-left: auto;
@@ -281,8 +282,7 @@ const SelectedInterviews = styled.div`
     .blogButton {
       font-size: 0.7rem;
     }
-    .arrow,
-    .arrowPink {
+    .arrowWrapper {
       width: 15px;
     }
   }
