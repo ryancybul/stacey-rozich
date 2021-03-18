@@ -26,21 +26,23 @@ const Nav = () => {
           </div>
           <NavMain>
             <div className="divLeft">
-              <Link to="/commercial/">Commercial</Link>
-              <Link to="/">Studio</Link>
-              <Link to="/murals">Murals</Link>
+              <Link to="/commercial/" activeClassName="active">Commercial</Link>
+              <Link to="/" activeClassName="active">Studio</Link>
+              <Link to="/murals" activeClassName="active">Murals</Link>
             </div>
+            <Link to="/">
             <GatsbyImage
               image={data.logo.childImageSharp.gatsbyImageData}
               className="logo"
               loading="eager"
             />
+            </Link>
             <div className="divRight">
               <a href="https://staceyrozich.bigcartel.com/" target="_blank">
                 Shop
               </a>
-              <Link to="/blog/">Blog</Link>
-              <Link to="/info/">Info</Link>
+              <Link to="/blog/" activeClassName="active">Blog</Link>
+              <Link to="/info/" activeClassName="active">Info</Link>
             </div>
           </NavMain>
         </NavWrapper>
@@ -71,10 +73,10 @@ const NavMain = styled.div`
   a {
     font-size: var(--mediumText);
     transition: all 0.4s ease-in-out;
-    &[aria-current='page'] {
-      color: var(--secondary);
-      border-bottom: 2px solid var(--secondary);
-    }
+  }
+  .active {
+    color: var(--secondary);
+    border-bottom: 2px solid var(--secondary);
   }
   a:hover {
     color: var(--secondary);

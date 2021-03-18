@@ -139,6 +139,7 @@ const Introduction = styled.div`
     font-size: var(--largeText);
     font-weight: var(--fontWeigthThin);
     width: 75vw;
+    max-width: 1000px;
   }
   strong {
     font-weight: var(--fontWeightBold);
@@ -162,6 +163,7 @@ const GridContainer = styled.div`
   grid-template-rows: auto;
   margin-top: -150px;
   width: 85vw;
+  max-width: 1200px;
   h4 {
     color: var(--black);
     border-bottom: 3px solid var(--primary);
@@ -247,12 +249,9 @@ const SelectedInterviews = styled.div`
     display: inline-block;
     position: relative;
     transform: translateY(2px) translateX(15%);
-  }
-  .arrow {
     width: 20px;
   }
   .arrowPink {
-    width: 20px;
     visibility: hidden;
     position: absolute;
     bottom: 0;
