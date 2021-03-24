@@ -1,6 +1,6 @@
-import React from 'react';
-import SEO from '../components/seo';
-import MuralGallery from '../components/gallery/MuralGallery';
+import React from "react";
+import SEO from "../components/seo";
+import MuralGallery from "../components/gallery/MuralGallery";
 
 const IndexPage = () => (
   <>

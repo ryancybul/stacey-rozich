@@ -1,4 +1,4 @@
-import { useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql } from "gatsby";
 
 export const muralArtQuery = () => {
   const artData = useStaticQuery(graphql`
@@ -12,6 +12,7 @@ export const muralArtQuery = () => {
           node {
             dateCreated {
               dateCreated
+              order
             }
             categories {
               nodes {
