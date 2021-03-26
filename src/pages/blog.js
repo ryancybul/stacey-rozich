@@ -76,8 +76,10 @@ const PostStyles = styled.div`
   h3 {
     margin: 0px;
     font-size: var(--h3);
-    text-decoration: underline var(--secondary);
     z-index: 2;
+    i {
+      text-decoration: underline var(--secondary);
+    }
   }
   hr {
     border: 0;
