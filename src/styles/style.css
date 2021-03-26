@@ -1,76 +1,79 @@
 @font-face {
-  font-family: 'apercu-regular-pro';
-  src: url('../fonts/apercu-regular-pro.eot');
-  src: url('../fonts/apercu-regular-pro.eot?#iefix') format('embedded-opentype'),
-       url('../fonts/apercu-regular-pro.woff2') format('woff2'),
-       url('../fonts/apercu-regular-pro.woff') format('woff'),
-       url('../fonts/apercu-regular-pro.ttf') format('truetype');
+  font-family: "apercu-regular-pro";
+  src: url("../fonts/apercu-regular-pro.eot");
+  src: url("../fonts/apercu-regular-pro.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/apercu-regular-pro.woff2") format("woff2"),
+    url("../fonts/apercu-regular-pro.woff") format("woff"),
+    url("../fonts/apercu-regular-pro.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 :root {
-    /*Define Colors as Colors*/
-    --primary: #FDE1E0;
-    --secondary: #E97B7C;
-    --black: #000400;
-    --white: #FFFFFF;
-    --grey: #666666;
-    --lightGrey: #9A9B9F;
-    --lightestGrey: #F2F2F2;
+  /*Define Colors as Colors*/
+  --primary: #fde1e0;
+  --secondary: #e97b7c;
+  --black: #000400;
+  --white: #ffffff;
+  --grey: #666666;
+  --lightGrey: #9a9b9f;
+  --lightestGrey: #f2f2f2;
 
-    /* Define Colors Intentions*/
-    --active: var(--secondary);
-    --background: var(--white);
-    --textColor: var(--black);
-    --buttonTextColor: var(--black);
-    --footerTextColor: var(--lightGrey);
-    --lineColor: var(--grey);
-    --danger: var(--red);
-    --buttonColor: var(--primary);
-    --headerBackground: var(--white);
-    --footerBackground: var(--white);
-    --transparent:rgba(52,52,52,0.0);
-    --cardBg: var(--white);
+  /* Define Colors Intentions*/
+  --active: var(--secondary);
+  --background: var(--white);
+  --textColor: var(--black);
+  --buttonTextColor: var(--black);
+  --footerTextColor: var(--lightGrey);
+  --lineColor: var(--grey);
+  --danger: var(--red);
+  --buttonColor: var(--primary);
+  --headerBackground: var(--white);
+  --footerBackground: var(--white);
+  --transparent: rgba(52, 52, 52, 0);
+  --cardBg: var(--white);
 
-    /* Styles */
-    --line: solid 1px var(--lineColor);
+  /* Styles */
+  --line: solid 1px var(--lineColor);
 
-    /* Type */
-    --headingFont: 'apercu-regular-pro', Sans-Serif;
-    --bodyFont: 'apercu-regular-pro', Sans-Serif;
-    --baseFontSize: 100%; /*18px*/
-    --h1: 3.052em;
-    --h2: 2.441em;
-    --h3: 1.953em;
-    --h4: .75em;
-    --h5: 1.25em;
-    --largeText: 1.35rem;
-    --mediumText: 1.15rem;
-    --mediumSmallText: .95rem;
-    --smallText:.6rem;
-    --tinyText: .65rem;
-    --fontWeigthThin: 100; 
-    --fontWeightMedium: 500;
-    --fontWeightBold: 600;
+  /* Type */
+  --headingFont: "apercu-regular-pro", Sans-Serif;
+  --bodyFont: "apercu-regular-pro", Sans-Serif;
+  --baseFontSize: 100%; /*18px*/
+  --h1: 3.052em;
+  --h2: 2.441em;
+  --h3: 1.953em;
+  --h4: 0.75em;
+  --h5: 1.25em;
+  --largeText: 1.35rem;
+  --mediumText: 1.15rem;
+  --mediumSmallText: 0.95rem;
+  --smallText: 0.6rem;
+  --tinyText: 0.65rem;
+  --fontWeightThin: 100;
+  --fontWeightMedium: 500;
+  --fontWeightBold: 600;
 
-    /* Elevation */
-    --level-1: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-    --level-2: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    --level-3: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    --level-4: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  /* Elevation */
+  --level-1: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --level-2: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --level-3: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --level-4: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
 
-    /* Positioning */
-    --containerPadding: 2.5%;
-    --headerHeight: 3rem;
-    --borderRadius: 10px;
+  /* Positioning */
+  --containerPadding: 2.5%;
+  --headerHeight: 3rem;
+  --borderRadius: 10px;
 
-    /* Misc Variables */
-    --headerHeight: 90px;
+  /* Misc Variables */
+  --headerHeight: 90px;
 
-    max-width: 1920px;
-    margin-left: auto;
-    margin-right: auto;
+  max-width: 1920px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /*  From TypeScale*/
@@ -78,12 +81,12 @@ html {
   font-size: var(--baseFontSize);
   box-sizing: border-box;
   width: 100vw;
-  overflow-x:hidden;
-} 
+  overflow-x: hidden;
+}
 
-*{
+* {
   box-sizing: border-box;
-},
+}
 *::before,
 *::after {
   box-sizing: border-box;
@@ -96,22 +99,14 @@ a {
   text-decoration: none;
 }
 
-a:hover {
-  /* border-bottom: 2px solid var(--black); */
-}
-
 body {
-    font-family: var(--bodyFont);
-    font-weight: 400;
-    line-height: 1.65;
-    background: var(--background);
-    color: var(--textColor);
-    /* position:fixed; */
-    height: 100%;
-}
-
-body::-webkit-scrollbar {
-  /* background-color: var(--transparent); */
+  font-family: var(--bodyFont);
+  font-weight: 400;
+  line-height: 1.65;
+  background: var(--background);
+  color: var(--textColor);
+  /* position:fixed; */
+  height: 100%;
 }
 
 header {
@@ -148,7 +143,7 @@ header nav a + a {
   padding: 0;
 }
 
-.flexCenter{
+.flexCenter {
   display: flex;
   align-self: center;
 }
@@ -183,7 +178,11 @@ blockquote a {
   border-bottom: 3px solid var(--primary);
 }
 
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
   margin: 2.75rem 0 1.05rem;
   font-family: var(--headingFont);
   font-weight: 400;
@@ -195,15 +194,26 @@ h1 {
   font-size: var(--h1);
 }
 
-h2 {font-size: var(--h2)};
+h2 {
+  font-size: var(--h2);
+}
 
-h3 {font-size: var(--h3)};
+h3 {
+  font-size: var(--h3);
+}
 
-h4 {font-size: var(--h4)};
+h4 {
+  font-size: var(--h4);
+}
 
-h5 {font-size: var(--h5)};
+h5 {
+  font-size: var(--h5);
+}
 
-small, .text_small {font-size: var(--smallText);}
+small,
+.text_small {
+  font-size: var(--smallText);
+}
 
 /* End typescale */
 
@@ -219,7 +229,7 @@ label {
   font-size: var(--smallText);
 }
 
-input, 
+input,
 textarea {
   padding: 2px 5px;
   border: var(--line);
@@ -272,7 +282,6 @@ hr {
 /* Layout */
 
 @media only screen and (min-width: 650px) {
-
 }
 
 @media only screen and (min-width: 500px) {
@@ -282,10 +291,10 @@ hr {
 }
 
 .dark {
-    --cardBg: var(--darkBlue);
-    --textColor: var(--lightGrey);
-    --headerBackground: var(--black);
-    --footerBackground: var(--black);
-    --background: var(--black);
-    --buttonTextColor: var(--black);
+  --cardBg: var(--darkBlue);
+  --textColor: var(--lightGrey);
+  --headerBackground: var(--black);
+  --footerBackground: var(--black);
+  --background: var(--black);
+  --buttonTextColor: var(--black);
 }

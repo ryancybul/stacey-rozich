@@ -178,7 +178,7 @@ const Wrapper = styled.div`
     color: var(--black);
     cursor: pointer;
     font-size: 1em;
-    font-weight: var(--fontWeigthThin);
+    font-weight: var(--fontWeightThin);
     margin: 5px;
     padding: 10px 20px;
     :hover {

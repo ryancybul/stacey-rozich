@@ -137,7 +137,7 @@ const Introduction = styled.div`
   p {
     margin: 200px 0;
     font-size: var(--largeText);
-    font-weight: var(--fontWeigthThin);
+    font-weight: var(--fontWeightThin);
     width: 75vw;
     max-width: 1000px;
   }
@@ -293,7 +293,7 @@ const Elsewhere = styled.div`
   grid-column-start: 2;
   a {
     font-size: var(--mediumText);
-    font-weight: var(--fontWeigthThin);
+    font-weight: var(--fontWeightThin);
     :hover {
       border-color: var(--secondary);
       border-bottom: 2px solid var(--primary);

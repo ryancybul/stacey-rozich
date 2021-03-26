@@ -68,7 +68,7 @@ const PostStyles = styled.div`
   }
   p {
     font-size: var(--mediumSmallText);
-    font-weight: var(--fontWeigthThin);
+    font-weight: var(--fontWeightThin);
     margin: 0px;
   }
   h3 {
@@ -85,6 +85,6 @@ const PostStyles = styled.div`
   }
   time {
     font-size: var(--smallText);
-    font-weight: var(--fontWeigthThin);
+    font-weight: var(--fontWeightThin);
   }
 `;
