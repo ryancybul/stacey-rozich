@@ -13,9 +13,7 @@ const blog = ({ data }) => (
       <Link to={`/blog/${post.node.slug}`} key={post.node.slug}>
         <PostStyles key={post.node.slug} className="grow">
           <div className="blogText">
-            <h3>
-              <i>{parse(post.node.title)}</i>
-            </h3>
+            <h3>{parse(post.node.title)}</h3>
             <time>
               {moment(new Date(post.node.date)).format("MMMM DD, YYYY")}
             </time>
@@ -77,9 +75,9 @@ const PostStyles = styled.div`
     margin: 0px;
     font-size: var(--h3);
     z-index: 2;
-    i {
-      text-decoration: underline var(--secondary);
-    }
+    font-style: italic;
+    text-decoration: underline var(--secondary);
+    
   }
   hr {
     border: 0;
