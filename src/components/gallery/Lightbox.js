@@ -1,13 +1,13 @@
 /* eslint-disable react/button-has-type */
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
-import disableScroll from 'disable-scroll';
-import parse from 'html-react-parser';
-import { useWindowWidth } from '@react-hook/window-size';
-import { useTransition, animated, config } from 'react-spring';
-import leftArrow from '../../images/leftArrow.png';
-import rightArrow from '../../images/rightArrow.png';
-import closeButton from '../../images/closeButton.png';
+import React, { useState, useEffect } from "react";
+import styled from "styled-components";
+import disableScroll from "disable-scroll";
+import parse from "html-react-parser";
+import { useWindowWidth } from "@react-hook/window-size";
+import { useTransition, animated, config } from "react-spring";
+import leftArrow from "../../images/leftArrow.png";
+import rightArrow from "../../images/rightArrow.png";
+import closeButton from "../../images/closeButton.png";
 
 const Lightbox = ({ image, artwork, toggleModal, modalOpen }) => {
   const [imageToShow, setImageToShow] = useState({});
@@ -23,7 +23,7 @@ const Lightbox = ({ image, artwork, toggleModal, modalOpen }) => {
   }, [artwork, image]);
 
   // To do artwork is an empty array at first, does it re-render?
-  const transitions = useTransition(artwork[index], item => item.id, {
+  const transitions = useTransition(artwork[index], (item) => item.id, {
     from: { opacity: 0 },
     enter: { opacity: 1 },
     leave: { opacity: 0 },
@@ -33,10 +33,10 @@ const Lightbox = ({ image, artwork, toggleModal, modalOpen }) => {
 
   useEffect(() => {
     if (modalOpen) {
-      window.addEventListener('keydown', keyHandler);
+      window.addEventListener("keydown", keyHandler);
       // Remove event listeners on cleanup
       return () => {
-        window.removeEventListener('keydown', keyHandler);
+        window.removeEventListener("keydown", keyHandler);
       };
     }
   });
@@ -47,7 +47,7 @@ const Lightbox = ({ image, artwork, toggleModal, modalOpen }) => {
   }, [modalOpen, toggleModal, width]);
 
   // Show next image in lightbox
-  const showNext = e => {
+  const showNext = (e) => {
     e.stopPropagation();
     const currentIndex = artwork.indexOf(imageToShow);
     if (currentIndex >= artwork.length - 1) {
@@ -62,7 +62,7 @@ const Lightbox = ({ image, artwork, toggleModal, modalOpen }) => {
   };
 
   // Shows previous image in lightbox
-  const showPrev = e => {
+  const showPrev = (e) => {
     e.stopPropagation();
     const currentIndex = artwork.indexOf(imageToShow);
     if (currentIndex <= 0) {
@@ -77,7 +77,7 @@ const Lightbox = ({ image, artwork, toggleModal, modalOpen }) => {
   };
 
   // Keyboard nav
-  const keyHandler = e => {
+  const keyHandler = (e) => {
     if (e.keyCode === 37) {
       showPrev(e);
     } else if (e.keyCode === 39) {
@@ -92,7 +92,7 @@ const Lightbox = ({ image, artwork, toggleModal, modalOpen }) => {
 
   // If lightbox image is music video display iFrame
   if (
-    imageToShow.src === '/static/img-1-2a8132b25a74466576f4bc44d9653885.jpg'
+    imageToShow.src === "/static/img-1-2a8132b25a74466576f4bc44d9653885.jpg"
   ) {
     lightboxImage = (
       <iframe
@@ -107,7 +107,7 @@ const Lightbox = ({ image, artwork, toggleModal, modalOpen }) => {
       />
     );
   } else if (
-    imageToShow.src === '/static/img-c0f5b640adc30e0dfb2df2643f83f260.jpg'
+    imageToShow.src === "/static/img-c0f5b640adc30e0dfb2df2643f83f260.jpg"
   ) {
     lightboxImage = (
       <iframe
@@ -125,7 +125,6 @@ const Lightbox = ({ image, artwork, toggleModal, modalOpen }) => {
     lightboxImage = transitions.map(({ item, props, key }) => (
       <animated.img
         src={item.src}
-        alt={item.alt}
         key={key}
         style={{
           ...props,
@@ -143,9 +142,9 @@ const Lightbox = ({ image, artwork, toggleModal, modalOpen }) => {
           </LightboxImageWrapper>
           <div className="imageInfo">
             <p>
-              "{parse(`${imageToShow.title}`)}"{' '}
-              {parse(`${imageToShow.caption}`) === 'null'
-                ? ''
+              "{parse(`${imageToShow.title}`)}"{" "}
+              {parse(`${imageToShow.caption}`) === "null"
+                ? ""
                 : parse(`${imageToShow.caption}`)}
             </p>
           </div>
@@ -170,7 +169,7 @@ const Lightbox = ({ image, artwork, toggleModal, modalOpen }) => {
           </div>
         </LightboxWrapper>
       ) : (
-        ''
+        ""
       )}
     </>
   );

@@ -1,18 +1,18 @@
-import React from 'react';
-import { graphql, Link } from 'gatsby';
-import { GatsbyImage } from 'gatsby-plugin-image';
-import styled from 'styled-components';
-import parse from 'html-react-parser';
-import SEO from '../components/seo';
+import React from "react";
+import { graphql, Link } from "gatsby";
+import { GatsbyImage } from "gatsby-plugin-image";
+import styled from "styled-components";
+import parse from "html-react-parser";
+import SEO from "../components/seo";
 
 const blogPost = ({ data }) => {
   const title = parse(data.wpPost.title);
-  const slugs = data.allWpPost.edges.map(post => post.node.slug);
+  const slugs = data.allWpPost.edges.map((post) => post.node.slug);
   const currentSlug = slugs.indexOf(data.wpPost.slug);
   const nextSlug = slugs[currentSlug + 1];
   const prevSlug = slugs[currentSlug - 1];
-  const disabledNext = nextSlug ? '' : 'disabled-link';
-  const disabledPrev = prevSlug ? '' : 'disabled-link';
+  const disabledNext = nextSlug ? "" : "disabled-link";
+  const disabledPrev = prevSlug ? "" : "disabled-link";
   const author = data.wpPost.author.name;
   const { date } = data.wpPost;
 

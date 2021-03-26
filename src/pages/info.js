@@ -239,7 +239,7 @@ const ClientList = styled.div`
     padding: 0;
     margin: 0;
     font-size: var(--mediumText);
-    font-weight: var(--fontWeigthThin);
+    font-weight: var(--fontWeightThin);
   }
 `;
 
@@ -264,7 +264,7 @@ const SelectedInterviews = styled.div`
     background-color: var(--primary);
     display: inline-block;
     font-size: var(--mediumSmallText);
-    font-weight: var(--fontWeigthThin);
+    font-weight: var(--fontWeightThin);
     margin: 5px;
     padding: 10px 20px;
     :hover {

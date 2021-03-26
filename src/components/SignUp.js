@@ -1,44 +1,44 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
-import addToMailchimp from 'gatsby-plugin-mailchimp';
-import styled from 'styled-components';
-import disableScroll from 'disable-scroll';
-import closeButton from '../images/closeButton.png';
-import { signUpQuery } from '../queries/signUpQuery';
+import addToMailchimp from "gatsby-plugin-mailchimp";
+import styled from "styled-components";
+import disableScroll from "disable-scroll";
+import closeButton from "../images/closeButton.png";
+import { signUpQuery } from "../queries/signUpQuery";
 
 const SignUp = () => {
   const [modalOpen, setModalOpen] = useState();
-  const [email, setEmail] = useState('');
-  const [mapleSyrup, setMapleSyrup] = useState('');
+  const [email, setEmail] = useState("");
+  const [mapleSyrup, setMapleSyrup] = useState("");
   const data = signUpQuery();
 
   modalOpen ? disableScroll.on() : disableScroll.off();
 
   useEffect(() => {
-    setTimeout(() => setModalOpen(true), 15000);
+    setTimeout(() => setModalOpen(true), 120000);
   }, []);
 
   useEffect(() => {
     if (modalOpen) {
-      window.addEventListener('keydown', keyHandler);
+      window.addEventListener("keydown", keyHandler);
       // Remove event listeners on cleanup
       return () => {
-        window.removeEventListener('keydown', keyHandler);
+        window.removeEventListener("keydown", keyHandler);
       };
     }
   });
 
   const handleSubmit = async (e, email, mapleSyrup) => {
     e.preventDefault();
-    if (mapleSyrup === '') {
+    if (mapleSyrup === "") {
       await addToMailchimp(email);
       await setModalOpen(false);
-      await setEmail('');
-      await setMapleSyrup('');
+      await setEmail("");
+      await setMapleSyrup("");
     } else {
       await setModalOpen(false);
-      await setEmail('');
-      await setMapleSyrup('');
+      await setEmail("");
+      await setMapleSyrup("");
     }
   };
 
@@ -47,7 +47,7 @@ const SignUp = () => {
   };
 
   // Keyboard nav
-  const keyHandler = e => {
+  const keyHandler = (e) => {
     if (e.keyCode === 13) {
       handleSubmit(e, email, mapleSyrup);
     } else if (e.keyCode === 27) {
@@ -65,9 +65,10 @@ const SignUp = () => {
       <div className="contentWrapper">
         <GatsbyImage
           image={data.TheGorgeousHussy.childImageSharp.gatsbyImageData}
-          alt="The Gorgeous Hussy" />
+          alt="The Gorgeous Hussy"
+        />
         <div className="formWrapper">
-          <form onSubmit={e => handleSubmit(e, email, mapleSyrup)}>
+          <form onSubmit={(e) => handleSubmit(e, email, mapleSyrup)}>
             <label htmlFor="email">
               Subscribe to my email list for updates on print releases and
               upcoming shows.
@@ -76,14 +77,14 @@ const SignUp = () => {
               type="email"
               id="email"
               name="email"
-              onChange={event => setEmail(event.target.value)}
+              onChange={(event) => setEmail(event.target.value)}
               required
             />
             <input
               type="mapleSyrup"
               id="mapleSyrup"
               name="mapleSyrup"
-              onChange={event => setMapleSyrup(event.target.value)}
+              onChange={(event) => setMapleSyrup(event.target.value)}
               className="mapleSyrup"
             />
             <input type="submit" value="Subscribe" className="submit" />
@@ -92,7 +93,7 @@ const SignUp = () => {
       </div>
     </Wrapper>
   ) : (
-    ''
+    ""
   );
 };
 export default SignUp;
@@ -158,12 +159,12 @@ const Wrapper = styled.div`
     margin: 5px;
   }
   label {
-    font-family: 'Petit Formal Script';
+    font-family: "Petit Formal Script";
     font-size: var(--mediumText);
     font-weight: var(--fontWeigthBold);
   }
   p {
-    font-family: 'petit-formal-script';
+    font-family: "petit-formal-script";
     color: var(--black);
     padding: none;
   }
