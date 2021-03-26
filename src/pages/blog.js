@@ -74,10 +74,8 @@ const PostStyles = styled.div`
   h3 {
     margin: 0px;
     font-size: var(--h3);
-    z-index: 2;
     font-style: italic;
     text-decoration: underline var(--secondary);
-    
   }
   hr {
     border: 0;
@@ -86,7 +84,7 @@ const PostStyles = styled.div`
     background-image: linear-gradient(to right, #ccc, #333, #ccc);
   }
   time {
-    font-size: var(--mediumSmallText);
+    font-size: var(--smallText);
     font-weight: var(--fontWeigthThin);
   }
 `;
