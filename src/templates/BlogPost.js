@@ -4,6 +4,7 @@ import { GatsbyImage } from "gatsby-plugin-image";
 import styled from "styled-components";
 import parse from "html-react-parser";
 import SEO from "../components/seo";
+import moment from "moment";
 
 const blogPost = ({ data }) => {
   const title = parse(data.wpPost.title);
@@ -24,7 +25,7 @@ const blogPost = ({ data }) => {
         <div>
           <h1>{title}</h1>
           <span>
-            by {author} - {date}
+            by {author} -{moment(new Date(date)).format("MMMM DD, YYYY")}
           </span>
         </div>
         <GatsbyImage
@@ -75,7 +76,7 @@ export const query = graphql`
         }
       }
       content
-      date(formatString: "MMMM DD, YYYY")
+      date
       excerpt
       slug
       title

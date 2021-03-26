@@ -115,7 +115,7 @@ const Artwork = ({ artwork }) => {
         />
         <div className="imageInfo">
           <h2>{parse(photo.title)}</h2>
-          <span>{moment(photo.dateCreated).format("MM-DD-YY")}</span>
+          <time>{moment(new Date(photo.dateCreated)).format("MM/DD/YY")}</time>
         </div>
       </ImageWrapper>
     );
@@ -174,7 +174,7 @@ const ImageWrapper = styled.div`
       font-size: 1.25rem;
       margin: 5px;
     }
-    span {
+    time {
       font-size: 0.75rem;
     }
   }

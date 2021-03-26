@@ -3,19 +3,22 @@ import { Link, graphql } from "gatsby";
 import styled from "styled-components";
 import parse from "html-react-parser";
 import SEO from "../components/seo";
+import moment from "moment";
 
 const blog = ({ data }) => (
   <PageWrapper>
     <SEO title="Blog" />
 
     {data.allWpPost.edges.map((post) => (
-      <Link to={`/blog/${post.node.slug}`}>
+      <Link to={`/blog/${post.node.slug}`} key={post.node.slug}>
         <PostStyles key={post.node.slug} className="grow">
           <div className="blogText">
             <h3>
               <i>{parse(post.node.title)}</i>
             </h3>
-            <time>{post.node.date}</time>
+            <time>
+              {moment(new Date(post.node.date)).format("MMMM DD, YYYY")}
+            </time>
             <div dangerouslySetInnerHTML={{ __html: post.node.excerpt }}></div>
             <hr />
           </div>
@@ -32,24 +35,10 @@ export const query = graphql`
     allWpPost(sort: { order: DESC, fields: date }) {
       edges {
         node {
-          date(formatString: "MMMM DD, YYYY")
+          date
           excerpt
           slug
           title
-          title_image {
-            titleImage {
-              localFile {
-                childImageSharp {
-                  gatsbyImageData(
-                    width: 400
-                    layout: CONSTRAINED
-                    placeholder: BLURRED
-                    formats: [AUTO]
-                  )
-                }
-              }
-            }
-          }
         }
       }
     }
@@ -88,7 +77,6 @@ const PostStyles = styled.div`
     margin: 0px;
     font-size: var(--h3);
     text-decoration: underline var(--secondary);
-    text-decoration-thickness: 2px;
     z-index: 2;
   }
   hr {
