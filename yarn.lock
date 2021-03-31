@@ -6436,7 +6436,7 @@ gatsby-source-graphql@^3.1.0:
     node-fetch "^2.6.1"
     uuid "3.4.0"
 
-gatsby-source-wordpress@^5.0.0:
+gatsby-source-wordpress@^5.2.0:
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/gatsby-source-wordpress/-/gatsby-source-wordpress-5.2.0.tgz#afe3fbdf238825c82234264b10666e6c4741a96d"
   integrity sha512-dHR/oH8VCiHfQYXIk7iFcxkEfhkOQmaKSJNuIJFhXJpnRLmoYZrlYjgDTC3CFtC4AMJ7W2faR6cvS/w/4etP9w==
