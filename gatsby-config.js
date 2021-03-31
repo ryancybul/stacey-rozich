@@ -1,6 +1,6 @@
 const activeEnv = process.env.NODE_ENV;
 
-require('dotenv').config({
+require("dotenv").config({
   path: `./.env.${activeEnv}`,
 });
 
@@ -19,10 +19,13 @@ module.exports = {
         html: {
           useGatsbyImage: true,
         },
+        production: {
+          allow404Images: true,
+        },
       },
     },
     {
-      resolve: 'gatsby-plugin-mailchimp',
+      resolve: "gatsby-plugin-mailchimp",
       options: {
         endpoint: process.env.MC_ENDPOINT,
         timeout: 3500,
