@@ -46,6 +46,7 @@ export const query = graphql`
 const PageWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 100%;
   .grow {
     transition: all 0.2s ease-in-out;
