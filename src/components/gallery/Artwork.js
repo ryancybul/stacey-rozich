@@ -14,6 +14,8 @@ const Artwork = ({ artwork }) => {
   const [columnNum, setColumnNum] = useState();
   const width = useWindowWidth();
 
+  console.log({ lightboxImage });
+
   // sets the number of columns
   useEffect(() => {
     if (width >= 1200) {
@@ -110,7 +112,7 @@ const Artwork = ({ artwork }) => {
       >
         <GatsbyImage
           image={photo.gatsbyImageData}
-          alt={photo.alt}
+          alt={photo.alt != null ? photo.alt : ""}
           loading="auto"
         />
         <div className="imageInfo">

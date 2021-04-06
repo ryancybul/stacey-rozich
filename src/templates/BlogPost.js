@@ -29,11 +29,11 @@ const blogPost = ({ data }) => {
           </span>
         </div>
         <GatsbyImage
+          alt={title != null ? title : ""}
           image={
             data.wpPost.title_image.titleImage.localFile.childImageSharp
               .gatsbyImageData
           }
-          alt={title}
           className="titleImage"
         />
         <div

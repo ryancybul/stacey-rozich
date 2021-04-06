@@ -96,6 +96,7 @@ const Lightbox = ({ image, artwork, toggleModal, modalOpen }) => {
   ) {
     lightboxImage = (
       <iframe
+        alt="Goat Hide From The Sun"
         title="Goat Hide From The Sun"
         src="https://www.youtube.com/embed/tnu_O5P8P5I?wmode=opaque&enablejsapi=1&autoplay=0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; "
@@ -111,6 +112,7 @@ const Lightbox = ({ image, artwork, toggleModal, modalOpen }) => {
   ) {
     lightboxImage = (
       <iframe
+        alt="Fleet Foxes - The Shrine / An Argument"
         title="Fleet Foxes - The Shrine / An Argument"
         src="https://www.youtube.com/embed/9yAxIdkF2Qo?wmode=opaque&enablejsapi=1&autoplay=0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; "
@@ -218,7 +220,6 @@ const LightboxWrapper = styled.div`
       margin: 10px;
     }
   }
-
   .imageInfo {
     color: var(--secondary);
     text-align: center;

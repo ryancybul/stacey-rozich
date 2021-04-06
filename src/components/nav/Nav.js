@@ -1,11 +1,11 @@
-import React, { useState, useRef } from 'react';
-import { StaticQuery, Link, graphql } from 'gatsby';
-import { GatsbyImage } from 'gatsby-plugin-image';
-import styled from 'styled-components';
-import disableScroll from 'disable-scroll';
-import Burger from './Burger';
-import BurgerMenu from './BurgerMenu.js';
-import { useOnClickOutside } from '../../hooks/useOnClickOutside';
+import React, { useState, useRef } from "react";
+import { StaticQuery, Link, graphql } from "gatsby";
+import { GatsbyImage } from "gatsby-plugin-image";
+import styled from "styled-components";
+import disableScroll from "disable-scroll";
+import Burger from "./Burger";
+import BurgerMenu from "./BurgerMenu.js";
+import { useOnClickOutside } from "../../hooks/useOnClickOutside";
 
 const Nav = () => {
   const [open, setOpen] = useState(false);
@@ -18,7 +18,7 @@ const Nav = () => {
   return (
     <StaticQuery
       query={query}
-      render={data => (
+      render={(data) => (
         <NavWrapper className="nav">
           <div ref={node} className="Burger">
             <BurgerMenu open={open} setOpen={setOpen} />
@@ -26,23 +26,34 @@ const Nav = () => {
           </div>
           <NavMain>
             <div className="divLeft">
-              <Link to="/commercial/" activeClassName="active">Commercial</Link>
-              <Link to="/" activeClassName="active">Studio</Link>
-              <Link to="/murals" activeClassName="active">Murals</Link>
+              <Link to="/commercial/" activeClassName="active">
+                Commercial
+              </Link>
+              <Link to="/" activeClassName="active">
+                Studio
+              </Link>
+              <Link to="/murals" activeClassName="active">
+                Murals
+              </Link>
             </div>
             <Link to="/">
-            <GatsbyImage
-              image={data.logo.childImageSharp.gatsbyImageData}
-              className="logo"
-              loading="eager"
-            />
+              <GatsbyImage
+                alt="Logo"
+                image={data.logo.childImageSharp.gatsbyImageData}
+                className="logo"
+                loading="eager"
+              />
             </Link>
             <div className="divRight">
               <a href="https://staceyrozich.bigcartel.com/" target="_blank">
                 Shop
               </a>
-              <Link to="/blog/" activeClassName="active">Blog</Link>
-              <Link to="/info/" activeClassName="active">Info</Link>
+              <Link to="/blog/" activeClassName="active">
+                Blog
+              </Link>
+              <Link to="/info/" activeClassName="active">
+                Info
+              </Link>
             </div>
           </NavMain>
         </NavWrapper>
