@@ -127,6 +127,7 @@ const Wrapper = styled.div`
   line-height: 1.3;
   letter-spacing: 1.35px;
   transform: translateY(-130px);
+  width: 100%;
 `;
 
 const Introduction = styled.div`
@@ -181,7 +182,6 @@ const GridContainer = styled.div`
     display: flex;
     margin-top: -100px;
     width: 90vw;
-
     flex-direction: column;
     .portrait {
       align-self: center;

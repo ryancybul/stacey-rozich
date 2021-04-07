@@ -14,8 +14,6 @@ const Artwork = ({ artwork }) => {
   const [columnNum, setColumnNum] = useState();
   const width = useWindowWidth();
 
-  console.log({ lightboxImage });
-
   // sets the number of columns
   useEffect(() => {
     if (width >= 1200) {
