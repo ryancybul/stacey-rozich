@@ -66,6 +66,7 @@ export default Nav;
 
 const NavWrapper = styled.nav`
   padding: 1rem 0;
+  padding-bottom: 0;
   width: 100vw;
   max-width: 1920px;
   z-index: 0;
