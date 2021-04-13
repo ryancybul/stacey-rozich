@@ -175,7 +175,7 @@ const GridContainer = styled.div`
     margin-bottom: 25px;
   }
   .portrait {
-    min-width: clamp(320px, 500px, 600px);
+    width: minmax(320px, 600px);
   }
   @media only screen and (max-width: 950px) {
     display: flex;
@@ -184,7 +184,8 @@ const GridContainer = styled.div`
     flex-direction: column;
     .portrait {
       align-self: center;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
+      width: inherit;
     }
     .contact {
       margin-left: auto;
