@@ -289,7 +289,7 @@ const SelectedInterviews = styled.div`
 `;
 
 const Elsewhere = styled.div`
-  margin-top: -95px;
+  margin-top: -65px;
   grid-column-start: 2;
   a {
     font-size: var(--mediumText);

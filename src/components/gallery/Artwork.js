@@ -115,7 +115,6 @@ const Artwork = ({ artwork }) => {
         />
         <div className="imageInfo">
           <h2>{parse(photo.title)}</h2>
-          <time>{moment(new Date(photo.dateCreated)).format("MM/DD/YY")}</time>
         </div>
       </ImageWrapper>
     );

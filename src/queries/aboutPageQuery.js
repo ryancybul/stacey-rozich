@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from "gatsby";
 export const aboutPageQuery = () => {
   const aboutData = useStaticQuery(graphql`
     {
-      portrait1: file(relativePath: { eq: "StaceyPortrait1.jpg" }) {
+      portrait1: file(relativePath: { eq: "StaxceyRozichPORTRAIT_Web.jpg" }) {
         childImageSharp {
           gatsbyImageData(
             quality: 100
@@ -14,7 +14,7 @@ export const aboutPageQuery = () => {
           )
         }
       }
-      portrait2: file(relativePath: { eq: "StaceyPortrait2.jpeg" }) {
+      portrait2: file(relativePath: { eq: "Stacey_Mural1.jpg" }) {
         childImageSharp {
           gatsbyImageData(
             quality: 100
