@@ -13,14 +13,7 @@ const about = () => {
       <Wrapper>
         <SEO title="Info" />
         <Introduction>
-          <p>
-            Stacey Rozich is an <strong>artist, illustrator</strong> and
-            <strong> muralist.</strong> She constructs vignettes in watercolor
-            that combine elements of folklore, medieval religious iconography
-            and American pop culture. Her storybook world is brought to life
-            through lush patterning, symbolism, and nostalgia. She was born in
-            Seattle and now resides in Los Angeles, California.
-          </p>
+          <div dangerouslySetInnerHTML={{ __html: data.info.content }} />
         </Introduction>
         <GridContainer>
           <GatsbyImage
@@ -41,19 +34,12 @@ const about = () => {
                 <a href="mailto: staceyrozich@gmail.com">
                   staceyrozich@gmail.com
                 </a>
-                <p>
-                  Availiable for commercial illustration, murals, and sometimes
-                  personal commissions.
-                </p>
+                <p>{data.info.infoPage.blurb}</p>
               </div>
             </Contact>
             <ClientList className="clientList">
               <h4>COMMERCIAL CLIENT LIST</h4>
-              <p>
-                The New Yorker, Starbucks, Playbox Magazine, Refinery29, Lucky
-                Peach Magazine, Red Bull Music Academy, The Museum of Pop
-                Culture (MoPOP), The Stranger, Sub Pop Records, and many more.{" "}
-              </p>
+              <p>{data.info.infoPage.clientList} </p>
             </ClientList>
           </div>
           <GatsbyImage
@@ -136,7 +122,7 @@ const Introduction = styled.div`
   justify-content: center;
   width: 100vw;
   p {
-    margin: 200px 0;
+    margin: 175px 0 225px 0;
     font-size: var(--largeText);
     font-weight: var(--fontWeightThin);
     width: 75vw;

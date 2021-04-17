@@ -32,7 +32,7 @@ const Nav = () => {
               <Link to="/" activeClassName="active">
                 Studio
               </Link>
-              <Link to="/murals" activeClassName="active">
+              <Link to="/murals/" activeClassName="active">
                 Murals
               </Link>
             </div>

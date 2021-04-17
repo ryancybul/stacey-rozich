@@ -68,6 +68,13 @@ export const aboutPageQuery = () => {
           }
         }
       }
+      info: wpInfoPage(slug: { eq: "info-page" }) {
+        content
+        infoPage {
+          blurb
+          clientList
+        }
+      }
     }
   `);
   return aboutData;
