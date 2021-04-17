@@ -144,10 +144,10 @@ const Lightbox = ({ image, artwork, toggleModal, modalOpen }) => {
           </LightboxImageWrapper>
           <div className="imageInfo">
             <p>
-              "{parse(`${imageToShow.title}`)}"{" "}
-              {parse(`${imageToShow.caption}`) === "null"
+              {parse(`${imageToShow.title}`)}
+              {/* {parse(`${imageToShow.caption}`) === "null"
                 ? ""
-                : parse(`${imageToShow.caption}`)}
+                : parse(`${imageToShow.caption}`)} */}
             </p>
           </div>
 

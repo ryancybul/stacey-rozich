@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import { GatsbyImage } from "gatsby-plugin-image";
 import addToMailchimp from "gatsby-plugin-mailchimp";
 import styled from "styled-components";
-import disableScroll from "disable-scroll";
-import closeButton from "../images/closeButton.png";
 import { signUpQuery } from "../queries/signUpQuery";
 
 const SignUp = () => {
@@ -11,8 +9,6 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [mapleSyrup, setMapleSyrup] = useState("");
   const data = signUpQuery();
-
-  modalOpen ? disableScroll.on() : disableScroll.off();
 
   useEffect(() => {
     setTimeout(() => setModalOpen(true), 120000);
@@ -57,11 +53,6 @@ const SignUp = () => {
 
   return modalOpen ? (
     <Wrapper>
-      <div className="closeButton">
-        <button type="button" onClick={closeModal} title="Close">
-          <img src={closeButton} alt="Close ligthbox" />
-        </button>
-      </div>
       <div className="contentWrapper">
         <GatsbyImage
           image={data.TheGorgeousHussy.childImageSharp.gatsbyImageData}
@@ -76,6 +67,7 @@ const SignUp = () => {
             <input
               type="email"
               id="email"
+              placeholder="enter your email"
               name="email"
               onChange={(event) => setEmail(event.target.value)}
               required
@@ -87,7 +79,15 @@ const SignUp = () => {
               onChange={(event) => setMapleSyrup(event.target.value)}
               className="mapleSyrup"
             />
-            <input type="submit" value="Subscribe" className="submit" />
+            <div className="buttonWrapper">
+              <input type="submit" value="Subscribe" className="submit" />
+              <input
+                type="button"
+                onClick={closeModal}
+                value="No thank you."
+                className="submit"
+              />
+            </div>
           </form>
         </div>
       </div>
@@ -99,19 +99,18 @@ const SignUp = () => {
 export default SignUp;
 
 const Wrapper = styled.div`
-  z-index: 15;
+  z-index: 9;
   position: fixed;
-  top: 0;
-  left: 0;
+  bottom: 0;
   width: 100%;
-  height: 100%;
+  height: 150px;
   background-color: var(--primary);
   display: flex;
   align-items: center;
   justify-content: center;
   .contentWrapper {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     width: 100%;
@@ -145,10 +144,12 @@ const Wrapper = styled.div`
     align-items: center;
     justify-items: center;
   }
+  .buttonWrapper {
+    display: flex;
+  }
   .gatsby-image-wrapper {
-    width: clamp(200px, 50%, 300px);
-    min-width: 200px;
     align-self: center;
+    width: 100px;
     height: auto;
   }
   .hidden {
@@ -159,8 +160,7 @@ const Wrapper = styled.div`
     margin: 5px;
   }
   label {
-    font-family: "Petit Formal Script";
-    font-size: var(--mediumText);
+    font-size: var(--mediumSmallText);
     font-weight: var(--fontWeigthBold);
   }
   p {
@@ -170,6 +170,9 @@ const Wrapper = styled.div`
   }
   .mapleSyrup {
     display: none;
+  }
+  #email {
+    text-align: center;
   }
   .submit {
     align-items: center;
@@ -186,7 +189,7 @@ const Wrapper = styled.div`
       color: var(--primary);
     }
   }
-  @media screen and (max-height: 550px) {
+  /* @media screen and (max-height: 550px) {
     .contentWrapper {
       display: flex;
       flex-direction: row;
@@ -202,6 +205,11 @@ const Wrapper = styled.div`
       flex-direction: column;
       align-items: center;
       justify-items: center;
+    }
+  } */
+  @media screen and (max-width: 725px) {
+    .gatsby-image-wrapper {
+      display: none !important;
     }
   }
 `;
