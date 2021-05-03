@@ -1,4 +1,5 @@
 import React from "react";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { Link, graphql } from "gatsby";
 import styled from "styled-components";
 import parse from "html-react-parser";
@@ -8,8 +9,13 @@ import moment from "moment";
 const blog = ({ data }) => (
   <PageWrapper>
     <SEO title="Blog" />
+    <GatsbyImage
+      image={data.theDevil.childImageSharp.gatsbyImageData}
+      alt="Devil stacking tomato cans"
+      className="devil"
+    />
 
-    {data.allWpPost.edges.map((post) => (
+    {/* {data.allWpPost.edges.map((post) => (
       <Link to={`/blog/${post.node.slug}`} key={post.node.slug}>
         <PostStyles key={post.node.slug} className="grow">
           <div className="blogText">
@@ -22,7 +28,7 @@ const blog = ({ data }) => (
           </div>
         </PostStyles>
       </Link>
-    ))}
+    ))} */}
   </PageWrapper>
 );
 
@@ -40,6 +46,16 @@ export const query = graphql`
         }
       }
     }
+    theDevil: file(relativePath: { eq: "Blog_Placeholder.png" }) {
+      childImageSharp {
+        gatsbyImageData(
+          quality: 100
+          placeholder: NONE
+          layout: CONSTRAINED
+          formats: [AUTO]
+        )
+      }
+    }
   }
 `;
 
@@ -47,7 +63,12 @@ const PageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   width: 100%;
+  .devil {
+    max-width: 475px;
+    margin: 0px 20px;
+  }
   .grow {
     transition: all 0.2s ease-in-out;
   }
