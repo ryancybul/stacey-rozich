@@ -15,7 +15,7 @@ const SignUp = () => {
   modalOpen ? disableScroll.on() : disableScroll.off();
 
   useEffect(() => {
-    setTimeout(() => setModalOpen(true), 120000);
+    setTimeout(() => setModalOpen(true), 30000);
   }, []);
 
   useEffect(() => {
@@ -57,40 +57,50 @@ const SignUp = () => {
 
   return modalOpen ? (
     <Wrapper>
-      <div className="closeButton">
-        <button type="button" onClick={closeModal} title="Close">
-          <img src={closeButton} alt="Close ligthbox" />
-        </button>
-      </div>
-      <div className="contentWrapper">
-        <GatsbyImage
-          image={data.TheGorgeousHussy.childImageSharp.gatsbyImageData}
-          alt="The Gorgeous Hussy"
-        />
-        <div className="formWrapper">
-          <form onSubmit={(e) => handleSubmit(e, email, mapleSyrup)}>
-            <label htmlFor="email">
-              Subscribe to my email list for updates on print releases and
-              upcoming shows.
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              onChange={(event) => setEmail(event.target.value)}
-              required
-            />
-            <input
-              type="mapleSyrup"
-              id="mapleSyrup"
-              name="mapleSyrup"
-              onChange={(event) => setMapleSyrup(event.target.value)}
-              className="mapleSyrup"
-            />
-            <input type="submit" value="Subscribe" className="submit" />
-          </form>
+      <ContentWrapper>
+        <div className="closeButton">
+          <button type="button" onClick={closeModal} title="Close">
+            <img src={closeButton} alt="Close ligthbox" />
+          </button>
         </div>
-      </div>
+        <div className="contentWrapper">
+          <GatsbyImage
+            alt="The Gorgeous Hussy"
+            className="gorgeousHussy"
+            image={data.TheGorgeousHussy.childImageSharp.gatsbyImageData}
+          />
+          <div className="formWrapper">
+            <form onSubmit={(e) => handleSubmit(e, email, mapleSyrup)}>
+              <h2>Join my newsletter</h2>
+              <label htmlFor="email">
+                Be the first to know about my limited edition print sales and
+                upcoming gallery shows.
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                onChange={(event) => setEmail(event.target.value)}
+                placeholder="E-mail address"
+                required
+              />
+              <input
+                type="mapleSyrup"
+                id="mapleSyrup"
+                name="mapleSyrup"
+                onChange={(event) => setMapleSyrup(event.target.value)}
+                className="mapleSyrup"
+              />
+              <input type="submit" value="Subscribe" className="submit" />
+            </form>
+          </div>
+          <GatsbyImage
+            alt="Claudio eating pizza"
+            className="claudio"
+            image={data.ClaudioPizza.childImageSharp.gatsbyImageData}
+          />
+        </div>
+      </ContentWrapper>
     </Wrapper>
   ) : (
     ""
@@ -99,23 +109,32 @@ const SignUp = () => {
 export default SignUp;
 
 const Wrapper = styled.div`
-  z-index: 15;
+  align-items: center;
+  background-color: var(--transparentGrey);
+  display: flex;
+  justify-content: center;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  z-index: 15;
+`;
+
+const ContentWrapper = styled.div`
+  align-items: center;
   background-color: var(--primary);
   display: flex;
-  align-items: center;
   justify-content: center;
+  margin: 15px;
+  position: relative;
+  width: 625px;
+  height: 475px;
   .contentWrapper {
-    display: flex;
-    flex-direction: column;
     align-items: center;
+    display: flex;
     justify-content: center;
-    width: 100%;
-    height: 100%;
+    padding: 25px;
   }
   .closeButton {
     justify-content: flex-end;
@@ -125,7 +144,7 @@ const Wrapper = styled.div`
     img {
       width: 40px;
       height: auto;
-      margin: 10px;
+      margin: 20px;
     }
     button {
       cursor: pointer;
@@ -134,18 +153,27 @@ const Wrapper = styled.div`
       outline: 0;
     }
   }
+  .claudio {
+    display: none !important;
+  }
+  #email {
+    align-self: flex-start;
+    width: 100%;
+    margin: 10px 0 10px 0;
+  }
   .formWrapper {
-    max-width: 650px;
+    padding: 20px;
     margin: 5px;
+    width: 300px;
   }
   form {
-    text-align: center;
+    text-align: left;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-items: center;
   }
-  .gatsby-image-wrapper {
+  .gorgeousHussy {
     width: clamp(200px, 50%, 300px);
     min-width: 200px;
     align-self: center;
@@ -154,17 +182,23 @@ const Wrapper = styled.div`
   .hidden {
     display: none;
   }
+  h2 {
+    font-size: var(--h1);
+    font-weight: 1000;
+    line-height: 1;
+    margin: 0px;
+  }
   input {
+    border-radius: 0px;
     display: block;
-    margin: 5px;
+    height: 40px;
+    margin: 100px;
   }
   label {
-    font-family: "Petit Formal Script";
     font-size: var(--mediumText);
     font-weight: var(--fontWeigthBold);
   }
   p {
-    font-family: "petit-formal-script";
     color: var(--black);
     padding: none;
   }
@@ -173,35 +207,62 @@ const Wrapper = styled.div`
   }
   .submit {
     align-items: center;
-    border-radius: 50px;
-    background-color: var(--primary);
-    color: var(--black);
+    border-radius: 5px;
+    background-color: var(--black);
+    color: var(--primary);
     cursor: pointer;
     font-size: 1em;
     font-weight: var(--fontWeightThin);
     margin: 5px;
     padding: 10px 20px;
+    width: 100%;
     :hover {
-      background-color: var(--black);
-      color: var(--primary);
+      background-color: var(--secondary);
+      color: var(--black);
     }
   }
-  @media screen and (max-height: 550px) {
+  @media screen and (max-width: 550px) {
+    max-width: 350px;
+    height: 350px;
     .contentWrapper {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      height: 100%;
-      margin: 20px;
-    }
-    form {
-      text-align: center;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-items: center;
+      justify-content: center;
+      max-width: 100%;
+      height: 100%;
+    }
+    .claudio {
+      display: none !important;
+    }
+    .gorgeousHussy {
+      display: none !important;
+    }
+    h2 {
+      font-size: var(--h2);
+    }
+    label {
+      font-size: var(--mediumSmallText);
+    }
+    form {
+    }
+  }
+  @media screen and (max-height: 475px) {
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    .contentWrapper {
+      height: 100%;
+      width: 100%;
+      padding: 50px;
+      margin: 0px;
+    }
+    h2 {
+      font-size: var(--h3);
+    }
+    label {
+      font-size: var(--smallText);
     }
   }
 `;
