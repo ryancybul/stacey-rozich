@@ -248,8 +248,8 @@ const ContentWrapper = styled.div`
     }
   }
   @media screen and (max-height: 475px) {
-    height: 100%;
-    width: 100%;
+    height: 90%;
+    width: 95%;
     margin: 0px;
     padding: 0px;
     .contentWrapper {
@@ -257,6 +257,9 @@ const ContentWrapper = styled.div`
       width: 100%;
       padding: 50px;
       margin: 0px;
+    }
+    .gorgeousHussy {
+      width: 200px;
     }
     h2 {
       font-size: var(--h3);
