@@ -12,7 +12,6 @@ const Nav = () => {
   const node = useRef();
   useOnClickOutside(node, () => setOpen(false));
 
-  // Disable scroll if mobile nav is open
   open ? disableScroll.on() : disableScroll.off();
 
   return (

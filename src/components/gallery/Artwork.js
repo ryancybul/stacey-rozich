@@ -5,7 +5,6 @@ import Gallery from "react-photo-gallery";
 import styled from "styled-components";
 import parse from "html-react-parser";
 import { useWindowWidth } from "@react-hook/window-size";
-import moment from "moment";
 import Lightbox from "./Lightbox";
 
 const Artwork = ({ artwork }) => {
@@ -189,15 +188,6 @@ const ImageWrapper = styled.div`
   }
   @media only screen and (max-width: 430px) {
     pointer-events: none;
-    /* cursor: default;
-    .mobileWrapper {
-      pointer-events: none;
-    }
-    .imageInfo {
-      &:hover {
-        opacity: 0;
-      }
-    } */
   }
   }
   @media (hover: hover) and (pointer: fine) {

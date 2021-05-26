@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { studioArtQuery } from '../../queries/studioArtQuery';
-import Artwork from './Artwork';
+import React, { useState, useEffect } from "react";
+import { studioArtQuery } from "../../queries/studioArtQuery";
+import Artwork from "./Artwork";
 
 const StudioGallery = () => {
   const data = studioArtQuery().allWpMediaItem.edges;
@@ -11,7 +11,7 @@ const StudioGallery = () => {
 
   useEffect(() => {
     setArtwork(
-      data.map(function(image) {
+      data.map(function (image) {
         return {
           alt: image.node.altText,
           date: image.node.date,

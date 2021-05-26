@@ -18,11 +18,9 @@ const Lightbox = ({ image, artwork, toggleModal, modalOpen }) => {
   // Sets the image to display and opens the ligthbox
   useEffect(() => {
     setIndex(artwork.indexOf(image));
-    // To do make sure index is never -1
     setImageToShow(image);
   }, [artwork, image]);
 
-  // To do artwork is an empty array at first, does it re-render?
   const transitions = useTransition(artwork[index], (item) => item.id, {
     from: { opacity: 0 },
     enter: { opacity: 1 },
@@ -143,12 +141,7 @@ const Lightbox = ({ image, artwork, toggleModal, modalOpen }) => {
             {lightboxImage}
           </LightboxImageWrapper>
           <div className="imageInfo">
-            <p>
-              {parse(`${imageToShow.title}`)}
-              {/* {parse(`${imageToShow.caption}`) === "null"
-                ? ""
-                : parse(`${imageToShow.caption}`)} */}
-            </p>
+            <p>{parse(`${imageToShow.title}`)}</p>
           </div>
 
           <button onClick={toggleModal} title="Close">
@@ -233,7 +226,6 @@ const LightboxWrapper = styled.div`
       margin: 0px;
     }
     .imageInfo {
-      /* display: none; */
       font-size: var(--mediumSmallText);
     }
     .nav {
@@ -274,7 +266,6 @@ const LightboxImageWrapper = styled.div`
     max-width: 100%;
     max-height: 100%;
   }
-  // Media query for width of iPhone 12 Pro Max
   @media only screen and (max-width: 430px) {
     margin: 0px;
   }

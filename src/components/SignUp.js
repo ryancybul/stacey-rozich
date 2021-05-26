@@ -94,11 +94,6 @@ const SignUp = () => {
               <input type="submit" value="Subscribe" className="submit" />
             </form>
           </div>
-          <GatsbyImage
-            alt="Claudio eating pizza"
-            className="claudio"
-            image={data.ClaudioPizza.childImageSharp.gatsbyImageData}
-          />
         </div>
       </ContentWrapper>
     </Wrapper>
@@ -152,9 +147,6 @@ const ContentWrapper = styled.div`
       border: none;
       outline: 0;
     }
-  }
-  .claudio {
-    display: none !important;
   }
   #email {
     align-self: flex-start;
@@ -248,10 +240,11 @@ const ContentWrapper = styled.div`
     }
   }
   @media screen and (max-height: 475px) {
-    height: 90%;
-    width: 95%;
+    height: calc(100% - 20px);
+    width: calc(100% - 20px);
     margin: 0px;
     padding: 0px;
+    max-width: 750px;
     .contentWrapper {
       height: 100%;
       width: 100%;
