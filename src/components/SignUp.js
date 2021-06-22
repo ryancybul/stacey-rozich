@@ -189,6 +189,7 @@ const ContentWrapper = styled.div`
   label {
     font-size: var(--mediumText);
     font-weight: var(--fontWeigthBold);
+    line-height: 1.25;
   }
   p {
     color: var(--black);
