@@ -31,6 +31,7 @@ const ContentWrapper = styled.div`
   display: block;
   position: relative;
   padding-bottom: 65px;
+  max-width: 1920px;
   .headroom-wrapper {
     z-index: 0;
     div {

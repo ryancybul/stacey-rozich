@@ -21,7 +21,8 @@ const Lightbox = ({ image, artwork, toggleModal, modalOpen }) => {
     setImageToShow(image);
   }, [artwork, image]);
 
-  const transitions = useTransition(artwork[index], (item) => item.id, {
+  const transition = useTransition(artwork[index], {
+    keys: (artwork) => artwork.key,
     from: { opacity: 0 },
     enter: { opacity: 1 },
     leave: { opacity: 0 },
@@ -122,10 +123,9 @@ const Lightbox = ({ image, artwork, toggleModal, modalOpen }) => {
       />
     );
   } else {
-    lightboxImage = transitions.map(({ item, props, key }) => (
+    lightboxImage = transition((props, item) => (
       <animated.img
         src={item.src}
-        key={key}
         style={{
           ...props,
         }}

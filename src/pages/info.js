@@ -120,7 +120,7 @@ const Introduction = styled.div`
   display: flex;
   background-color: var(--primary);
   justify-content: center;
-  width: 100vw;
+  width: 100%;
   p {
     margin: 175px 0 225px 0;
     font-size: var(--largeText);
