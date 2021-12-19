@@ -14,6 +14,7 @@ export const commercialArtQuery = () => {
           node {
             dateCreated {
               dateCreated
+              order
             }
             categories {
               nodes {

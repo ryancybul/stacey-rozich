@@ -12,6 +12,7 @@ export const studioArtQuery = () => {
           node {
             dateCreated {
               dateCreated
+              order
             }
             categories {
               nodes {
