@@ -52,7 +52,7 @@ export const query = graphql`
           quality: 100
           placeholder: NONE
           layout: CONSTRAINED
-          formats: [AUTO]
+          formats: [AUTO, WEBP]
         )
       }
     }
