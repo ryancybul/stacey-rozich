@@ -84,7 +84,7 @@ const PostStyles = styled.div`
   padding: 15px;
   margin-left: auto;
   margin-right: auto;
-  width: 80%;
+  width: 90%;
 
   .blogText {
     margin: 0px;

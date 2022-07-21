@@ -14,28 +14,38 @@ const blogPost = ({ data }) => {
   const prevSlug = slugs[currentSlug - 1];
   const disabledNext = nextSlug ? "" : "disabled-link";
   const disabledPrev = prevSlug ? "" : "disabled-link";
-  const author = data.wpPost.author.name;
+  const author = data.wpPost.author.node.name;
   const { date } = data.wpPost;
 
   return (
     <Wrapper>
       <SEO title={title} description={data.wpPost.excerpt} />
-      <div className="backdrop"></div>
+      <div
+        className={
+          data.wpPost.title_image.titleImage !== null ? "backdrop" : "backdrop2"
+        }
+      ></div>
       <PostWrapper>
-        <div>
+        <div
+          className={
+            data.wpPost.title_image.titleImage !== null ? null : "noTitleImage"
+          }
+        >
           <h1>{title}</h1>
           <span>
             by {author} -{moment(new Date(date)).format("MMMM DD, YYYY")}
           </span>
         </div>
-        <GatsbyImage
-          alt={title != null ? title : ""}
-          image={
-            data.wpPost.title_image.titleImage.localFile.childImageSharp
-              .gatsbyImageData
-          }
-          className="titleImage"
-        />
+        {data.wpPost.title_image.titleImage !== null ? (
+          <GatsbyImage
+            alt={title != null ? title : ""}
+            image={
+              data.wpPost.title_image.titleImage.localFile.childImageSharp
+                .gatsbyImageData
+            }
+            className="titleImage"
+          />
+        ) : null}
         <div
           className="subhead break-long-words"
           dangerouslySetInnerHTML={{ __html: data.wpPost.content }}
@@ -108,13 +118,23 @@ const Wrapper = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
-  transform: translateY(-125px);
   width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  z-index: 1;
+  transform: translateY(-125px);
   .backdrop {
     background-color: var(--primary);
     height: 525px;
     width: 100vw;
     z-index: -1;
+  }
+  .backdrop2 {
+    background-color: var(--primary);
+    height: 250px;
+    width: 100vw;
+    z-index: -1;
+    margin-bottom: 125px;
   }
   .paginationWrapper {
     span {
@@ -150,6 +170,9 @@ const PostWrapper = styled.div`
     max-width: 800px;
     width: auto !important;
   }
+  .noTitleImage {
+    margin-top: 150px;
+  }
   .titleImage {
     align-self: center;
     width: 100%;
@@ -173,6 +196,7 @@ const PostWrapper = styled.div`
     width: 95%;
     align-self: center;
     p:first-of-type::first-letter {
-    font-size: 1.5rem;
+      font-size: 1.5rem;
+    }
   }
 `;
