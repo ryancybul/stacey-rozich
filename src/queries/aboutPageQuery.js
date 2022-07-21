@@ -9,7 +9,7 @@ export const aboutPageQuery = () => {
             quality: 100
             placeholder: NONE
             layout: FULL_WIDTH
-            formats: [AUTO]
+            formats: [AUTO, WEBP]
             width: 600
           )
         }
@@ -20,7 +20,7 @@ export const aboutPageQuery = () => {
             quality: 100
             placeholder: NONE
             layout: FULL_WIDTH
-            formats: [AUTO]
+            formats: [AUTO, WEBP]
             width: 600
           )
         }
@@ -32,7 +32,7 @@ export const aboutPageQuery = () => {
             quality: 100
             placeholder: NONE
             layout: CONSTRAINED
-            formats: [AUTO]
+            formats: [AUTO, WEBP]
           )
         }
       }
@@ -43,7 +43,7 @@ export const aboutPageQuery = () => {
             quality: 100
             placeholder: NONE
             layout: CONSTRAINED
-            formats: [AUTO]
+            formats: [AUTO, WEBP]
           )
         }
       }
@@ -54,7 +54,7 @@ export const aboutPageQuery = () => {
             quality: 100
             placeholder: NONE
             layout: CONSTRAINED
-            formats: [AUTO]
+            formats: [AUTO, WEBP]
           )
         }
       }

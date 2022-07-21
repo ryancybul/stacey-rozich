@@ -68,7 +68,7 @@ const blogPost = ({ data }) => {
 export default blogPost;
 
 export const query = graphql`
-  query($slug: String!) {
+  query ($slug: String!) {
     wpPost(slug: { eq: $slug }) {
       author {
         node {
@@ -87,7 +87,7 @@ export const query = graphql`
               gatsbyImageData(
                 layout: FULL_WIDTH
                 placeholder: BLURRED
-                formats: [AUTO]
+                formats: [AUTO, WEBP]
               )
             }
           }
