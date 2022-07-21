@@ -23,7 +23,10 @@ const blog = ({ data }) => (
             <time>
               {moment(new Date(post.node.date)).format("MMMM DD, YYYY")}
             </time>
-            <div dangerouslySetInnerHTML={{ __html: post.node.excerpt }}></div>
+            <div
+              dangerouslySetInnerHTML={{ __html: post.node.excerpt }}
+              className="blogContent"
+            ></div>
             <hr />
           </div>
         </PostStyles>
@@ -76,6 +79,9 @@ const PageWrapper = styled.div`
   .grow:hover {
     transform: scale(1.015);
   }
+  a {
+    width: 90%;
+  }
 `;
 
 const PostStyles = styled.div`
@@ -84,10 +90,13 @@ const PostStyles = styled.div`
   padding: 15px;
   margin-left: auto;
   margin-right: auto;
-  width: 90%;
+  max-width: 1000px;
 
   .blogText {
     margin: 0px;
+  }
+  .blogContent {
+    width: 100%;
   }
   p {
     font-size: var(--mediumSmallText);
