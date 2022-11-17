@@ -3,8 +3,8 @@ import { graphql, Link } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import styled from "styled-components";
 import parse from "html-react-parser";
-import SEO from "../components/seo";
 import moment from "moment";
+import SEO from "../components/seo";
 
 const blogPost = ({ data }) => {
   const title = parse(data.wpPost.title);
@@ -20,7 +20,7 @@ const blogPost = ({ data }) => {
   return (
     <Wrapper>
       <SEO title={title} description={data.wpPost.excerpt} />
-      <div className="backdrop"></div>
+      <div className="backdrop" />
       <PostWrapper>
         <div>
           <h1>{title}</h1>
@@ -28,14 +28,16 @@ const blogPost = ({ data }) => {
             by {author} -{moment(new Date(date)).format("MMMM DD, YYYY")}
           </span>
         </div>
-        <GatsbyImage
-          alt={title != null ? title : ""}
-          image={
-            data.wpPost.title_image.titleImage.localFile.childImageSharp
-              .gatsbyImageData
-          }
-          className="titleImage"
-        />
+        {data.wpPost.title_image.titleImage ? (
+          <GatsbyImage
+            alt={title != null ? title : ""}
+            image={
+              data.wpPost.title_image.titleImage.localFile.childImageSharp
+                .gatsbyImageData
+            }
+            className="titleImage"
+          />
+        ) : null}
         <div
           className="subhead break-long-words"
           dangerouslySetInnerHTML={{ __html: data.wpPost.content }}
@@ -68,7 +70,7 @@ const blogPost = ({ data }) => {
 export default blogPost;
 
 export const query = graphql`
-  query($slug: String!) {
+  query ($slug: String!) {
     wpPost(slug: { eq: $slug }) {
       author {
         node {
