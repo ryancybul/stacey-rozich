@@ -22,6 +22,13 @@ module.exports = {
         production: {
           allow404Images: true,
         },
+        type: {
+          MediaItem: {
+            localFile: {
+              requestConcurrency: 50,
+            },
+          },
+        },
       },
     },
     {
