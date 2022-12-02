@@ -69,42 +69,36 @@ const blogPost = ({ data }) => {
 };
 export default blogPost;
 
-export const query = graphql`
-  query ($slug: String!) {
-    wpPost(slug: { eq: $slug }) {
-      author {
-        node {
-          name
-        }
+export const query = graphql`query ($slug: String!) {
+  wpPost(slug: {eq: $slug}) {
+    author {
+      node {
+        name
       }
-      content
-      date
-      excerpt
-      slug
-      title
-      title_image {
-        titleImage {
-          localFile {
-            childImageSharp {
-              gatsbyImageData(
-                layout: FULL_WIDTH
-                placeholder: BLURRED
-                formats: [AUTO]
-              )
-            }
+    }
+    content
+    date
+    excerpt
+    slug
+    title
+    title_image {
+      titleImage {
+        localFile {
+          childImageSharp {
+            gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED, formats: [AUTO])
           }
         }
       }
     }
-    allWpPost(sort: { order: DESC, fields: date }) {
-      edges {
-        node {
-          slug
-        }
+  }
+  allWpPost(sort: {date: DESC}) {
+    edges {
+      node {
+        slug
       }
     }
   }
-`;
+}`;
 
 const Wrapper = styled.div`
   align-items: center;

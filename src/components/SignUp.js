@@ -1,44 +1,47 @@
-import React, { useState, useEffect } from "react";
-import { GatsbyImage } from "gatsby-plugin-image";
-import addToMailchimp from "gatsby-plugin-mailchimp";
-import styled from "styled-components";
-import disableScroll from "disable-scroll";
-import closeButton from "../images/closeButton.png";
-import { signUpQuery } from "../queries/signUpQuery";
+import React, { useState, useEffect } from 'react';
+import { GatsbyImage } from 'gatsby-plugin-image';
+import addToMailchimp from 'gatsby-plugin-mailchimp';
+import styled from 'styled-components';
+import disableScroll from 'disable-scroll';
+import closeButton from '../images/closeButton.png';
+import { signUpQuery } from '../queries/signUpQuery';
 
 const SignUp = () => {
   const [modalOpen, setModalOpen] = useState();
-  const [email, setEmail] = useState("");
-  const [mapleSyrup, setMapleSyrup] = useState("");
+  const [email, setEmail] = useState('');
+  const [mapleSyrup, setMapleSyrup] = useState('');
   const data = signUpQuery();
 
   modalOpen ? disableScroll.on() : disableScroll.off();
 
   useEffect(() => {
-    setTimeout(() => setModalOpen(true), 30000);
+    const timer = setTimeout(() => setModalOpen(true), 30000);
+    return () => {
+      clearTimeout(timer);
+    };
   }, []);
 
   useEffect(() => {
     if (modalOpen) {
-      window.addEventListener("keydown", keyHandler);
+      window.addEventListener('keydown', keyHandler);
       // Remove event listeners on cleanup
       return () => {
-        window.removeEventListener("keydown", keyHandler);
+        window.removeEventListener('keydown', keyHandler);
       };
     }
   });
 
   const handleSubmit = async (e, email, mapleSyrup) => {
     e.preventDefault();
-    if (mapleSyrup === "") {
+    if (mapleSyrup === '') {
       await addToMailchimp(email);
-      await setModalOpen(false);
-      await setEmail("");
-      await setMapleSyrup("");
+      setModalOpen(false);
+      setEmail('');
+      setMapleSyrup('');
     } else {
-      await setModalOpen(false);
-      await setEmail("");
-      await setMapleSyrup("");
+      setModalOpen(false);
+      setEmail('');
+      setMapleSyrup('');
     }
   };
 
@@ -98,7 +101,7 @@ const SignUp = () => {
       </ContentWrapper>
     </Wrapper>
   ) : (
-    ""
+    ''
   );
 };
 export default SignUp;

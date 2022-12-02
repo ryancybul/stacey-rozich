@@ -1,7 +1,6 @@
-import React from "react";
-import SEO from "../components/seo";
-import StudioGallery from "../components/gallery/StudioGallery";
-import _ from "lodash";
+import React from 'react';
+import SEO from '../components/seo';
+import StudioGallery from '../components/gallery/StudioGallery';
 
 const IndexPage = () => (
   <>

@@ -34,30 +34,28 @@ const blog = ({ data }) => (
 
 export default blog;
 
-export const query = graphql`
-  {
-    allWpPost(sort: { order: DESC, fields: date }) {
-      edges {
-        node {
-          date
-          excerpt
-          slug
-          title
-        }
-      }
-    }
-    theDevil: file(relativePath: { eq: "Blog_Placeholder.png" }) {
-      childImageSharp {
-        gatsbyImageData(
-          quality: 100
-          placeholder: NONE
-          layout: CONSTRAINED
-          formats: [AUTO]
-        )
+export const query = graphql`{
+  allWpPost(sort: {date: DESC}) {
+    edges {
+      node {
+        date
+        excerpt
+        slug
+        title
       }
     }
   }
-`;
+  theDevil: file(relativePath: {eq: "Blog_Placeholder.png"}) {
+    childImageSharp {
+      gatsbyImageData(
+        quality: 100
+        placeholder: NONE
+        layout: CONSTRAINED
+        formats: [AUTO]
+      )
+    }
+  }
+}`;
 
 const PageWrapper = styled.div`
   display: flex;

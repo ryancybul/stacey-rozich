@@ -1,20 +1,20 @@
 import { useStaticQuery, graphql } from 'gatsby';
 
-export const signUpQuery = () => {
-  const signUpData = useStaticQuery(graphql`
+export const navQuery = () => {
+  const navData = useStaticQuery(graphql`
     {
-      TheGorgeousHussy: file(relativePath: { eq: "TheGorgeousHussy.png" }) {
+      logo: file(relativePath: { eq: "Logo_StaceyRozich.png" }) {
         childImageSharp {
           gatsbyImageData(
+            width: 200
             quality: 100
-            width: 300
+            placeholder: NONE
             layout: CONSTRAINED
-            placeholder: BLURRED
             formats: [AUTO]
           )
         }
       }
     }
   `);
-  return signUpData;
+  return navData;
 };

@@ -1,11 +1,11 @@
 /* eslint-disable react/button-has-type */
-import React, { useState, useEffect } from "react";
-import { GatsbyImage } from "gatsby-plugin-image";
-import Gallery from "react-photo-gallery";
-import styled from "styled-components";
-import parse from "html-react-parser";
-import { useWindowWidth } from "@react-hook/window-size";
-import Lightbox from "./Lightbox";
+import React, { useState, useEffect } from 'react';
+import { GatsbyImage } from 'gatsby-plugin-image';
+import Gallery from 'react-photo-gallery';
+import styled from 'styled-components';
+import parse from 'html-react-parser';
+import { useWindowWidth } from '@react-hook/window-size';
+import Lightbox from './Lightbox';
 
 const Artwork = ({ artwork }) => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -24,6 +24,10 @@ const Artwork = ({ artwork }) => {
     }
   }, [width]);
 
+  const toggleModal = () => {
+    setModalOpen(!modalOpen);
+  };
+
   // Set the image for the lightbox the image lightbox
   const showImage = async (imageId) => {
     const index = artwork.findIndex((i) => i.id === imageId);
@@ -32,21 +36,17 @@ const Artwork = ({ artwork }) => {
     await toggleModal();
   };
 
-  const toggleModal = () => {
-    setModalOpen(!modalOpen);
-  };
-
   const renderImage = ({ index, photo, top, left, key }) => {
-    if (photo.id === "cG9zdDoyNzA=" && width <= 430) {
+    if (photo.id === 'cG9zdDoyNzA=' && width <= 430) {
       return (
         <ImageWrapper
           style={{
             height: photo.height,
             width: photo.width,
-            position: "absolute",
+            position: 'absolute',
             top,
             left,
-            pointerEvents: "auto",
+            pointerEvents: 'auto',
           }}
           index={index}
           key={key}
@@ -63,17 +63,17 @@ const Artwork = ({ artwork }) => {
         </ImageWrapper>
       );
     }
-    if (photo.id === "cG9zdDoyNjk=" && width <= 430) {
+    if (photo.id === 'cG9zdDoyNjk=' && width <= 430) {
       return (
         <ImageWrapper
           alt={photo.alt}
           style={{
             height: photo.height,
             width: photo.width,
-            position: "absolute",
+            position: 'absolute',
             top,
             left,
-            pointerEvents: "auto",
+            pointerEvents: 'auto',
           }}
           index={index}
           key={key}
@@ -102,14 +102,14 @@ const Artwork = ({ artwork }) => {
         style={{
           height: photo.height,
           width: photo.width,
-          position: "absolute",
+          position: 'absolute',
           top,
           left,
         }}
       >
         <GatsbyImage
           image={photo.gatsbyImageData}
-          alt={photo.alt != null ? photo.alt : ""}
+          alt={photo.alt != null ? photo.alt : ''}
           loading="auto"
         />
         <div className="imageInfo">

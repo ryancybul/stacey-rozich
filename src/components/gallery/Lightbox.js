@@ -1,13 +1,13 @@
 /* eslint-disable react/button-has-type */
-import React, { useState, useEffect } from "react";
-import styled from "styled-components";
-import disableScroll from "disable-scroll";
-import parse from "html-react-parser";
-import { useWindowWidth } from "@react-hook/window-size";
-import { useTransition, animated, config } from "react-spring";
-import leftArrow from "../../images/leftArrow.png";
-import rightArrow from "../../images/rightArrow.png";
-import closeButton from "../../images/closeButton.png";
+import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
+import disableScroll from 'disable-scroll';
+import parse from 'html-react-parser';
+import { useWindowWidth } from '@react-hook/window-size';
+import { useTransition, animated, config } from 'react-spring';
+import leftArrow from '../../images/leftArrow.png';
+import rightArrow from '../../images/rightArrow.png';
+import closeButton from '../../images/closeButton.png';
 
 const Lightbox = ({ image, artwork, toggleModal, modalOpen }) => {
   const [imageToShow, setImageToShow] = useState({});
@@ -32,10 +32,10 @@ const Lightbox = ({ image, artwork, toggleModal, modalOpen }) => {
 
   useEffect(() => {
     if (modalOpen) {
-      window.addEventListener("keydown", keyHandler);
+      window.addEventListener('keydown', keyHandler);
       // Remove event listeners on cleanup
       return () => {
-        window.removeEventListener("keydown", keyHandler);
+        window.removeEventListener('keydown', keyHandler);
       };
     }
   });
@@ -91,7 +91,7 @@ const Lightbox = ({ image, artwork, toggleModal, modalOpen }) => {
 
   // If lightbox image is music video display iFrame
   if (
-    imageToShow.src === "/static/img-1-2a8132b25a74466576f4bc44d9653885.jpg"
+    imageToShow.src === '/static/img-1-2a8132b25a74466576f4bc44d9653885.jpg'
   ) {
     lightboxImage = (
       <iframe
@@ -107,7 +107,7 @@ const Lightbox = ({ image, artwork, toggleModal, modalOpen }) => {
       />
     );
   } else if (
-    imageToShow.src === "/static/img-c0f5b640adc30e0dfb2df2643f83f260.jpg"
+    imageToShow.src === '/static/img-c0f5b640adc30e0dfb2df2643f83f260.jpg'
   ) {
     lightboxImage = (
       <iframe
@@ -164,7 +164,7 @@ const Lightbox = ({ image, artwork, toggleModal, modalOpen }) => {
           </div>
         </LightboxWrapper>
       ) : (
-        ""
+        ''
       )}
     </>
   );

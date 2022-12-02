@@ -1,106 +1,105 @@
-import React from "react";
-import { GatsbyImage } from "gatsby-plugin-image";
-import styled from "styled-components";
-import parse from "html-react-parser";
-import SEO from "../components/seo";
-import { aboutPageQuery } from "../queries/aboutPageQuery";
+import React from 'react';
+import { GatsbyImage } from 'gatsby-plugin-image';
+import styled from 'styled-components';
+import parse from 'html-react-parser';
+import SEO from '../components/seo';
+import { aboutPageQuery } from '../queries/aboutPageQuery';
 
 const about = () => {
   const data = aboutPageQuery();
 
   return (
-    <>
-      <Wrapper>
-        <SEO title="Info" />
-        <Introduction>
-          <div dangerouslySetInnerHTML={{ __html: data.info.content }} />
-        </Introduction>
-        <GridContainer>
-          <GatsbyImage
-            image={data.portrait1.childImageSharp.gatsbyImageData}
-            className="portrait"
-            alt="Portrait of Stacey"
-          />
-          <div>
-            <Contact className="contact">
-              <div className="birdWrapper">
-                <GatsbyImage
-                  image={data.bird.childImageSharp.gatsbyImageData}
-                  alt="Bird"
-                  className="bird"
-                />
-              </div>
-              <div>
-                <a href="mailto: staceyrozich@gmail.com">
-                  staceyrozich@gmail.com
-                </a>
-                <p>{data.info.infoPage.blurb}</p>
-              </div>
-            </Contact>
-            <ClientList className="clientList">
-              <h4>COMMERCIAL CLIENT LIST</h4>
-              <p>{data.info.infoPage.clientList} </p>
-            </ClientList>
-          </div>
-          <GatsbyImage
-            image={data.portrait2.childImageSharp.gatsbyImageData}
-            className="portrait"
-            alt="Portrait of Stacey"
-          />
-
-          <SelectedInterviews className="interviews">
-            <h4>SELECTED INTERVIEWS AND FEATURES</h4>
-            <div>
-              {data.interviews.edges.map((post) => (
-                <a href={post.node.Interviews.hyperlink} target="blank">
-                  <div className="blogButton">
-                    {parse(post.node.title)}
-                    <div className="arrowWrapper">
-                      <GatsbyImage
-                        image={data.arrow.childImageSharp.gatsbyImageData}
-                        className="arrow"
-                        alt="arrow"
-                      />
-                      <GatsbyImage
-                        image={data.arrowPink.childImageSharp.gatsbyImageData}
-                        className="arrowPink"
-                        alt="arrow"
-                      />
-                    </div>
-                  </div>
-                </a>
-              ))}
+    <Wrapper>
+      <SEO title="Info" />
+      <Introduction>
+        <div dangerouslySetInnerHTML={{ __html: data.info.content }} />
+      </Introduction>
+      <GridContainer>
+        <GatsbyImage
+          image={data.portrait1.childImageSharp.gatsbyImageData}
+          className="portrait"
+          alt="Portrait of Stacey"
+        />
+        <div>
+          <Contact className="contact">
+            <div className="birdWrapper">
+              <GatsbyImage
+                image={data.bird.childImageSharp.gatsbyImageData}
+                alt="Bird"
+                className="bird"
+              />
             </div>
-          </SelectedInterviews>
-          <Elsewhere className="elsewhere">
-            <h4>ELSEWHERE</h4>
-            <ul>
-              <li>
-                <a
-                  href="https://www.instagram.com/staceyrozich/?hl=en"
-                  target="blank"
-                >
-                  instagram
-                </a>
-              </li>
-              <li>
-                <a href="https://www.facebook.com/Staceyrozich" target="blank">
-                  facebook
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://twitter.com/staceyrozich?lang=en"
-                  target="blank"
-                >
-                  twitter
-                </a>
-              </li>
-            </ul>
-          </Elsewhere>
-        </GridContainer>
-      </Wrapper>
-    </>
+            <div>
+              <a href="mailto: staceyrozich@gmail.com">
+                staceyrozich@gmail.com
+              </a>
+              <p>{data.info.infoPage.blurb}</p>
+            </div>
+          </Contact>
+          <ClientList className="clientList">
+            <h4>COMMERCIAL CLIENT LIST</h4>
+            <p>{data.info.infoPage.clientList} </p>
+          </ClientList>
+        </div>
+        <GatsbyImage
+          image={data.portrait2.childImageSharp.gatsbyImageData}
+          className="portrait"
+          alt="Portrait of Stacey"
+        />
+
+        <SelectedInterviews className="interviews">
+          <h4>SELECTED INTERVIEWS AND FEATURES</h4>
+          <div>
+            {data.interviews.edges.map((post) => (
+              <a
+                key={post.node.title}
+                href={post.node.Interviews.hyperlink}
+                target="blank"
+              >
+                <div className="blogButton">
+                  {parse(post.node.title)}
+                  <div className="arrowWrapper">
+                    <GatsbyImage
+                      image={data.arrow.childImageSharp.gatsbyImageData}
+                      className="arrow"
+                      alt="arrow"
+                    />
+                    <GatsbyImage
+                      image={data.arrowPink.childImageSharp.gatsbyImageData}
+                      className="arrowPink"
+                      alt="arrow"
+                    />
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+        </SelectedInterviews>
+        <Elsewhere className="elsewhere">
+          <h4>ELSEWHERE</h4>
+          <ul>
+            <li>
+              <a
+                href="https://www.instagram.com/staceyrozich/?hl=en"
+                target="blank"
+              >
+                instagram
+              </a>
+            </li>
+            <li>
+              <a href="https://www.facebook.com/Staceyrozich" target="blank">
+                facebook
+              </a>
+            </li>
+            <li>
+              <a href="https://twitter.com/staceyrozich?lang=en" target="blank">
+                twitter
+              </a>
+            </li>
+          </ul>
+        </Elsewhere>
+      </GridContainer>
+    </Wrapper>
   );
 };
 

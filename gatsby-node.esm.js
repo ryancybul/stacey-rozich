@@ -4,32 +4,30 @@ async function turnPizzasIntoPages({ graphql, actions }) {
   // Create a template for this page.
   const blogPostTemplate = path.resolve('./src/templates/BlogPost.js');
   // Query all blog posts
-  const { data } = await graphql(`
-    query {
-      allWpPost(sort: { order: DESC, fields: date }) {
-        edges {
-          previous {
-            slug
-          }
-          next {
-            slug
-          }
+  const { data } = await graphql(`{
+  allWpPost(sort: {date: DESC}) {
+    edges {
+      previous {
+        slug
+      }
+      next {
+        slug
+      }
+      node {
+        author {
           node {
-            author {
-              node {
-                name
-              }
-            }
-            content
-            date
-            excerpt
-            slug
-            title
+            name
           }
         }
+        content
+        date
+        excerpt
+        slug
+        title
       }
     }
-  `);
+  }
+}`);
   // Loop over each post
   data.allWpPost.edges.forEach(post => {
     actions.createPage({
