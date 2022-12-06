@@ -1,7 +1,7 @@
 /* eslint-disable react/button-has-type */
 import React, { useState, useEffect } from 'react';
 import { GatsbyImage } from 'gatsby-plugin-image';
-import Gallery from 'react-photo-gallery';
+import PhotoAlbum from 'react-photo-album';
 import styled from 'styled-components';
 import parse from 'html-react-parser';
 import { useWindowWidth } from '@react-hook/window-size';
@@ -36,55 +36,47 @@ const Artwork = ({ artwork }) => {
     await toggleModal();
   };
 
-  const renderImage = ({ index, photo, top, left, key }) => {
-    if (photo.id === 'cG9zdDoyNzA=' && width <= 430) {
+  const renderPhoto = ({
+    imageProps: { style },
+    photo: { alt, src, id, key, title, gatsbyImageData },
+    photo,
+  }) => {
+    console.log(photo);
+    if (id === 'cG9zdDoyNzA=' && width <= 430) {
       return (
         <ImageWrapper
           style={{
-            height: photo.height,
-            width: photo.width,
-            position: 'absolute',
-            top,
-            left,
+            height: style.height,
+            width: style.width,
             pointerEvents: 'auto',
           }}
-          index={index}
-          key={key}
-          tabIndex={index}
         >
           <iframe
-            title={photo.title}
+            title={title}
             src="https://www.youtube.com/embed/tnu_O5P8P5I?wmode=opaque&enablejsapi=1&autoplay=0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; "
             allowFullScreen
-            controls="0"
             frameBorder="0"
           />
         </ImageWrapper>
       );
     }
-    if (photo.id === 'cG9zdDoyNjk=' && width <= 430) {
+    if (id === 'cG9zdDoyNjk=' && width <= 430) {
       return (
         <ImageWrapper
-          alt={photo.alt}
+          alt={alt}
           style={{
-            height: photo.height,
-            width: photo.width,
-            position: 'absolute',
-            top,
-            left,
+            height: style.height,
+            width: style.width,
             pointerEvents: 'auto',
           }}
-          index={index}
           key={key}
-          tabIndex={index}
         >
           <iframe
-            title={photo.title}
+            title={title}
             src="https://www.youtube.com/embed/9yAxIdkF2Qo?wmode=opaque&enablejsapi=1&autoplay=0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; "
             allowFullScreen
-            controls="0"
             frameBorder="0"
           />
         </ImageWrapper>
@@ -92,28 +84,22 @@ const Artwork = ({ artwork }) => {
     }
     return (
       <ImageWrapper
-        alt={photo.alt}
-        href={photo.src}
+        alt={alt}
+        href={src}
         data-attribute="SRL"
-        onClick={() => showImage(photo.id)}
-        index={index}
+        onClick={() => showImage(id)}
         key={key}
-        tabIndex={index}
         style={{
-          height: photo.height,
-          width: photo.width,
-          position: 'absolute',
-          top,
-          left,
+          width: style.width,
         }}
       >
         <GatsbyImage
-          image={photo.gatsbyImageData}
-          alt={photo.alt != null ? photo.alt : ''}
+          image={gatsbyImageData}
+          alt={alt != null ? alt : ''}
           loading="auto"
         />
         <div className="imageInfo">
-          <h2>{parse(photo.title)}</h2>
+          <h2>{parse(title)}</h2>
         </div>
       </ImageWrapper>
     );
@@ -122,11 +108,12 @@ const Artwork = ({ artwork }) => {
   return (
     <>
       <GalleryWrapper>
-        <Gallery
+        <PhotoAlbum
           photos={artwork}
-          direction="column"
+          layout="masonry"
+          spacing="0"
           columns={columnNum}
-          renderImage={renderImage}
+          renderPhoto={renderPhoto}
         />
       </GalleryWrapper>
       <Lightbox
@@ -152,6 +139,7 @@ const ImageWrapper = styled.div`
   cursor: pointer;
   display: block;
   padding: 10px;
+  position: relative;
   :focus {
     outline: none;
   }
@@ -164,10 +152,13 @@ const ImageWrapper = styled.div`
     opacity: 0;
     position: absolute;
     text-align: center;
-    top: 10px;
-    left: 10px;
-    bottom: 10px;
-    right: 10px;
+    margin: 10px;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.75);
     h2 {
       font-size: 1.25rem;
       margin: 5px;
@@ -186,13 +177,15 @@ const ImageWrapper = styled.div`
     height: 100%;
     color: transparent;
   }
+
   @media only screen and (max-width: 430px) {
     pointer-events: none;
   }
-  }
+
   @media (hover: hover) and (pointer: fine) {
     .imageInfo:hover {
       background-color: rgba(0, 0, 0, 0.75);
       opacity: 1;
     }
+  }
 `;

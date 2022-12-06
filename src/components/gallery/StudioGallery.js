@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import compare from "compare-property";
-import { studioArtQuery } from "../../queries/studioArtQuery";
-import Artwork from "./Artwork";
+import React, { useState, useEffect } from 'react';
+import compare from 'compare-property';
+import { studioArtQuery } from '../../queries/studioArtQuery';
+import Artwork from './Artwork';
 
 const StudioGallery = () => {
   const data = studioArtQuery().allWpMediaItem.edges;
