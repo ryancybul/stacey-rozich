@@ -1,4 +1,4 @@
-import { useStaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql } from 'gatsby'
 
 export const signUpQuery = () => {
   const signUpData = useStaticQuery(graphql`
@@ -9,12 +9,12 @@ export const signUpQuery = () => {
             quality: 100
             width: 300
             layout: CONSTRAINED
-            placeholder: TRACED_SVG
+            placeholder: BLURRED
             formats: [AUTO, WEBP]
           )
         }
       }
     }
-  `);
-  return signUpData;
-};
+  `)
+  return signUpData
+}

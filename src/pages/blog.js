@@ -1,21 +1,21 @@
-import React from "react";
-import { GatsbyImage } from "gatsby-plugin-image";
-import { Link, graphql } from "gatsby";
-import styled from "styled-components";
-import parse from "html-react-parser";
-import SEO from "../components/seo";
-import moment from "moment";
+import React from 'react'
+import { GatsbyImage } from 'gatsby-plugin-image'
+import { Link, graphql } from 'gatsby'
+import styled from 'styled-components'
+import parse from 'html-react-parser'
+import moment from 'moment'
+import SEO from '../components/seo'
 
 const blog = ({ data }) => (
   <PageWrapper>
-    <SEO title="Blog" />
-    {/* <GatsbyImage
+    <SEO title='Blog' />
+    <GatsbyImage
       image={data.theDevil.childImageSharp.gatsbyImageData}
-      alt="Devil stacking tomato cans"
-      className="devil"
-    /> */}
+      alt='Devil stacking tomato cans'
+      className='devil'
+    />
 
-    {data.allWpPost.edges.map((post) => (
+    {/* {data.allWpPost.edges.map((post) => (
       <Link to={`/blog/${post.node.slug}`} key={post.node.slug}>
         <PostStyles key={post.node.slug} className="grow">
           <div className="blogText">
@@ -31,11 +31,11 @@ const blog = ({ data }) => (
           </div>
         </PostStyles>
       </Link>
-    ))}
+    ))} */}
   </PageWrapper>
-);
+)
 
-export default blog;
+export default blog
 
 export const query = graphql`
   {
@@ -60,7 +60,7 @@ export const query = graphql`
       }
     }
   }
-`;
+`
 
 const PageWrapper = styled.div`
   align-items: center;
@@ -82,7 +82,7 @@ const PageWrapper = styled.div`
   a {
     width: 90%;
   }
-`;
+`
 
 const PostStyles = styled.div`
   display: flex;
@@ -119,4 +119,4 @@ const PostStyles = styled.div`
     font-size: var(--smallText);
     font-weight: var(--fontWeightThin);
   }
-`;
+`
