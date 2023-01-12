@@ -25,7 +25,7 @@ module.exports = {
         type: {
           MediaItem: {
             localFile: {
-              requestConcurrency: 200,
+              requestConcurrency: 300,
             },
           },
         },
