@@ -14,7 +14,7 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress`,
       options: {
-        url: 'https://www.staceyrozich.dev/graphql',
+        url: process.env.WORDPRESS_URL,
         verbose: true,
         html: {
           useGatsbyImage: true,
@@ -22,13 +22,19 @@ module.exports = {
         production: {
           allow404Images: true,
         },
+        type: {
+          MediaItem: {
+            localFile: {
+              requestConcurrency: 200,
+            },
+          },
+        },
       },
     },
     {
       resolve: 'gatsby-plugin-mailchimp',
       options: {
-        endpoint:
-          'https://staceyrozich.us11.list-manage.com/subscribe/post?u=8fe368edbea49e91ac19792c3&amp;id=0b3c1d20ea',
+        endpoint: process.env.MC_ENDPOINT,
         timeout: 3500,
       },
     },
@@ -38,7 +44,6 @@ module.exports = {
         fonts: [`Petit Formal Script`],
       },
     },
-    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
