@@ -1,8 +1,8 @@
-const activeEnv = process.env.NODE_ENV;
+const activeEnv = process.env.NODE_ENV
 
-require("dotenv").config({
+require('dotenv').config({
   path: `./.env.${activeEnv}`,
-});
+})
 
 module.exports = {
   siteMetadata: {
@@ -14,7 +14,7 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress`,
       options: {
-        url: process.env.WORDPRESS_URL,
+        url: 'https://www.staceyrozich.dev/graphql',
         verbose: true,
         html: {
           useGatsbyImage: true,
@@ -25,9 +25,10 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-mailchimp",
+      resolve: 'gatsby-plugin-mailchimp',
       options: {
-        endpoint: process.env.MC_ENDPOINT,
+        endpoint:
+          'https://staceyrozich.us11.list-manage.com/subscribe/post?u=8fe368edbea49e91ac19792c3&amp;id=0b3c1d20ea',
         timeout: 3500,
       },
     },
@@ -60,4 +61,4 @@ module.exports = {
       },
     },
   ],
-};
+}
