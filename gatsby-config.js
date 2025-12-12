@@ -1,9 +1,7 @@
 const activeEnv = process.env.NODE_ENV
-
 require('dotenv').config({
   path: `./.env.${activeEnv}`,
 })
-
 module.exports = {
   siteMetadata: {
     title: `Stacey Rozich`,
@@ -16,6 +14,11 @@ module.exports = {
       options: {
         url: process.env.WORDPRESS_URL,
         verbose: true,
+        schema: {
+          requestConcurrency: 5,
+          previewRequestConcurrency: 2,
+          typePrefix: 'Wp',
+        },
         html: {
           useGatsbyImage: true,
         },
@@ -23,9 +26,43 @@ module.exports = {
           allow404Images: true,
         },
         type: {
+          __all: {
+            excludeFieldNames: ['blocksJSON', 'saveContent'],
+          },
+          RootQuery: {
+            excludeFieldNames: [
+              'viewer',
+              'node',
+              'schemaMd5',
+              'allSettings',
+              'discussionSettings',
+              'generalSettings',
+              'readingSettings',
+              'writingSettings',
+            ],
+          },
+          Plugin: {
+            exclude: true,
+          },
+          Theme: {
+            exclude: true,
+          },
+          EnqueuedScript: {
+            exclude: true,
+          },
+          EnqueuedStylesheet: {
+            exclude: true,
+          },
+          ActionMonitorAction: {
+            exclude: true,
+          },
+          UserRole: {
+            exclude: true,
+          },
           MediaItem: {
+            createFileNodes: true,
             localFile: {
-              requestConcurrency: 300,
+              requestConcurrency: 50,
             },
           },
         },
